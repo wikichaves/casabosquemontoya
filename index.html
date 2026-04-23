@@ -436,11 +436,11 @@
   }
   .channel .ch-value{
     font-family:var(--serif);
-    font-size: clamp(18px, 1.7vw, 26px);
+    font-size: clamp(17px, 1.9vw, 26px);
     line-height:1.15;
     color:var(--ink);
     text-decoration:none;
-    word-break:break-word;
+    white-space:nowrap;
     transition:color 200ms;
   }
   .channel:hover .ch-value{color:var(--terra)}
@@ -548,8 +548,8 @@
 <body>
 
 <div class="topbar">
-  <span><span class="dot"></span>En construcción · Apertura Diciembre 2026</span>
-  <span>La Barra · Uruguay</span>
+  <span><span class="dot"></span>Apertura Diciembre 2026</span>
+  <span translate="no">La Barra · Uruguay</span>
 </div>
 
 <!-- ——— HERO ——— -->
@@ -560,13 +560,13 @@
   <div class="scroll-hint">Scroll ↓</div>
 
   <div class="hero-inner">
-    <div class="eyebrow">Casa Bosque · Montoya</div>
+    <div class="eyebrow" translate="no">Casa Bosque · Montoya</div>
     <h1>Entre pinos<br>y <em>el mar</em>.</h1>
 
     <div class="hero-meta">
       <div class="col">
         <span class="label">Ubicación</span>
-        Montoya, La Barra
+        <span translate="no">Montoya, La Barra</span>
       </div>
       <div class="col">
         <span class="label">Proyecto</span>
@@ -593,7 +593,7 @@
       <h2 class="lead-title">Un lugar<br>para estar<br><em>tranquilo.</em></h2>
 
       <div class="intro-body">
-        <p class="big">Un proyecto de baja densidad en el corazón de Montoya. Cuatro unidades independientes que conviven con el bosque nativo, respetando el entorno y el silencio.</p>
+        <p class="big">Un proyecto de baja densidad en el corazón de <span translate="no">Montoya</span>. Cuatro unidades independientes que conviven con el bosque nativo, respetando el entorno y el silencio.</p>
         <p>Un lugar familiar, pensado para apagar el ruido, caminar descalzo sobre la arena, y escuchar el viento entre los pinos. Cerca del mar, pero escondido. Para volver.</p>
       </div>
     </div>
@@ -639,7 +639,7 @@
     </div>
 
     <div class="gallery-note">
-      <span>Arquitectura · Franco Beverati</span>
+      <span>Arquitectura · <span translate="no">Franco Beverati</span></span>
       <span>07 imágenes · 2026</span>
     </div>
   </div>
@@ -664,7 +664,7 @@
       <div class="value">
         <span class="num">III</span>
         <h3>Cerca <em>del mar</em>.</h3>
-        <p>A pocas cuadras de la playa de Montoya, una de las más tranquilas y hermosas de La Barra.</p>
+        <p>A pocas cuadras de la playa de <span translate="no">Montoya</span>, una de las más tranquilas y hermosas de <span translate="no">La Barra</span>.</p>
       </div>
     </div>
   </div>
@@ -677,20 +677,20 @@
 
     <div class="location-grid">
       <div>
-        <h2><em>Montoya</em>,<br>La Barra.</h2>
-        <p>Un barrio tranquilo del este uruguayo, entre pinares y dunas. A minutos del centro de La Barra y José Ignacio, pero con el silencio de un pueblo chico.</p>
+        <h2 translate="no"><em>Montoya</em>,<br>La Barra.</h2>
+        <p>Un barrio tranquilo del este uruguayo, entre pinares y dunas. A minutos del centro de <span translate="no">La Barra</span> y <span translate="no">José Ignacio</span>, pero con el silencio de un pueblo chico.</p>
 
         <div class="coords">
           <div>
             <span class="label">Departamento</span>
-            Maldonado, UY
+            <span translate="no">Maldonado, UY</span>
           </div>
           <div>
             <span class="label">Distancia al mar</span>
             ~500 metros
           </div>
           <div>
-            <span class="label">La Barra centro</span>
+            <span class="label"><span translate="no">La Barra</span> centro</span>
             10 min en auto
           </div>
           <div>
@@ -744,19 +744,18 @@
             <circle r="2" fill="#f1e8d6"/>
           </g>
 
-          <text x="156" y="190" font-family="JetBrains Mono" font-size="9" fill="#f1e8d6" letter-spacing="1">CASA BOSQUE</text>
-          <text x="15"  y="110" font-family="JetBrains Mono" font-size="8" fill="rgba(106,125,75,.75)" letter-spacing="1.2">BOSQUE · MONTOYA</text>
-          <text x="15"  y="276" font-family="JetBrains Mono" font-size="8" fill="rgba(241,232,214,.55)" letter-spacing="1.2">RUTA 10</text>
-          <text x="15"  y="322" font-family="JetBrains Mono" font-size="8" fill="rgba(106,125,75,.8)"  letter-spacing="1.2">RESERVA MONTOYA</text>
+          <text x="156" y="190" font-family="JetBrains Mono" font-size="9" fill="#f1e8d6" letter-spacing="1" translate="no">CASA BOSQUE</text>
+          <text x="15"  y="110" font-family="JetBrains Mono" font-size="8" fill="rgba(106,125,75,.75)" letter-spacing="1.2" translate="no">BARRA VERDE</text>
+          <text x="150"  y="133" font-family="JetBrains Mono" font-size="8" fill="rgba(106,125,75,.85)" letter-spacing="1.2" translate="no">RESERVA MONTOYA</text>
+          <text x="15"  y="276" font-family="JetBrains Mono" font-size="8" fill="rgba(241,232,214,.55)" letter-spacing="1.2" translate="no">RUTA 10</text>
           <text x="15"  y="378" font-family="JetBrains Mono" font-size="9" fill="rgba(233,201,166,.75)" letter-spacing="1.2">OCÉANO ATLÁNTICO</text>
         </svg>
 
         <div>
           <div class="tag">34°57′S · 54°46′W</div>
         </div>
-        <div>
-          <div class="tag" style="margin-bottom:8px">Parada</div>
-          <div class="place">Montoya<br><em>Uruguay</em></div>
+        <div style="margin-bottom:110px">
+          <div class="tag" translate="no">Playa de Montoya</div>
         </div>
       </div>
     </div>
@@ -778,19 +777,19 @@
     <div class="channels">
       <a class="channel" href="mailto:hola@casabosquemontoya.com">
         <span class="ch-label">Email</span>
-        <span class="ch-value">hola@<br>casabosquemontoya<br>.com</span>
+        <span class="ch-value">hola@casabosquemontoya.com</span>
         <span class="ch-sub">Respondemos en 24–48 h</span>
         <span class="arrow">→ Escribir</span>
       </a>
       <a class="channel" href="https://wa.me/59898246585" target="_blank" rel="noopener">
         <span class="ch-label">WhatsApp</span>
-        <span class="ch-value">+598 98<br>246 585</span>
+        <span class="ch-value">+598 98 246 585</span>
         <span class="ch-sub">Mensajes, consultas, reservas</span>
         <span class="arrow">→ Chatear</span>
       </a>
       <a class="channel" href="https://www.instagram.com/casabosquemontoya/" target="_blank" rel="noopener">
         <span class="ch-label">Instagram</span>
-        <span class="ch-value">@casabosque<br>montoya</span>
+        <span class="ch-value">@casabosquemontoya</span>
         <span class="ch-sub">Seguí el avance de la obra</span>
         <span class="arrow">→ Seguir</span>
       </a>
@@ -801,28 +800,25 @@
 <!-- ——— FOOTER ——— -->
 <footer>
   <div class="container">
-    <img src="assets/logo.png" alt="Casa Bosque Montoya" class="foot-logo" style="filter:none; opacity:1; height:60px; margin-bottom:40px">
-
     <div class="foot-grid">
       <div class="foot-col">
         <span class="label">Desarrollo</span>
-        <a href="https://wikichaves.com" target="_blank" rel="noopener">Wiki Chaves</a>
+        <a href="https://wikichaves.com" target="_blank" rel="noopener" translate="no">Wiki Chaves</a>
         <p>Gestión y desarrollo del proyecto.</p>
       </div>
       <div class="foot-col">
         <span class="label">Arquitectura</span>
-        <a href="https://francobeverati.com" target="_blank" rel="noopener">Franco Beverati</a>
+        <a href="https://francobeverati.com" target="_blank" rel="noopener" translate="no">Franco Beverati</a>
         <p>Diseño arquitectónico y dirección de obra.</p>
       </div>
       <div class="foot-col">
         <span class="label">Ubicación</span>
-        <span style="font-family:var(--serif); font-size:22px; line-height:1.2; color:#f1e8d6">Montoya · La Barra<br>Maldonado, Uruguay</span>
-        <p>Ubicación exacta disponible al confirmar reserva.</p>
+        <span style="font-family:var(--serif); font-size:22px; line-height:1.2; color:#f1e8d6" translate="no">Montoya · La Barra<br>Maldonado, Uruguay</span>
       </div>
     </div>
 
     <div class="foot-bottom">
-      <span>© 2026 Casa Bosque Montoya</span>
+      <span>© 2026 <span translate="no">Casa Bosque Montoya</span></span>
       <span>Entre pinos y el mar</span>
     </div>
   </div>
