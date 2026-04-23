@@ -549,7 +549,7 @@
 
 <div class="topbar">
   <span><span class="dot"></span>En construcción · Apertura Diciembre 2026</span>
-  <span>La Barra · Maldonado · Uruguay</span>
+  <span>La Barra · Uruguay</span>
 </div>
 
 <!-- ——— HERO ——— -->
@@ -566,7 +566,7 @@
     <div class="hero-meta">
       <div class="col">
         <span class="label">Ubicación</span>
-        Montoya, La Barra<br>Maldonado, Uruguay
+        Montoya, La Barra
       </div>
       <div class="col">
         <span class="label">Proyecto</span>
@@ -574,7 +574,7 @@
       </div>
       <div class="col">
         <span class="label">Apertura</span>
-        Diciembre 2026<br><span id="daysLeft">—</span> días
+        Diciembre 2026
       </div>
       <div class="col">
         <span class="label">Estado</span>
@@ -707,26 +707,48 @@
             <pattern id="dots" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
               <circle cx="1.2" cy="1.2" r=".8" fill="rgba(241,232,214,.12)"/>
             </pattern>
+            <pattern id="trees" x="0" y="0" width="16" height="16" patternUnits="userSpaceOnUse">
+              <circle cx="4" cy="4" r="1.2" fill="rgba(106,125,75,.35)"/>
+              <circle cx="12" cy="11" r="1" fill="rgba(106,125,75,.3)"/>
+            </pattern>
           </defs>
           <rect width="300" height="400" fill="url(#dots)"/>
-          <!-- coastline -->
-          <path d="M -20 310 C 40 290, 90 320, 140 305 S 240 280, 330 300 L 330 420 L -20 420 Z"
-                fill="rgba(233,201,166,.12)" stroke="rgba(233,201,166,.55)" stroke-width="1"/>
-          <path d="M -20 310 C 40 290, 90 320, 140 305 S 240 280, 330 300"
-                fill="none" stroke="rgba(233,201,166,.7)" stroke-width="1.5" stroke-dasharray="2 4"/>
-          <!-- roads -->
-          <path d="M 0 120 Q 80 150 170 140 T 300 170" fill="none" stroke="rgba(241,232,214,.25)" stroke-width="1"/>
-          <path d="M 140 0 L 150 220" fill="none" stroke="rgba(241,232,214,.2)" stroke-width="1"/>
-          <!-- pin -->
-          <g transform="translate(150 215)">
-            <circle r="28" fill="rgba(198,106,67,.15)"/>
-            <circle r="18" fill="rgba(198,106,67,.3)"/>
+
+          <!-- inland forest band (bosque) -->
+          <rect x="-20" y="80" width="340" height="180" fill="url(#trees)" opacity=".6"/>
+
+          <!-- ocean at bottom -->
+          <path d="M -20 340 C 40 322, 90 352, 150 334 S 250 312, 330 330 L 330 420 L -20 420 Z"
+                fill="rgba(233,201,166,.14)" stroke="rgba(233,201,166,.55)" stroke-width="1"/>
+          <path d="M -20 340 C 40 322, 90 352, 150 334 S 250 312, 330 330"
+                fill="none" stroke="rgba(233,201,166,.75)" stroke-width="1.5" stroke-dasharray="2 4"/>
+
+          <!-- Reserva Montoya: franja entre Ruta 10 y el mar -->
+          <path d="M -20 300 C 40 286, 100 312, 150 296 S 250 274, 330 294 L 330 336 C 250 316, 170 340, 110 340 S 30 324, -20 342 Z"
+                fill="rgba(106,125,75,.18)" stroke="rgba(106,125,75,.35)" stroke-width="1" stroke-dasharray="3 3"/>
+
+          <!-- Ruta 10: paralela a la costa, justo al norte de la reserva -->
+          <path d="M -20 284 C 40 268, 100 298, 150 280 S 250 258, 330 278"
+                fill="none" stroke="rgba(241,232,214,.55)" stroke-width="2"/>
+          <path d="M -20 284 C 40 268, 100 298, 150 280 S 250 258, 330 278"
+                fill="none" stroke="rgba(31,74,87,.7)" stroke-width=".6" stroke-dasharray="4 6"/>
+
+          <!-- camino secundario hacia el interior -->
+          <path d="M 150 280 Q 146 240 142 200" fill="none" stroke="rgba(241,232,214,.25)" stroke-width="1"/>
+
+          <!-- pin aproximado (sin marcar coordenada exacta) -->
+          <g transform="translate(142 195)">
+            <circle r="28" fill="rgba(198,106,67,.12)"/>
+            <circle r="18" fill="rgba(198,106,67,.28)"/>
             <circle r="6" fill="#c66a43"/>
             <circle r="2" fill="#f1e8d6"/>
           </g>
-          <text x="165" y="210" font-family="JetBrains Mono" font-size="9" fill="#f1e8d6" letter-spacing="1">CASA BOSQUE</text>
-          <text x="15" y="330" font-family="JetBrains Mono" font-size="9" fill="rgba(233,201,166,.7)" letter-spacing="1">OCÉANO ATLÁNTICO</text>
-          <text x="15" y="115" font-family="JetBrains Mono" font-size="8" fill="rgba(241,232,214,.4)" letter-spacing="1">RUTA 10</text>
+
+          <text x="156" y="190" font-family="JetBrains Mono" font-size="9" fill="#f1e8d6" letter-spacing="1">CASA BOSQUE</text>
+          <text x="15"  y="110" font-family="JetBrains Mono" font-size="8" fill="rgba(106,125,75,.75)" letter-spacing="1.2">BOSQUE · MONTOYA</text>
+          <text x="15"  y="276" font-family="JetBrains Mono" font-size="8" fill="rgba(241,232,214,.55)" letter-spacing="1.2">RUTA 10</text>
+          <text x="15"  y="322" font-family="JetBrains Mono" font-size="8" fill="rgba(106,125,75,.8)"  letter-spacing="1.2">RESERVA MONTOYA</text>
+          <text x="15"  y="378" font-family="JetBrains Mono" font-size="9" fill="rgba(233,201,166,.75)" letter-spacing="1.2">OCÉANO ATLÁNTICO</text>
         </svg>
 
         <div>
@@ -749,9 +771,7 @@
     <div class="contact-head">
       <h2>Dejá tu<br>mensaje, te<br><em>escribimos.</em></h2>
       <div class="countdown">
-        <span class="big" id="cdDays">—</span>
-        días para la apertura<br>
-        <span style="opacity:.6">Diciembre · 2026</span>
+        <span style="opacity:.6">Apertura Diciembre · 2026</span>
       </div>
     </div>
 
@@ -810,17 +830,6 @@
 </footer>
 
 <script>
-  // countdown to Dec 1, 2026
-  (function(){
-    const opening = new Date('2026-12-01T00:00:00-03:00');
-    const now = new Date();
-    const days = Math.max(0, Math.ceil((opening - now) / 86400000));
-    const el1 = document.getElementById('daysLeft');
-    const el2 = document.getElementById('cdDays');
-    if(el1) el1.textContent = days.toLocaleString('es-UY');
-    if(el2) el2.textContent = days.toLocaleString('es-UY');
-  })();
-
   // reveal on scroll
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
