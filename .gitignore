@@ -1,2 +1,14 @@
 _archive/
 .DS_Store
+
+# next.js
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+
+# vercel
+.vercel/
+
+# env
+.env*.local
