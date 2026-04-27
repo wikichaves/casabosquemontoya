@@ -243,6 +243,7 @@
   .gallery-grid{
     display:grid;
     grid-template-columns:repeat(12, 1fr);
+    grid-auto-rows: clamp(48px, 5.5vw, 78px);
     gap:20px;
     margin-top:48px;
   }
@@ -265,16 +266,16 @@
     padding:6px 10px;
     backdrop-filter:blur(6px);
   }
-  /* tile layout (editorial / scrapbook feel) */
-  .t1{grid-column: span 8; aspect-ratio: 4/3}
-  .t2{grid-column: span 4; aspect-ratio: 3/4}
-  .t3{grid-column: span 4; aspect-ratio: 3/4}
-  .t4{grid-column: span 5; aspect-ratio: 4/5}
-  .t5{grid-column: span 3; aspect-ratio: 3/4}
-  .t6{grid-column: span 7; aspect-ratio: 16/10}
-  .t7{grid-column: span 5; aspect-ratio: 4/3}
-  .t8{grid-column: span 12; aspect-ratio: 16/9}
-  .t9{grid-column: span 12; aspect-ratio: 21/8}
+  /* tile layout — uniform module grid (height via grid-row span) */
+  .t1{grid-column: span 8; grid-row: span 6}
+  .t2{grid-column: span 4; grid-row: span 6}
+  .t3{grid-column: span 4; grid-row: span 6}
+  .t4{grid-column: span 4; grid-row: span 6}
+  .t5{grid-column: span 4; grid-row: span 6}
+  .t6{grid-column: span 8; grid-row: span 6}
+  .t7{grid-column: span 4; grid-row: span 6}
+  .t8{grid-column: span 12; grid-row: span 7}
+  .t9{grid-column: span 12; grid-row: span 6}
   .gallery-note{
     margin-top:28px;
     font-family:var(--mono);
@@ -543,15 +544,10 @@
     .channels{grid-template-columns:1fr; border-top:1px solid var(--line)}
     .channel + .channel{padding-left:0; border-left:none}
     .channel{padding: 28px 0}
-    .gallery-grid{grid-template-columns:repeat(6,1fr); gap:12px}
-    .t1{grid-column:span 6; aspect-ratio:4/3}
-    .t2,.t3{grid-column:span 3}
-    .t4{grid-column:span 6; aspect-ratio:4/3}
-    .t5{grid-column:span 3}
-    .t6{grid-column:span 6}
-    .t7{grid-column:span 6}
-    .t8{grid-column:span 6; aspect-ratio:16/9}
-    .t9{grid-column:span 6; aspect-ratio:21/9}
+    .gallery-grid{grid-template-columns:1fr; grid-auto-rows: clamp(40px, 13vw, 80px); gap:12px}
+    .t1,.t2,.t3,.t4,.t5,.t6,.t7{grid-column:span 1; grid-row:span 4}
+    .t8{grid-column:span 1; grid-row:span 4}
+    .t9{grid-column:span 1; grid-row:span 3}
     footer{padding:56px 24px 32px}
     .foot-grid{grid-template-columns:1fr; gap:32px}
     .topbar{padding:14px 20px}
