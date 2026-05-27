@@ -2,5 +2,11 @@ _archive/
 _downloads/
 .DS_Store
 
+# node
+node_modules/
+
+# next.js build artifacts (project is now static HTML/CSS/JS; .next is stale leftover)
+.next/
+
 # vercel
 .vercel/
