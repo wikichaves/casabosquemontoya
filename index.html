@@ -249,6 +249,7 @@
   }
   .tile{
     position:relative;
+    margin:0;            /* reset UA <figure> default (16px 40px) — was shrinking every image */
     overflow:hidden;
     background:#ddd;
   }
@@ -290,8 +291,8 @@
   .values{background:var(--paper)}
   .values-grid{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:48px;
+    grid-template-columns:repeat(2, 1fr);
+    gap:56px 48px;
     margin-top:56px;
   }
   .value h3{
@@ -536,6 +537,7 @@
     .intro-grid{grid-template-columns:1fr; gap:40px}
     .specs{grid-template-columns:repeat(2,1fr); gap:32px 24px}
     .values-grid{grid-template-columns:1fr; gap:48px}
+    .channel .ch-value{white-space:normal; word-break:break-word}
     .location{padding:80px 24px}
     .location-grid{grid-template-columns:1fr; gap:48px}
     .contact{padding:80px 24px}
@@ -544,14 +546,19 @@
     .channels{grid-template-columns:1fr; border-top:1px solid var(--line)}
     .channel + .channel{padding-left:0; border-left:none}
     .channel{padding: 28px 0}
-    .gallery-grid{grid-template-columns:1fr; grid-auto-rows: clamp(40px, 13vw, 80px); gap:12px}
+    .gallery-grid{grid-template-columns:1fr; grid-auto-rows: clamp(64px, 20vw, 104px); gap:14px}
     .t1,.t2,.t3,.t4,.t5,.t6,.t7{grid-column:span 1; grid-row:span 4}
     .t8{grid-column:span 1; grid-row:span 4}
-    .t9{grid-column:span 1; grid-row:span 3}
+    .t9{grid-column:span 1; grid-row:span 4}
     footer{padding:56px 24px 32px}
     .foot-grid{grid-template-columns:1fr; gap:32px}
-    .topbar{padding:14px 20px}
+    .topbar{padding:14px 20px; font-size:10px; letter-spacing:.04em}
     .scroll-hint{display:none}
+  }
+
+  @media (max-width: 400px){
+    /* second topbar label collides with the opening date on narrow phones */
+    .topbar .topbar-loc{display:none}
   }
 
   /* fade-in on scroll */
@@ -708,7 +715,7 @@
 
 <div class="topbar">
   <span><span class="dot"></span><span data-i18n="topbar.opening">Apertura Diciembre 2026</span></span>
-  <span translate="no">La Barra · Uruguay</span>
+  <span class="topbar-loc" translate="no">La Barra · Uruguay</span>
 </div>
 
 <!-- ——— HERO ——— -->
@@ -786,19 +793,19 @@
     <p style="font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-soft); margin:0" data-i18n="gallery.subtitle">Imágenes referenciales · Proyecto en desarrollo</p>
 
     <div class="gallery-grid">
-      <figure class="tile t1"><img src="assets/cabin-kids.jpeg" data-i18n-attr="alt:gallery.altBosque" alt="Casas entre los pinos"><figcaption class="cap" data-i18n="gallery.capBosque">01 · Bosque</figcaption></figure>
-      <figure class="tile t2"><img src="assets/aerial-cluster.jpeg" data-i18n-attr="alt:gallery.altConjunto" alt="Conjunto de casas desde arriba"><figcaption class="cap" data-i18n="gallery.capConjunto">02 · Conjunto</figcaption></figure>
+      <figure class="tile t1"><img loading="lazy" decoding="async" src="assets/cabin-kids.jpeg" data-i18n-attr="alt:gallery.altBosque" alt="Casas entre los pinos"><figcaption class="cap" data-i18n="gallery.capBosque">01 · Bosque</figcaption></figure>
+      <figure class="tile t2"><img loading="lazy" decoding="async" src="assets/aerial-cluster.jpeg" data-i18n-attr="alt:gallery.altConjunto" alt="Conjunto de casas desde arriba"><figcaption class="cap" data-i18n="gallery.capConjunto">02 · Conjunto</figcaption></figure>
 
-      <figure class="tile t8"><img src="assets/interior-living-fireplace.jpeg" data-i18n-attr="alt:gallery.altInterior" alt="Living interior con chimenea y vista al bosque"><figcaption class="cap" data-i18n="gallery.capInterior">03 · Interior</figcaption></figure>
+      <figure class="tile t8"><img loading="lazy" decoding="async" src="assets/interior-living-fireplace.jpeg" data-i18n-attr="alt:gallery.altInterior" alt="Living interior con chimenea y vista al bosque"><figcaption class="cap" data-i18n="gallery.capInterior">03 · Interior</figcaption></figure>
 
-      <figure class="tile t3"><img src="assets/white-cube.jpeg" data-i18n-attr="alt:gallery.altUnidad" alt="Casa compacta de dos niveles"><figcaption class="cap" data-i18n="gallery.capUnidad">04 · Unidad</figcaption></figure>
-      <figure class="tile t4"><img src="assets/house-facade.jpeg" data-i18n-attr="alt:gallery.altDeck" alt="Fachada con deck de madera"><figcaption class="cap" data-i18n="gallery.capDeck">05 · Deck</figcaption></figure>
-      <figure class="tile t5"><img src="assets/cabins-stairs.jpeg" data-i18n-attr="alt:gallery.altMadera" alt="Escaleras y ventanales"><figcaption class="cap" data-i18n="gallery.capMadera">06 · Madera</figcaption></figure>
+      <figure class="tile t3"><img loading="lazy" decoding="async" src="assets/white-cube.jpeg" data-i18n-attr="alt:gallery.altUnidad" alt="Casa compacta de dos niveles"><figcaption class="cap" data-i18n="gallery.capUnidad">04 · Unidad</figcaption></figure>
+      <figure class="tile t4"><img loading="lazy" decoding="async" src="assets/house-facade.jpeg" data-i18n-attr="alt:gallery.altDeck" alt="Fachada con deck de madera"><figcaption class="cap" data-i18n="gallery.capDeck">05 · Deck</figcaption></figure>
+      <figure class="tile t5"><img loading="lazy" decoding="async" src="assets/cabins-stairs.jpeg" data-i18n-attr="alt:gallery.altMadera" alt="Escaleras y ventanales"><figcaption class="cap" data-i18n="gallery.capMadera">06 · Madera</figcaption></figure>
 
-      <figure class="tile t9"><img src="assets/interior-kitchen-sea.jpeg" data-i18n-attr="alt:gallery.altCocina" alt="Cocina interior con vista al mar entre los pinos"><figcaption class="cap" data-i18n="gallery.capCocina">07 · Cocina</figcaption></figure>
+      <figure class="tile t9"><img loading="lazy" decoding="async" src="assets/interior-kitchen-sea.jpeg" data-i18n-attr="alt:gallery.altCocina" alt="Cocina interior con vista al mar entre los pinos"><figcaption class="cap" data-i18n="gallery.capCocina">07 · Cocina</figcaption></figure>
 
-      <figure class="tile t6"><img src="assets/reception.jpeg" data-i18n-attr="alt:gallery.altRecepcion" alt="Recepción con pérgola y flores"><figcaption class="cap" data-i18n="gallery.capRecepcion">08 · Recepción</figcaption></figure>
-      <figure class="tile t7"><img src="assets/playground.jpeg" data-i18n-attr="alt:gallery.altJuegos" alt="Juegos de niños en la arena"><figcaption class="cap" data-i18n="gallery.capJuegos">09 · Juegos</figcaption></figure>
+      <figure class="tile t6"><img loading="lazy" decoding="async" src="assets/reception.jpeg" data-i18n-attr="alt:gallery.altRecepcion" alt="Recepción con pérgola y flores"><figcaption class="cap" data-i18n="gallery.capRecepcion">08 · Recepción</figcaption></figure>
+      <figure class="tile t7"><img loading="lazy" decoding="async" src="assets/playground.jpeg" data-i18n-attr="alt:gallery.altJuegos" alt="Juegos de niños en la arena"><figcaption class="cap" data-i18n="gallery.capJuegos">09 · Juegos</figcaption></figure>
     </div>
 
     <div class="gallery-note">
@@ -828,6 +835,11 @@
         <span class="num">III</span>
         <h3 data-i18n-html="values.v3Title">Cerca <em>del mar</em>.</h3>
         <p data-i18n-html="values.v3Body">A pocas cuadras de la playa de <span translate="no">Montoya</span>, una de las más tranquilas y hermosas de <span translate="no">La Barra</span>.</p>
+      </div>
+      <div class="value">
+        <span class="num">IV</span>
+        <h3 data-i18n-html="values.v4Title">Hospitalidad <em>invisible</em>.</h3>
+        <p data-i18n="values.v4Body">Tu casa siempre a la temperatura perfecta desde el momento en que llegás. Sin recepciones lentas ni apps que descargar; toda tu estadía gestionada de manera fluida con un simple mensaje.</p>
       </div>
     </div>
   </div>
@@ -1182,6 +1194,8 @@
         'values.v2Body': 'El proyecto se adapta al terreno, no al revés. Los pinos se quedan donde están; la arquitectura los rodea.',
         'values.v3Title': 'Cerca <em>del mar</em>.',
         'values.v3Body': 'A pocas cuadras de la playa de <span translate="no">Montoya</span>, una de las más tranquilas y hermosas de <span translate="no">La Barra</span>.',
+        'values.v4Title': 'Hospitalidad <em>invisible</em>.',
+        'values.v4Body': 'Tu casa siempre a la temperatura perfecta desde el momento en que llegás. Sin recepciones lentas ni apps que descargar; toda tu estadía gestionada de manera fluida con un simple mensaje.',
         'location.sectionLabel': 'Ubicación — 04',
         'location.body': 'Un barrio tranquilo del este uruguayo, entre pinares y dunas. A minutos del centro de <span translate="no">La Barra</span> y <span translate="no">José Ignacio</span>, pero con el silencio de un pueblo chico.',
         'location.dept': 'Departamento',
@@ -1264,6 +1278,8 @@
         'values.v2Body': 'The project adapts to the land, not the other way around. The pines stay where they are; the architecture wraps around them.',
         'values.v3Title': 'Close <em>to the sea</em>.',
         'values.v3Body': 'Just blocks from <span translate="no">Playa Montoya</span>, one of the quietest and most beautiful beaches in <span translate="no">La Barra</span>.',
+        'values.v4Title': 'Invisible <em>hospitality</em>.',
+        'values.v4Body': 'Your home always at the perfect temperature from the moment you arrive. No slow check-ins or apps to download; your entire stay handled seamlessly with a simple message.',
         'location.sectionLabel': 'Location — 04',
         'location.body': 'A quiet neighborhood on the eastern coast of Uruguay, among pine groves and dunes. Minutes from downtown <span translate="no">La Barra</span> and <span translate="no">José Ignacio</span>, but with the calm of a small town.',
         'location.dept': 'Department',
