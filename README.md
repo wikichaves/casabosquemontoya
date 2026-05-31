@@ -1,66 +1,66 @@
 # Casa Bosque Montoya
 
-Landing del proyecto **Casa Bosque Montoya** — cuatro casas vacacionales de baja densidad entre pinos y mar, en Montoya, La Barra (Maldonado, Uruguay). Apertura diciembre 2026.
+Landing page for **Casa Bosque Montoya** — four low-density vacation homes among pines and sea, in Montoya, La Barra (Maldonado, Uruguay). Opening December 2026.
 
-🌐 **Producción:** https://casabosquemontoya.com
+🌐 **Production:** https://casabosquemontoya.com
 
 ## Stack
 
-Sitio **estático**, sin build step. Todo vive en un único `index.html` (HTML + CSS + JS inline).
+A **static** site, no build step. Everything lives in a single `index.html` (inline HTML + CSS + JS).
 
-- HTML/CSS/JS vanilla — sin frameworks ni dependencias de runtime
-- Tipografías vía Google Fonts: Instrument Serif, JetBrains Mono, Geist
-- Bilingüe ES/EN con un i18n propio en JS (sin librerías)
-- Hosting en **Vercel** (estático, `framework: null`) + Vercel Web Analytics
+- Vanilla HTML/CSS/JS — no frameworks or runtime dependencies
+- Typography via Google Fonts: Instrument Serif, JetBrains Mono, Geist
+- Bilingual ES/EN with a homegrown JS i18n (no libraries)
+- Hosted on **Vercel** (static, `framework: null`) + Vercel Web Analytics
 
-> El proyecto fue Next.js en un inicio y se simplificó a HTML/CSS/JS estático. Si ves `.next/` o `node_modules/` localmente son residuos ignorados por git.
+> The project started on Next.js and was simplified to static HTML/CSS/JS. If you see `.next/` or `node_modules/` locally, they're leftovers ignored by git.
 
-## Estructura
+## Structure
 
 ```
-index.html        Toda la página (markup + estilos + scripts)
-assets/           Imágenes del sitio (renders, logo, favicon, OG)
-uploads/          Imágenes fuente / generadas (no necesariamente usadas)
-vercel.json       Config de Vercel (estático puro)
-.claude/          Config de tooling local (launch.json para preview)
+index.html        The entire page (markup + styles + scripts)
+assets/           Site images (renders, logo, favicon, OG)
+uploads/          Source / generated images (not necessarily used)
+vercel.json       Vercel config (pure static)
+.claude/          Local tooling config (launch.json for preview)
 ```
 
-`_archive/` y `_downloads/` están ignorados por git.
+`_archive/` and `_downloads/` are ignored by git.
 
-## Desarrollo local
+## Local development
 
-Al ser estático, alcanza con servir la carpeta:
+Since it's static, just serve the folder:
 
 ```bash
 python3 -m http.server 4321
-# luego abrir http://localhost:4321
+# then open http://localhost:4321
 ```
 
-(Existe `.claude/launch.json` con ese mismo server para el preview integrado.)
+(There's a `.claude/launch.json` with that same server for the integrated preview.)
 
-También se puede abrir `index.html` directo en el navegador, aunque servirlo por HTTP es más fiel a producción.
+You can also open `index.html` directly in the browser, though serving it over HTTP is closer to production.
 
-## Editar contenido
+## Editing content
 
-El sitio es **bilingüe (ES / EN)** y el español es el contenido por defecto del HTML (fallback sin JS). El inglés se aplica encima por JS.
+The site is **bilingual (ES / EN)** and Spanish is the default HTML content (no-JS fallback). English is applied on top via JS.
 
-**Para cambiar un texto traducible hay que tocarlo en DOS lugares:**
+**To change a translatable text you must edit it in TWO places:**
 
-1. El markup HTML — es el texto en español (default) y lleva un atributo:
-   - `data-i18n="clave"` → reemplaza `textContent`
-   - `data-i18n-html="clave"` → reemplaza `innerHTML` (cuando hay `<em>`, `<br>`, etc.)
-   - `data-i18n-attr="alt:clave"` → reemplaza un atributo (alt, aria-label…)
-2. El diccionario `T` dentro del `<script>` — entradas `es` **y** `en` para esa misma `clave`.
+1. The HTML markup — this is the Spanish text (default) and carries an attribute:
+   - `data-i18n="key"` → replaces `textContent`
+   - `data-i18n-html="key"` → replaces `innerHTML` (when it contains `<em>`, `<br>`, etc.)
+   - `data-i18n-attr="alt:key"` → replaces an attribute (alt, aria-label…)
+2. The `T` dictionary inside the `<script>` — `es` **and** `en` entries for that same `key`.
 
-Si una clave existe en el HTML pero falta en el diccionario, al cambiar de idioma ese texto no se traduce. Mantené ambos lados en sync.
+If a key exists in the HTML but is missing from the dictionary, that text won't translate when switching languages. Keep both sides in sync.
 
-Texto fijo (nombres propios: Montoya, La Barra, José Ignacio, etc.) va marcado con `translate="no"` y se excluye del i18n.
+Fixed text (proper nouns: Montoya, La Barra, José Ignacio, etc.) is marked with `translate="no"` and excluded from i18n.
 
-Detalles de comportamiento del selector de idioma:
-- Idioma inicial: `localStorage['cbm-lang']` › `navigator.language` › `es`
-- La elección se persiste en `localStorage`
-- Actualiza `<html lang>` en cada cambio
+Language selector behavior:
+- Initial language: `localStorage['cbm-lang']` › `navigator.language` › `es`
+- The choice is persisted in `localStorage`
+- Updates `<html lang>` on every switch
 
 ## Deploy
 
-Push a `main` → Vercel despliega automáticamente. No hay paso de build.
+Push to `main` → Vercel deploys automatically. There's no build step.
