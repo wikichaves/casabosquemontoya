@@ -80,9 +80,11 @@ Self-hosted in `assets/fonts/` as woff2, latin + latin-ext subsets, with the
 are SIL OFL 1.1 — see `assets/fonts/OFL.txt`.
 
 Only the faces the CSS actually asks for are bundled: Instrument Serif 400
-roman + italic, JetBrains Mono 400 + 500, Geist 300 + 400. **Adding a
-`font-weight` the bundle doesn't cover makes the browser synthesize it**, which
-looks noticeably worse than the real face. To add one:
+roman + italic, JetBrains Mono 400, Geist 300 + 400 — five files, 118 KB.
+**Adding a `font-weight` the bundle doesn't cover makes the browser synthesize
+it**, which looks noticeably worse than the real face. That's why the selected
+language-menu item is distinguished by colour rather than weight. To add a real
+weight instead:
 
 ```bash
 UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
