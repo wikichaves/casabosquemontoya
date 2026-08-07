@@ -9,7 +9,7 @@ Landing page for **Casa Bosque Montoya** — four low-density vacation homes amo
 A **static** site, no build step. Everything lives in a single `index.html` (inline HTML + CSS + JS).
 
 - Vanilla HTML/CSS/JS — no frameworks or runtime dependencies
-- Typography via Google Fonts: Instrument Serif, JetBrains Mono, Geist
+- Typography self-hosted from `assets/fonts/`: Instrument Serif, JetBrains Mono, Geist
 - Bilingual ES/EN with a homegrown JS i18n (no libraries)
 - Hosted on **Vercel** (static, `framework: null`) + Vercel Web Analytics
 
@@ -20,6 +20,7 @@ A **static** site, no build step. Everything lives in a single `index.html` (inl
 ```
 index.html        The entire page (markup + styles + scripts)
 assets/           Site images (renders, logo, favicon, OG)
+assets/fonts/     Self-hosted woff2 subsets + OFL license
 vercel.json       Vercel config (pure static)
 
 .claude/          Local tooling config (launch.json for preview)
@@ -69,6 +70,29 @@ python3 -m http.server 4321
 (There's a `.claude/launch.json` with that same server for the integrated preview.)
 
 You can also open `index.html` directly in the browser, though serving it over HTTP is closer to production.
+
+## Fonts
+
+Self-hosted in `assets/fonts/` as woff2, latin + latin-ext subsets, with the
+`@font-face` rules inline at the top of the `<style>` block. All three families
+are SIL OFL 1.1 — see `assets/fonts/OFL.txt`.
+
+Only the faces the CSS actually asks for are bundled: Instrument Serif 400
+roman + italic, JetBrains Mono 400 + 500, Geist 300 + 400. **Adding a
+`font-weight` the bundle doesn't cover makes the browser synthesize it**, which
+looks noticeably worse than the real face. To add one:
+
+```bash
+UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+curl -A "$UA" "https://fonts.googleapis.com/css2?family=Geist:wght@600&display=swap"
+```
+
+That returns `@font-face` blocks per subset; keep the `latin` and `latin-ext`
+ones, download their woff2 into `assets/fonts/`, and paste the rules in with
+the `src` rewritten to the local path.
+
+The three faces the hero needs are `rel=preload`ed in `<head>`. Font preloads
+need `crossorigin` even same-origin — without it the file is fetched twice.
 
 ## Editing content
 

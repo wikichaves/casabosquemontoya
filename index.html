@@ -29,11 +29,114 @@
 <meta name="twitter:description" content="Entre pinos y el mar. Cuatro casas vacacionales en La Barra, Uruguay. Abriendo diciembre 2026.">
 <meta name="twitter:image" content="https://casabosquemontoya.com/assets/cabin-kids-og.jpeg">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Fonts are self-hosted (see assets/fonts/OFL.txt). Google's stylesheet was
+     render-blocking and on a third origin, so the face definitions couldn't be
+     read until two extra DNS+TLS handshakes had finished. These three are the
+     ones the hero needs; the rest resolve from the @font-face rules below.
+     crossorigin is required even same-origin — fonts always fetch in CORS mode. -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/instrument-serif-400-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/instrument-serif-400-italic-latin.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/jetbrains-mono-400-latin.woff2">
 
 <style>
+  /* self-hosted faces — regenerate per assets/fonts/OFL.txt if a weight is added */
+  @font-face{
+    font-family:'Instrument Serif';
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url('assets/fonts/instrument-serif-400-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'Instrument Serif';
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url('assets/fonts/instrument-serif-400-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'Instrument Serif';
+    font-style:italic;
+    font-weight:400;
+    font-display:swap;
+    src:url('assets/fonts/instrument-serif-400-italic-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'Instrument Serif';
+    font-style:italic;
+    font-weight:400;
+    font-display:swap;
+    src:url('assets/fonts/instrument-serif-400-italic-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'JetBrains Mono';
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url('assets/fonts/jetbrains-mono-400-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'JetBrains Mono';
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url('assets/fonts/jetbrains-mono-400-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'JetBrains Mono';
+    font-style:normal;
+    font-weight:500;
+    font-display:swap;
+    src:url('assets/fonts/jetbrains-mono-500-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'JetBrains Mono';
+    font-style:normal;
+    font-weight:500;
+    font-display:swap;
+    src:url('assets/fonts/jetbrains-mono-500-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'Geist';
+    font-style:normal;
+    font-weight:300;
+    font-display:swap;
+    src:url('assets/fonts/geist-300-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'Geist';
+    font-style:normal;
+    font-weight:300;
+    font-display:swap;
+    src:url('assets/fonts/geist-300-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'Geist';
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url('assets/fonts/geist-400-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'Geist';
+    font-style:normal;
+    font-weight:400;
+    font-display:swap;
+    src:url('assets/fonts/geist-400-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
   :root{
     /* palette derived from the logo */
     --ink:        #1f4a57;   /* deep teal from logo */
@@ -728,6 +831,45 @@
     opacity:1; color:#e9c9a6;
   }
 </style>
+
+<!-- Structured data. Spanish, matching the static HTML — the EN swap is JS-only and
+     crawlers index the served markup. Every value here is also visible on the page;
+     don't add claims (prices, ratings, opening hours) the site doesn't actually make. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "@id": "https://casabosquemontoya.com/#lodging",
+  "name": "Casa Bosque Montoya",
+  "url": "https://casabosquemontoya.com/",
+  "description": "Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.",
+  "image": "https://casabosquemontoya.com/assets/cabin-kids-og.jpeg",
+  "email": "hola@casabosquemontoya.com",
+  "telephone": "+59898246585",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "La Barra",
+    "addressRegion": "Maldonado",
+    "addressCountry": "UY"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -34.95,
+    "longitude": -54.7667
+  },
+  "numberOfRooms": {
+    "@type": "QuantitativeValue",
+    "value": 4,
+    "unitText": "casas"
+  },
+  "sameAs": ["https://www.instagram.com/casabosquemontoya/"],
+  "additionalProperty": {
+    "@type": "PropertyValue",
+    "name": "Apertura",
+    "value": "2026-12"
+  }
+}
+</script>
 
 <!-- Vercel Web Analytics (static site) -->
 <script defer src="/_vercel/insights/script.js"></script>
