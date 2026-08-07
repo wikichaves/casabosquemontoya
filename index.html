@@ -7,8 +7,9 @@
 <meta name="description" data-i18n-attr="content:meta.description" content="Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.">
 <link rel="canonical" href="https://casabosquemontoya.com/">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
-<!-- hero is a CSS background, so the browser can't discover it early — preload it for LCP -->
-<link rel="preload" as="image" href="/assets/cabin-kids.jpeg" fetchpriority="high">
+<!-- hero is a CSS background, so the browser can't discover it early — preload it for LCP.
+     type= lets browsers without WebP skip this and take the jpeg from the CSS fallback. -->
+<link rel="preload" as="image" href="/assets/cabin-kids.webp" type="image/webp" fetchpriority="high">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Casa Bosque Montoya">
@@ -100,6 +101,9 @@
   .hero .bg{
     position:absolute; inset:0;
     background-image:url('assets/cabin-kids.jpeg');
+    /* second declaration wins where image-set() is supported; older engines keep the jpeg above */
+    background-image:image-set(url('assets/cabin-kids.webp') type('image/webp'),
+                               url('assets/cabin-kids.jpeg') type('image/jpeg'));
     background-size:cover;
     background-position:center 45%;
     filter:saturate(1.05) brightness(.88);
@@ -256,6 +260,8 @@
     overflow:hidden;
     background:#ddd;
   }
+  /* <picture> is inline by default, so the img's height:100% would resolve against nothing */
+  .tile picture{display:block; width:100%; height:100%}
   .tile img{
     width:100%; height:100%; object-fit:cover;
     transition:transform 900ms cubic-bezier(.2,.7,.2,1);
@@ -799,19 +805,40 @@
     <p style="font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-soft); margin:0" data-i18n="gallery.subtitle">Imágenes referenciales · Proyecto en desarrollo</p>
 
     <div class="gallery-grid">
-      <figure class="tile t1"><img loading="lazy" decoding="async" src="assets/cabin-kids.jpeg" data-i18n-attr="alt:gallery.altBosque" alt="Casas entre los pinos"><figcaption class="cap" data-i18n="gallery.capBosque">01 · Bosque</figcaption></figure>
-      <figure class="tile t2"><img loading="lazy" decoding="async" src="assets/aerial-cluster.jpeg" data-i18n-attr="alt:gallery.altConjunto" alt="Conjunto de casas desde arriba"><figcaption class="cap" data-i18n="gallery.capConjunto">02 · Conjunto</figcaption></figure>
+      <!-- data-full = what the lightbox loads; the <img> src stays jpeg as the universal fallback.
+           t1 deliberately has no srcset: it's the same file the hero already preloaded, so
+           pointing at any other width would cost a second download of the same photo. -->
+      <figure class="tile t1" data-full="assets/cabin-kids.webp"><picture>
+        <source type="image/webp" srcset="assets/cabin-kids.webp">
+        <img loading="lazy" decoding="async" src="assets/cabin-kids.jpeg" data-i18n-attr="alt:gallery.altBosque" alt="Casas entre los pinos"></picture><figcaption class="cap" data-i18n="gallery.capBosque">01 · Bosque</figcaption></figure>
+      <figure class="tile t2" data-full="assets/aerial-cluster.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/aerial-cluster-800.webp 800w, assets/aerial-cluster-1600.webp 1600w, assets/aerial-cluster.webp 1684w">
+        <img loading="lazy" decoding="async" src="assets/aerial-cluster.jpeg" data-i18n-attr="alt:gallery.altConjunto" alt="Conjunto de casas desde arriba"></picture><figcaption class="cap" data-i18n="gallery.capConjunto">02 · Conjunto</figcaption></figure>
 
-      <figure class="tile t8"><img loading="lazy" decoding="async" src="assets/interior-living-fireplace.jpeg" data-i18n-attr="alt:gallery.altInterior" alt="Living interior con chimenea y vista al bosque"><figcaption class="cap" data-i18n="gallery.capInterior">03 · Interior</figcaption></figure>
+      <figure class="tile t8" data-full="assets/interior-living-fireplace.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 1240px" srcset="assets/interior-living-fireplace-800.webp 800w, assets/interior-living-fireplace-1600.webp 1600w, assets/interior-living-fireplace.webp 2400w">
+        <img loading="lazy" decoding="async" src="assets/interior-living-fireplace.jpeg" data-i18n-attr="alt:gallery.altInterior" alt="Living interior con chimenea y vista al bosque"></picture><figcaption class="cap" data-i18n="gallery.capInterior">03 · Interior</figcaption></figure>
 
-      <figure class="tile t3"><img loading="lazy" decoding="async" src="assets/white-cube.jpeg" data-i18n-attr="alt:gallery.altUnidad" alt="Casa compacta de dos niveles"><figcaption class="cap" data-i18n="gallery.capUnidad">04 · Unidad</figcaption></figure>
-      <figure class="tile t4"><img loading="lazy" decoding="async" src="assets/house-facade.jpeg" data-i18n-attr="alt:gallery.altDeck" alt="Fachada con deck de madera"><figcaption class="cap" data-i18n="gallery.capDeck">05 · Deck</figcaption></figure>
-      <figure class="tile t5"><img loading="lazy" decoding="async" src="assets/cabins-stairs.jpeg" data-i18n-attr="alt:gallery.altMadera" alt="Escaleras y ventanales"><figcaption class="cap" data-i18n="gallery.capMadera">06 · Madera</figcaption></figure>
+      <figure class="tile t3" data-full="assets/white-cube.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/white-cube-800.webp 800w, assets/white-cube-1600.webp 1600w, assets/white-cube.webp 1684w">
+        <img loading="lazy" decoding="async" src="assets/white-cube.jpeg" data-i18n-attr="alt:gallery.altUnidad" alt="Casa compacta de dos niveles"></picture><figcaption class="cap" data-i18n="gallery.capUnidad">04 · Unidad</figcaption></figure>
+      <figure class="tile t4" data-full="assets/house-facade.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/house-facade-800.webp 800w, assets/house-facade-1600.webp 1600w, assets/house-facade.webp 2400w">
+        <img loading="lazy" decoding="async" src="assets/house-facade.jpeg" data-i18n-attr="alt:gallery.altDeck" alt="Fachada con deck de madera"></picture><figcaption class="cap" data-i18n="gallery.capDeck">05 · Deck</figcaption></figure>
+      <figure class="tile t5" data-full="assets/cabins-stairs.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/cabins-stairs-800.webp 800w, assets/cabins-stairs-1600.webp 1600w, assets/cabins-stairs.webp 2400w">
+        <img loading="lazy" decoding="async" src="assets/cabins-stairs.jpeg" data-i18n-attr="alt:gallery.altMadera" alt="Escaleras y ventanales"></picture><figcaption class="cap" data-i18n="gallery.capMadera">06 · Madera</figcaption></figure>
 
-      <figure class="tile t9"><img loading="lazy" decoding="async" src="assets/interior-kitchen-sea.jpeg" data-i18n-attr="alt:gallery.altCocina" alt="Cocina interior con vista al mar entre los pinos"><figcaption class="cap" data-i18n="gallery.capCocina">07 · Cocina</figcaption></figure>
+      <figure class="tile t9" data-full="assets/interior-kitchen-sea.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 1240px" srcset="assets/interior-kitchen-sea-800.webp 800w, assets/interior-kitchen-sea-1600.webp 1600w, assets/interior-kitchen-sea.webp 2400w">
+        <img loading="lazy" decoding="async" src="assets/interior-kitchen-sea.jpeg" data-i18n-attr="alt:gallery.altCocina" alt="Cocina interior con vista al mar entre los pinos"></picture><figcaption class="cap" data-i18n="gallery.capCocina">07 · Cocina</figcaption></figure>
 
-      <figure class="tile t6"><img loading="lazy" decoding="async" src="assets/reception.jpeg" data-i18n-attr="alt:gallery.altRecepcion" alt="Recepción con pérgola y flores"><figcaption class="cap" data-i18n="gallery.capRecepcion">08 · Recepción</figcaption></figure>
-      <figure class="tile t7"><img loading="lazy" decoding="async" src="assets/playground.jpeg" data-i18n-attr="alt:gallery.altJuegos" alt="Juegos de niños en la arena"><figcaption class="cap" data-i18n="gallery.capJuegos">09 · Juegos</figcaption></figure>
+      <figure class="tile t6" data-full="assets/reception.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/reception-800.webp 800w, assets/reception-1600.webp 1600w, assets/reception.webp 1696w">
+        <img loading="lazy" decoding="async" src="assets/reception.jpeg" data-i18n-attr="alt:gallery.altRecepcion" alt="Recepción con pérgola y flores"></picture><figcaption class="cap" data-i18n="gallery.capRecepcion">08 · Recepción</figcaption></figure>
+      <figure class="tile t7" data-full="assets/playground.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/playground-800.webp 800w, assets/playground-1600.webp 1600w, assets/playground.webp 1696w">
+        <img loading="lazy" decoding="async" src="assets/playground.jpeg" data-i18n-attr="alt:gallery.altJuegos" alt="Juegos de niños en la arena"></picture><figcaption class="cap" data-i18n="gallery.capJuegos">09 · Juegos</figcaption></figure>
     </div>
 
     <div class="gallery-note">
@@ -1078,26 +1105,35 @@
     const lbCap = lb.querySelector('.lightbox__cap');
     let i = 0;
 
+    // The grid may hold a downscaled variant; the lightbox always wants the full-size file.
+    // .src on the fallback <img> is the jpeg regardless of which <source> the browser picked.
+    const fullOf = (t) => t.dataset.full || t.querySelector('img').src;
+    const jpegOf = (t) => t.querySelector('img').src;
+
     // Read from DOM each paint — keeps caption/alt fresh after i18n swaps
     const preload = (idx) => {
       const t = tiles[idx];
       if (!t) return;
       const im = new Image();
-      im.src = t.querySelector('img').src;
+      im.src = fullOf(t);
     };
     const paint = () => {
       const t = tiles[i];
       const img = t.querySelector('img');
       const cap = t.querySelector('.cap');
       lb.classList.add('loading');
-      lbImg.src = img.src;
+      lbImg.src = fullOf(t);
       lbImg.alt = img.alt || '';
       lbCap.textContent = (cap?.textContent || '').trim();
       preload((i + 1) % tiles.length);
       preload((i - 1 + tiles.length) % tiles.length);
     };
     lbImg.addEventListener('load', () => lb.classList.remove('loading'));
-    lbImg.addEventListener('error', () => lb.classList.remove('loading'));
+    lbImg.addEventListener('error', () => {
+      lb.classList.remove('loading');
+      const jpeg = tiles[i] && jpegOf(tiles[i]);   // one-shot fallback, no retry loop
+      if (jpeg && lbImg.src !== jpeg) lbImg.src = jpeg;
+    });
 
     let lastFocused = null;
     const open = (idx) => {

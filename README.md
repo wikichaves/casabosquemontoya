@@ -21,10 +21,33 @@ A **static** site, no build step. Everything lives in a single `index.html` (inl
 index.html        The entire page (markup + styles + scripts)
 assets/           Site images (renders, logo, favicon, OG)
 vercel.json       Vercel config (pure static)
+
 .claude/          Local tooling config (launch.json for preview)
 ```
 
 `_archive/` and `_downloads/` are ignored by git.
+
+## Images
+
+Each render ships as a `.jpeg` (the `<picture>` fallback, also what the lightbox
+falls back to) plus WebP variants at 800px, 1600px and full width. The gallery
+picks a variant via `srcset`/`sizes`; the lightbox always loads the full-width
+WebP from the tile's `data-full`.
+
+**If you add or replace a render, regenerate its variants** — otherwise the
+`srcset` points at files that don't exist and only the jpeg fallback is served:
+
+```bash
+brew install webp   # once
+cd assets
+f=my-render         # name without extension
+w=$(sips -g pixelWidth "$f.jpeg" | awk '/pixelWidth/{print $2}')
+cwebp -q 80 -m 6 "$f.jpeg" -o "$f.webp"
+for t in 800 1600; do [ "$w" -gt "$t" ] && cwebp -q 80 -m 6 -resize $t 0 "$f.jpeg" -o "$f-$t.webp"; done
+```
+
+The OG image (`cabin-kids-og.jpeg`) stays jpeg — some social scrapers still
+don't handle WebP.
 
 ## Local development
 
