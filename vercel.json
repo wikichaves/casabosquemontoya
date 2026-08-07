@@ -3,5 +3,19 @@
   "framework": null,
   "buildCommand": null,
   "outputDirectory": null,
-  "installCommand": null
+  "installCommand": null,
+  "headers": [
+    {
+      "source": "/assets/fonts/(.*).woff2",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/assets/(.*).(webp|jpeg|png)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800" }
+      ]
+    }
+  ]
 }

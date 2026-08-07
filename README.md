@@ -122,3 +122,13 @@ Language selector behavior:
 ## Deploy
 
 Push to `main` → Vercel deploys automatically. There's no build step.
+
+`vercel.json` sets `Cache-Control` on static assets — without it Vercel serves
+everything as `max-age=0, must-revalidate`, so every repeat visit re-validates
+each file. Fonts get a year and `immutable`; images get a week.
+
+**Images get a week rather than a year because their filenames carry no content
+hash.** Replace `cabin-kids.webp` and returning visitors keep the old bytes
+until the week is up. If you need a render swapped immediately, ship it under a
+new filename. `index.html`, `robots.txt` and `sitemap.xml` deliberately keep the
+default and revalidate every time, which is what makes a deploy visible at once.
