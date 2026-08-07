@@ -7,6 +7,8 @@
 <meta name="description" data-i18n-attr="content:meta.description" content="Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.">
 <link rel="canonical" href="https://casabosquemontoya.com/">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
+<!-- hero is a CSS background, so the browser can't discover it early — preload it for LCP -->
+<link rel="preload" as="image" href="/assets/cabin-kids.jpeg" fetchpriority="high">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Casa Bosque Montoya">
@@ -90,6 +92,7 @@
   .hero{
     position:relative;
     height:100vh;
+    height:100svh;   /* avoids the mobile URL-bar jump; falls back to vh where unsupported */
     min-height:680px;
     overflow:hidden;
     background:#000;
@@ -521,18 +524,11 @@
     flex-wrap:wrap;
     gap:16px;
   }
-  .foot-logo{
-    height:44px;
-    opacity:.9;
-    filter: brightness(0) invert(1) opacity(.95);
-    margin-bottom:24px;
-  }
-
   /* ——— responsive ——— */
   @media (max-width: 900px){
     section{padding: 80px 24px}
     .hero-inner{padding: 0 24px 48px}
-    .hero{height:auto; min-height:100vh}
+    .hero{height:auto; min-height:100vh; min-height:100svh}
     .hero-meta{margin-top:32px; gap:20px}
     .intro-grid{grid-template-columns:1fr; gap:40px}
     .specs{grid-template-columns:repeat(2,1fr); gap:32px 24px}
@@ -565,8 +561,18 @@
   .reveal{opacity:0; transform:translateY(24px); transition: opacity 900ms ease, transform 900ms ease}
   .reveal.in{opacity:1; transform:none}
 
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1; transform:none; transition:none}
+    .topbar .dot{animation:none; opacity:1}
+    .tile img,.tile:hover img{transition:none; transform:none}
+    .lightbox,.lightbox__inner,.lightbox__img{transition:none}
+  }
+
   /* ── lightbox ─────────────────────────────────────────── */
   .gallery-grid .tile{cursor:zoom-in}
+  .gallery-grid .tile:focus-visible{outline:2px solid var(--terra); outline-offset:3px}
+  .lightbox__close:focus-visible,.lightbox__nav:focus-visible{outline:2px solid #e9c9a6; outline-offset:2px}
   .lightbox{
     position:fixed; inset:0; z-index:1000;
     display:flex; align-items:center; justify-content:center;
@@ -1093,22 +1099,33 @@
     lbImg.addEventListener('load', () => lb.classList.remove('loading'));
     lbImg.addEventListener('error', () => lb.classList.remove('loading'));
 
+    let lastFocused = null;
     const open = (idx) => {
+      lastFocused = document.activeElement;
       i = idx; paint();
       lb.classList.add('open');
       lb.setAttribute('aria-hidden', 'false');
       document.body.classList.add('lb-open');
+      lb.querySelector('.lightbox__close').focus(); // the first [data-lb-close] is the backdrop div — not focusable
     };
     const close = () => {
       lb.classList.remove('open');
       lb.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('lb-open');
+      if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
+      lastFocused = null;
     };
     const next = () => { i = (i + 1) % tiles.length; paint(); };
     const prev = () => { i = (i - 1 + tiles.length) % tiles.length; paint(); };
 
+    // tiles are <figure>, so they need explicit button semantics to be reachable by keyboard
     tiles.forEach((t, idx) => {
+      t.tabIndex = 0;
+      t.setAttribute('role', 'button');
       t.addEventListener('click', () => open(idx));
+      t.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(idx); }
+      });
     });
     lb.querySelectorAll('[data-lb-close]').forEach(el => el.addEventListener('click', close));
     lb.querySelector('[data-lb-prev]').addEventListener('click', (e) => { e.stopPropagation(); prev(); });
@@ -1390,8 +1407,6 @@
     }
   })();
 </script>
-
-<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 
 </body>
 </html>
