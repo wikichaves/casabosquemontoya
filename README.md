@@ -21,6 +21,8 @@ A **static** site, no build step. Everything lives in a single `index.html` (inl
 index.html        The entire page (markup + styles + scripts)
 assets/           Site images (renders, logo, favicon, OG)
 assets/fonts/     Self-hosted woff2 subsets + OFL license
+robots.txt        Crawl policy + sitemap pointer
+sitemap.xml       One entry; bump <lastmod> when content changes
 vercel.json       Vercel config (pure static)
 
 .claude/          Local tooling config (launch.json for preview)
