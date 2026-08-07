@@ -49,6 +49,14 @@ for t in 800 1600; do [ "$w" -gt "$t" ] && cwebp -q 80 -m 6 -resize $t 0 "$f.jpe
 The OG image (`cabin-kids-og.jpeg`) stays jpeg — some social scrapers still
 don't handle WebP.
 
+The hero is a CSS background, not an `<img>`, so it can't use `srcset`. It
+switches through `image-set()` plus the `max-width:900px` breakpoint:
+desktop gets `cabin-kids.webp`, phones get `cabin-kids-portrait.webp` — a
+750x1624 crop of the slice a portrait screen actually shows. **The two
+`rel=preload` tags in `<head>` carry matching `media` attributes; if you move
+that breakpoint, move it in all three places** or phones will preload the wide
+file on top of the crop.
+
 ## Local development
 
 Since it's static, just serve the folder:

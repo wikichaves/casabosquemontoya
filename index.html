@@ -8,8 +8,10 @@
 <link rel="canonical" href="https://casabosquemontoya.com/">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <!-- hero is a CSS background, so the browser can't discover it early — preload it for LCP.
-     type= lets browsers without WebP skip this and take the jpeg from the CSS fallback. -->
-<link rel="preload" as="image" href="/assets/cabin-kids.webp" type="image/webp" fetchpriority="high">
+     type= lets browsers without WebP skip these and take the jpeg from the CSS fallback.
+     media= must mirror the .hero .bg breakpoint, or a phone preloads the wide file too. -->
+<link rel="preload" as="image" href="/assets/cabin-kids.webp" type="image/webp" media="(min-width:901px)" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/cabin-kids-portrait.webp" type="image/webp" media="(max-width:900px)" fetchpriority="high">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Casa Bosque Montoya">
@@ -535,6 +537,13 @@
     section{padding: 80px 24px}
     .hero-inner{padding: 0 24px 48px}
     .hero{height:auto; min-height:100vh; min-height:100svh}
+    /* A phone only ever sees the middle ~31% of the wide render, so ship just that
+       slice: 750x1624 is the native resolution of that crop — no detail is lost. */
+    .hero .bg{
+      background-image:url('assets/cabin-kids.jpeg');
+      background-image:image-set(url('assets/cabin-kids-portrait.webp') type('image/webp'),
+                                 url('assets/cabin-kids.jpeg') type('image/jpeg'));
+    }
     .hero-meta{margin-top:32px; gap:20px}
     .intro-grid{grid-template-columns:1fr; gap:40px}
     .specs{grid-template-columns:repeat(2,1fr); gap:32px 24px}
@@ -806,10 +815,10 @@
 
     <div class="gallery-grid">
       <!-- data-full = what the lightbox loads; the <img> src stays jpeg as the universal fallback.
-           t1 deliberately has no srcset: it's the same file the hero already preloaded, so
-           pointing at any other width would cost a second download of the same photo. -->
+           t1 is the same photo as the hero, but only the desktop hero uses the wide file — on
+           mobile the hero takes the portrait crop, so t1 needs a normal srcset like the rest. -->
       <figure class="tile t1" data-full="assets/cabin-kids.webp"><picture>
-        <source type="image/webp" srcset="assets/cabin-kids.webp">
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/cabin-kids-800.webp 800w, assets/cabin-kids-1600.webp 1600w, assets/cabin-kids.webp 2400w">
         <img loading="lazy" decoding="async" src="assets/cabin-kids.jpeg" data-i18n-attr="alt:gallery.altBosque" alt="Casas entre los pinos"></picture><figcaption class="cap" data-i18n="gallery.capBosque">01 · Bosque</figcaption></figure>
       <figure class="tile t2" data-full="assets/aerial-cluster.webp"><picture>
         <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/aerial-cluster-800.webp 800w, assets/aerial-cluster-1600.webp 1600w, assets/aerial-cluster.webp 1684w">
