@@ -576,6 +576,7 @@
 
   /* ——— contact form ——— */
   .contact-form{
+    scroll-margin-top:80px;
     margin-top:64px;
     border-top:1px solid var(--line);
     padding-top:48px;
@@ -943,7 +944,7 @@
 
 <div class="topbar">
   <span><span class="dot"></span><span data-i18n="topbar.opening">Apertura Diciembre 2026</span></span>
-  <span class="topbar-loc" translate="no">La Barra · Uruguay</span>
+  <a class="topbar-cta" href="#form" data-i18n="topbar.cta">Reservar / Consultar →</a>
 </div>
 
 <!-- ——— HERO ——— -->
@@ -1227,7 +1228,7 @@
     </div>
 
     <!-- ——— FORM DE CONTACTO ——— -->
-    <form class="contact-form" id="contactForm" novalidate>
+    <form class="contact-form" id="form" novalidate>
       <p class="cf-intro" data-i18n="form.intro">¿Querés alquilar en verano o saber más del proyecto? Dejanos tus datos y te escribimos cuando abramos las reservas.</p>
       <div class="cf-grid">
         <label class="cf-field">
@@ -1241,8 +1242,8 @@
         <label class="cf-field">
           <span class="cf-label" data-i18n="form.reason">Motivo</span>
           <select name="motivo">
-            <option value="info" data-i18n="form.reasonInfo">Saber más del proyecto</option>
             <option value="alquiler" data-i18n="form.reasonRent">Alquiler verano</option>
+            <option value="info" data-i18n="form.reasonInfo">Saber más del proyecto</option>
           </select>
         </label>
         <label class="cf-field cf-field--full">
@@ -1453,6 +1454,7 @@
         'meta.title': 'Casa Bosque Montoya — Cuatro casas vacacionales en La Barra, Uruguay',
         'meta.description': 'Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.',
         'topbar.opening': 'Apertura Diciembre 2026',
+        'topbar.cta': 'Reservar / Consultar →',
         'hero.bgAlt': 'Niños jugando entre cabañas de madera en un bosque de pinos',
         'hero.title': 'Entre pinos<br>y <em>el mar</em>.',
         'hero.location': 'Ubicación',
@@ -1553,6 +1555,7 @@
         'meta.title': 'Casa Bosque Montoya — Four vacation homes in La Barra, Uruguay',
         'meta.description': 'Among pines and the sea. Four vacation homes in the heart of Montoya, La Barra, Maldonado, Uruguay. Opening December 2026.',
         'topbar.opening': 'Opening December 2026',
+        'topbar.cta': 'Book / Enquire →',
         'hero.bgAlt': 'Children playing among wooden cabins in a pine forest',
         'hero.title': 'Among pines<br>and <em>the sea</em>.',
         'hero.location': 'Location',
@@ -1736,7 +1739,7 @@
 <script>
   // Contact form → /api/contacto
   (function () {
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('form');
     if (!form) return;
     const statusEl = document.getElementById('cfStatus');
     const btn = form.querySelector('.cf-submit');
