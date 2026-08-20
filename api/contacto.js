@@ -1,7 +1,5 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const DESTINO = 'hola@casabosquemontoya.com';
 // Cambiar a 'Casa Bosque Montoya <contacto@casabosquemontoya.com>' cuando el dominio esté verificado en Resend.
 const FROM = process.env.RESEND_FROM || 'Casa Bosque Montoya <onboarding@resend.dev>';
@@ -21,6 +19,13 @@ export default async function handler(req, res) {
   }
 
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error('RESEND_API_KEY no está definida en el entorno');
+      return res.status(500).json({ ok: false, error: 'Config faltante' });
+    }
+    const resend = new Resend(apiKey);
+
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
     const { nombre = '', email = '', motivo = '', mensaje = '', website = '' } = body;
 
