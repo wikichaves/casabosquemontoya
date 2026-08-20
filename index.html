@@ -574,6 +574,84 @@
     padding-top:40px;
   }
 
+  /* ——— contact form ——— */
+  .contact-form{
+    margin-top:64px;
+    border-top:1px solid var(--line);
+    padding-top:48px;
+  }
+  .cf-intro{
+    font-family:var(--serif);
+    font-size:clamp(18px,2vw,24px);
+    line-height:1.35;
+    color:var(--ink-soft);
+    max-width:44ch;
+    margin:0 0 40px;
+  }
+  .cf-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px 32px;
+  }
+  .cf-field{display:flex; flex-direction:column;}
+  .cf-field--full{grid-column:1 / -1;}
+  .cf-label{
+    font-family:var(--mono);
+    font-size:10px; letter-spacing:.25em; text-transform:uppercase;
+    color:var(--ink-soft); opacity:.7;
+    margin-bottom:10px;
+  }
+  .cf-optional{opacity:.6; text-transform:none; letter-spacing:.04em;}
+  .cf-field input,
+  .cf-field select,
+  .cf-field textarea{
+    font-family:var(--sans);
+    font-size:16px;
+    color:var(--ink);
+    background:transparent;
+    border:0;
+    border-bottom:1px solid var(--line);
+    padding:10px 0;
+    outline:none;
+    border-radius:0;
+    transition:border-color 200ms;
+    -webkit-appearance:none; appearance:none;
+  }
+  .cf-field textarea{resize:vertical; min-height:60px;}
+  .cf-field select{cursor:pointer;}
+  .cf-field input:focus,
+  .cf-field select:focus,
+  .cf-field textarea:focus{border-bottom-color:var(--terra);}
+  .cf-field input::placeholder,
+  .cf-field textarea::placeholder{color:var(--ink-soft); opacity:.4;}
+  .cf-actions{
+    margin-top:40px;
+    display:flex; align-items:center; gap:24px; flex-wrap:wrap;
+  }
+  .cf-submit{
+    font-family:var(--mono);
+    font-size:12px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--paper);
+    background:var(--ink);
+    border:0;
+    padding:16px 40px;
+    border-radius:2px;
+    cursor:pointer;
+    transition:background 200ms, opacity 200ms;
+  }
+  .cf-submit:hover{background:var(--ink-soft);}
+  .cf-submit:disabled{opacity:.5; cursor:default;}
+  .cf-status{
+    font-family:var(--mono);
+    font-size:12px; letter-spacing:.04em;
+    color:var(--ink-soft);
+  }
+  .cf-status.ok{color:var(--ink);}
+  .cf-status.err{color:var(--terra);}
+  @media (max-width:640px){
+    .cf-grid{grid-template-columns:1fr;}
+  }
+
   /* ——— footer / credits ——— */
   footer{
     background:var(--ink);
@@ -977,6 +1055,13 @@
       <figure class="tile t7" data-full="assets/playground.webp"><picture>
         <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/playground-800.webp 800w, assets/playground-1600.webp 1600w, assets/playground.webp 1696w">
         <img loading="lazy" decoding="async" src="assets/playground.jpeg" data-i18n-attr="alt:gallery.altJuegos" alt="Juegos de niños en la arena"></picture><figcaption class="cap" data-i18n="gallery.capJuegos">09 · Juegos</figcaption></figure>
+
+      <figure class="tile t3" data-full="assets/bathroom-a.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/bathroom-a-800.webp 800w, assets/bathroom-a-1600.webp 1600w, assets/bathroom-a.webp 960w">
+        <img loading="lazy" decoding="async" src="assets/bathroom-a.jpeg" data-i18n-attr="alt:gallery.altBanoA" alt="Baño con revestimiento natural y vista al verde"></picture><figcaption class="cap" data-i18n="gallery.capBanoA">10 · Baño</figcaption></figure>
+      <figure class="tile t4" data-full="assets/bathroom-b.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/bathroom-b-800.webp 800w, assets/bathroom-b-1600.webp 1600w, assets/bathroom-b.webp 1280w">
+        <img loading="lazy" decoding="async" src="assets/bathroom-b.jpeg" data-i18n-attr="alt:gallery.altBanoB" alt="Baño con mueble de madera y grifería de bronce"></picture><figcaption class="cap" data-i18n="gallery.capBanoB">11 · Baño</figcaption></figure>
     </div>
 
     <div class="gallery-note">
@@ -1140,6 +1225,38 @@
         <span class="arrow" data-i18n="contact.igCta">→ Seguir</span>
       </a>
     </div>
+
+    <!-- ——— FORM DE CONTACTO ——— -->
+    <form class="contact-form" id="contactForm" novalidate>
+      <p class="cf-intro" data-i18n="form.intro">¿Querés alquilar en verano o saber más del proyecto? Dejanos tus datos y te escribimos cuando abramos las reservas.</p>
+      <div class="cf-grid">
+        <label class="cf-field">
+          <span class="cf-label" data-i18n="form.name">Nombre</span>
+          <input type="text" name="nombre" required autocomplete="name">
+        </label>
+        <label class="cf-field">
+          <span class="cf-label" data-i18n="form.email">Email</span>
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label class="cf-field">
+          <span class="cf-label" data-i18n="form.reason">Motivo</span>
+          <select name="motivo">
+            <option value="info" data-i18n="form.reasonInfo">Saber más del proyecto</option>
+            <option value="alquiler" data-i18n="form.reasonRent">Alquiler verano</option>
+          </select>
+        </label>
+        <label class="cf-field cf-field--full">
+          <span class="cf-label" data-i18n="form.message">Mensaje <span class="cf-optional" data-i18n="form.optional">(opcional)</span></span>
+          <textarea name="mensaje" rows="3"></textarea>
+        </label>
+      </div>
+      <!-- honeypot anti-spam -->
+      <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <div class="cf-actions">
+        <button type="submit" class="cf-submit" data-i18n="form.submit">Enviar</button>
+        <span class="cf-status" id="cfStatus" role="status" aria-live="polite"></span>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -1376,8 +1493,12 @@
         'gallery.capCocina': '07 · Cocina',
         'gallery.capRecepcion': '08 · Recepción',
         'gallery.capJuegos': '09 · Juegos',
+        'gallery.altBanoA': 'Baño con revestimiento natural y vista al verde',
+        'gallery.capBanoA': '10 · Baño',
+        'gallery.altBanoB': 'Baño con mueble de madera y grifería de bronce',
+        'gallery.capBanoB': '11 · Baño',
         'gallery.noteArch': 'Arquitectura · <span translate="no">Franco Beverati</span>',
-        'gallery.noteCount': '09 imágenes · 2026',
+        'gallery.noteCount': '11 imágenes · 2026',
         'values.sectionLabel': 'Principios — 03',
         'values.v1Title': 'Baja <em>densidad</em>.',
         'values.v1Body': 'Solo cuatro unidades en un predio generoso. Cada casa con su privacidad y su propio pedazo de bosque.',
@@ -1405,6 +1526,18 @@
         'contact.waCta': '→ Chatear',
         'contact.igSub': 'Seguí el avance de la obra',
         'contact.igCta': '→ Seguir',
+        'form.intro': '¿Querés alquilar en verano o saber más del proyecto? Dejanos tus datos y te escribimos cuando abramos las reservas.',
+        'form.name': 'Nombre',
+        'form.email': 'Email',
+        'form.reason': 'Motivo',
+        'form.reasonInfo': 'Saber más del proyecto',
+        'form.reasonRent': 'Alquiler verano',
+        'form.message': 'Mensaje',
+        'form.optional': '(opcional)',
+        'form.submit': 'Enviar',
+        'form.sending': 'Enviando…',
+        'form.ok': '¡Gracias! Te escribimos pronto.',
+        'form.err': 'No se pudo enviar. Probá de nuevo o escribinos por email.',
         'footer.devLabel': 'Desarrollo',
         'footer.devCopy': 'Gestión y desarrollo del proyecto.',
         'footer.archLabel': 'Arquitectura',
@@ -1460,8 +1593,12 @@
         'gallery.capCocina': '07 · Kitchen',
         'gallery.capRecepcion': '08 · Reception',
         'gallery.capJuegos': '09 · Playground',
+        'gallery.altBanoA': 'Bathroom with natural finish and a view to the greenery',
+        'gallery.capBanoA': '10 · Bathroom',
+        'gallery.altBanoB': 'Bathroom with wooden vanity and brass fixtures',
+        'gallery.capBanoB': '11 · Bathroom',
         'gallery.noteArch': 'Architecture · <span translate="no">Franco Beverati</span>',
-        'gallery.noteCount': '09 images · 2026',
+        'gallery.noteCount': '11 images · 2026',
         'values.sectionLabel': 'Principles — 03',
         'values.v1Title': 'Low <em>density</em>.',
         'values.v1Body': 'Just four homes on a generous lot. Each one with its own privacy and its own slice of forest.',
@@ -1489,6 +1626,18 @@
         'contact.waCta': '→ Chat',
         'contact.igSub': 'Follow construction progress',
         'contact.igCta': '→ Follow',
+        'form.intro': "Want to rent this summer or learn more about the project? Leave your details and we'll write back when bookings open.",
+        'form.name': 'Name',
+        'form.email': 'Email',
+        'form.reason': 'Reason',
+        'form.reasonInfo': 'Learn more about the project',
+        'form.reasonRent': 'Summer rental',
+        'form.message': 'Message',
+        'form.optional': '(optional)',
+        'form.submit': 'Send',
+        'form.sending': 'Sending…',
+        'form.ok': 'Thanks! We\'ll be in touch soon.',
+        'form.err': "Couldn't send. Try again or email us.",
         'footer.devLabel': 'Development',
         'footer.devCopy': 'Project management and development.',
         'footer.archLabel': 'Architecture',
@@ -1532,6 +1681,8 @@
         });
       });
       document.documentElement.setAttribute('lang', loc);
+      window.__cbmLocale = loc;
+      window.__cbmDict = dict;
 
       // selector UI sync
       const sel = document.getElementById('langSelector');
@@ -1582,5 +1733,50 @@
   })();
 </script>
 
+<script>
+  // Contact form → /api/contacto
+  (function () {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    const statusEl = document.getElementById('cfStatus');
+    const btn = form.querySelector('.cf-submit');
+
+    const t = (key, fallback) => {
+      const d = window.__cbmDict || {};
+      return d[key] !== undefined ? d[key] : fallback;
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.className = 'cf-status';
+      statusEl.textContent = t('form.sending', 'Enviando…');
+      btn.disabled = true;
+
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      try {
+        const res = await fetch('/api/contacto', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.ok) {
+          form.reset();
+          statusEl.className = 'cf-status ok';
+          statusEl.textContent = t('form.ok', '¡Gracias! Te escribimos pronto.');
+        } else {
+          throw new Error('send failed');
+        }
+      } catch (err) {
+        statusEl.className = 'cf-status err';
+        statusEl.textContent = t('form.err', 'No se pudo enviar. Probá de nuevo o escribinos por email.');
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  })();
+</script>
 </body>
+
 </html>

@@ -1,0 +1,9 @@
+{
+  "name": "casabosquemontoya",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Casa Bosque Montoya — sitio estático + función de contacto",
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}
