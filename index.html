@@ -10,8 +10,8 @@
 <!-- hero is a CSS background, so the browser can't discover it early — preload it for LCP.
      type= lets browsers without WebP skip these and take the jpeg from the CSS fallback.
      media= must mirror the .hero .bg breakpoint, or a phone preloads the wide file too. -->
-<link rel="preload" as="image" href="/assets/cabin-kids.webp" type="image/webp" media="(min-width:901px)" fetchpriority="high">
-<link rel="preload" as="image" href="/assets/cabin-kids-portrait.webp" type="image/webp" media="(max-width:900px)" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/render-exterior-01-rev2026-09.webp" type="image/webp" media="(min-width:901px)" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/render-tipo2-sendero-jardin-rev2026-09-1600.webp" type="image/webp" media="(max-width:900px)" fetchpriority="high">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Casa Bosque Montoya">
@@ -19,7 +19,7 @@
 <meta property="og:description" content="Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.">
 <meta property="og:url" content="https://casabosquemontoya.com/">
 <meta property="og:locale" content="es_UY">
-<meta property="og:image" content="https://casabosquemontoya.com/assets/cabin-kids-og.jpeg">
+<meta property="og:image" content="https://casabosquemontoya.com/assets/render-exterior-01-rev2026-09-og.jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Casas entre los pinos en Montoya, Uruguay">
@@ -27,7 +27,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Casa Bosque Montoya">
 <meta name="twitter:description" content="Entre pinos y el mar. Cuatro casas vacacionales en La Barra, Uruguay. Abriendo diciembre 2026.">
-<meta name="twitter:image" content="https://casabosquemontoya.com/assets/cabin-kids-og.jpeg">
+<meta name="twitter:image" content="https://casabosquemontoya.com/assets/render-exterior-01-rev2026-09-og.jpeg">
 
 <!-- Fonts are self-hosted (see assets/fonts/OFL.txt). Google's stylesheet was
      render-blocking and on a third origin, so the face definitions couldn't be
@@ -189,10 +189,10 @@
   }
   .hero .bg{
     position:absolute; inset:0;
-    background-image:url('assets/cabin-kids.jpeg');
+    background-image:url('assets/render-exterior-01-rev2026-09.jpeg');
     /* second declaration wins where image-set() is supported; older engines keep the jpeg above */
-    background-image:image-set(url('assets/cabin-kids.webp') type('image/webp'),
-                               url('assets/cabin-kids.jpeg') type('image/jpeg'));
+    background-image:image-set(url('assets/render-exterior-01-rev2026-09.webp') type('image/webp'),
+                               url('assets/render-exterior-01-rev2026-09.jpeg') type('image/jpeg'));
     background-size:cover;
     background-position:center 45%;
     filter:saturate(1.05) brightness(.88);
@@ -706,9 +706,9 @@
     /* A phone only ever sees the middle ~31% of the wide render, so ship just that
        slice: 750x1624 is the native resolution of that crop — no detail is lost. */
     .hero .bg{
-      background-image:url('assets/cabin-kids.jpeg');
-      background-image:image-set(url('assets/cabin-kids-portrait.webp') type('image/webp'),
-                                 url('assets/cabin-kids.jpeg') type('image/jpeg'));
+      background-image:url('assets/render-tipo2-sendero-jardin-rev2026-09.jpeg');
+      background-image:image-set(url('assets/render-tipo2-sendero-jardin-rev2026-09-1600.webp') type('image/webp'),
+                                 url('assets/render-tipo2-sendero-jardin-rev2026-09.jpeg') type('image/jpeg'));
     }
     .hero-meta{margin-top:32px; gap:20px}
     .intro-grid{grid-template-columns:1fr; gap:40px}
@@ -909,7 +909,7 @@
   "name": "Casa Bosque Montoya",
   "url": "https://casabosquemontoya.com/",
   "description": "Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.",
-  "image": "https://casabosquemontoya.com/assets/cabin-kids-og.jpeg",
+  "image": "https://casabosquemontoya.com/assets/render-exterior-01-rev2026-09-og.jpeg",
   "email": "hola@casabosquemontoya.com",
   "telephone": "+59898246585",
   "address": {
@@ -949,7 +949,7 @@
 
 <!-- ——— HERO ——— -->
 <header class="hero">
-  <div class="bg" role="img" data-i18n-attr="aria-label:hero.bgAlt" aria-label="Niños jugando entre cabañas de madera en un bosque de pinos"></div>
+  <div class="bg" role="img" data-i18n-attr="aria-label:hero.bgAlt" aria-label="Casa Bosque Montoya entre pinos, con fachada blanca y madera natural"></div>
   <div class="vignette"></div>
   <div class="frame"></div>
   <div class="scroll-hint">Scroll ↓</div>
@@ -1017,57 +1017,34 @@
 <!-- ——— GALLERY ——— -->
 <section class="gallery">
   <div class="container">
-    <div class="section-label" data-i18n="gallery.sectionLabel">Renders — 02</div>
-    <h2 style="font-family:var(--serif); font-weight:400; font-size:clamp(36px,4vw,56px); margin:0 0 8px; letter-spacing:-.01em;" data-i18n-html="gallery.title">Cómo imaginamos <em style="font-style:italic;color:var(--terra)">el lugar</em>.</h2>
-    <p style="font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-soft); margin:0" data-i18n="gallery.subtitle">Imágenes referenciales · Proyecto en desarrollo</p>
+    <div class="section-label" data-i18n="gallery.sectionLabel">Proyecto — 02</div>
+    <h2 style="font-family:var(--serif); font-weight:400; font-size:clamp(36px,4vw,56px); margin:0 0 8px; letter-spacing:-.01em;" data-i18n-html="gallery.title">Así toma forma <em style="font-style:italic;color:var(--terra)">el lugar</em>.</h2>
+    <p style="font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-soft); margin:0" data-i18n="gallery.subtitle">Renders vigentes · Proyecto en obra · Caminería y paisajismo en desarrollo</p>
 
     <div class="gallery-grid">
-      <!-- data-full = what the lightbox loads; the <img> src stays jpeg as the universal fallback.
-           t1 is the same photo as the hero, but only the desktop hero uses the wide file — on
-           mobile the hero takes the portrait crop, so t1 needs a normal srcset like the rest. -->
-      <figure class="tile t1" data-full="assets/cabin-kids.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/cabin-kids-800.webp 800w, assets/cabin-kids-1600.webp 1600w, assets/cabin-kids.webp 2400w">
-        <img loading="lazy" decoding="async" src="assets/cabin-kids.jpeg" data-i18n-attr="alt:gallery.altBosque" alt="Casas entre los pinos"></picture><figcaption class="cap" data-i18n="gallery.capBosque">01 · Bosque</figcaption></figure>
-      <figure class="tile t2" data-full="assets/aerial-cluster.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/aerial-cluster-800.webp 800w, assets/aerial-cluster-1600.webp 1600w, assets/aerial-cluster.webp 1684w">
-        <img loading="lazy" decoding="async" src="assets/aerial-cluster.jpeg" data-i18n-attr="alt:gallery.altConjunto" alt="Conjunto de casas desde arriba"></picture><figcaption class="cap" data-i18n="gallery.capConjunto">02 · Conjunto</figcaption></figure>
+      <!-- Solo se publican los renders que integran el set vigente en Drive. -->
+      <figure class="tile t1" data-full="assets/render-exterior-01-rev2026-09.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/render-exterior-01-rev2026-09-800.webp 800w, assets/render-exterior-01-rev2026-09.webp 1232w">
+        <img loading="lazy" decoding="async" src="assets/render-exterior-01-rev2026-09.jpeg" data-i18n-attr="alt:gallery.altExterior01" alt="Casa de una planta entre pinos, con fachada blanca y madera natural"></picture><figcaption class="cap" data-i18n="gallery.capExterior01">01 · Exterior</figcaption></figure>
+      <figure class="tile t2" data-full="assets/render-tipo2-sendero-jardin-rev2026-09.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/render-tipo2-sendero-jardin-rev2026-09-800.webp 800w, assets/render-tipo2-sendero-jardin-rev2026-09-1600.webp 1600w, assets/render-tipo2-sendero-jardin-rev2026-09.webp 1792w">
+        <img loading="lazy" decoding="async" src="assets/render-tipo2-sendero-jardin-rev2026-09.jpeg" data-i18n-attr="alt:gallery.altSendero" alt="Casa Tipo 2 con sendero de acceso y jardín privado"></picture><figcaption class="cap" data-i18n="gallery.capSendero">02 · Sendero y jardín</figcaption></figure>
 
-      <figure class="tile t8" data-full="assets/interior-living-fireplace.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 1240px" srcset="assets/interior-living-fireplace-800.webp 800w, assets/interior-living-fireplace-1600.webp 1600w, assets/interior-living-fireplace.webp 2400w">
-        <img loading="lazy" decoding="async" src="assets/interior-living-fireplace.jpeg" data-i18n-attr="alt:gallery.altInterior" alt="Living interior con chimenea y vista al bosque"></picture><figcaption class="cap" data-i18n="gallery.capInterior">03 · Interior</figcaption></figure>
+      <figure class="tile t8" data-full="assets/render-exterior-02-rev2026-09.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 1240px" srcset="assets/render-exterior-02-rev2026-09-800.webp 800w, assets/render-exterior-02-rev2026-09.webp 1200w">
+        <img loading="lazy" decoding="async" src="assets/render-exterior-02-rev2026-09.jpeg" data-i18n-attr="alt:gallery.altExterior02" alt="Vista lateral de una casa con deck y vegetación costera"></picture><figcaption class="cap" data-i18n="gallery.capExterior02">03 · Exterior y deck</figcaption></figure>
 
-      <figure class="tile t3" data-full="assets/white-cube.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/white-cube-800.webp 800w, assets/white-cube-1600.webp 1600w, assets/white-cube.webp 1684w">
-        <img loading="lazy" decoding="async" src="assets/white-cube.jpeg" data-i18n-attr="alt:gallery.altUnidad" alt="Casa compacta de dos niveles"></picture><figcaption class="cap" data-i18n="gallery.capUnidad">04 · Unidad</figcaption></figure>
-      <figure class="tile t4" data-full="assets/house-facade.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/house-facade-800.webp 800w, assets/house-facade-1600.webp 1600w, assets/house-facade.webp 2400w">
-        <img loading="lazy" decoding="async" src="assets/house-facade.jpeg" data-i18n-attr="alt:gallery.altDeck" alt="Fachada con deck de madera"></picture><figcaption class="cap" data-i18n="gallery.capDeck">05 · Deck</figcaption></figure>
-      <figure class="tile t5" data-full="assets/cabins-stairs.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/cabins-stairs-800.webp 800w, assets/cabins-stairs-1600.webp 1600w, assets/cabins-stairs.webp 2400w">
-        <img loading="lazy" decoding="async" src="assets/cabins-stairs.jpeg" data-i18n-attr="alt:gallery.altMadera" alt="Escaleras y ventanales"></picture><figcaption class="cap" data-i18n="gallery.capMadera">06 · Madera</figcaption></figure>
-
-      <figure class="tile t9" data-full="assets/interior-kitchen-sea.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 1240px" srcset="assets/interior-kitchen-sea-800.webp 800w, assets/interior-kitchen-sea-1600.webp 1600w, assets/interior-kitchen-sea.webp 2400w">
-        <img loading="lazy" decoding="async" src="assets/interior-kitchen-sea.jpeg" data-i18n-attr="alt:gallery.altCocina" alt="Cocina interior con vista al mar entre los pinos"></picture><figcaption class="cap" data-i18n="gallery.capCocina">07 · Cocina</figcaption></figure>
-
-      <figure class="tile t6" data-full="assets/reception.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/reception-800.webp 800w, assets/reception-1600.webp 1600w, assets/reception.webp 1696w">
-        <img loading="lazy" decoding="async" src="assets/reception.jpeg" data-i18n-attr="alt:gallery.altRecepcion" alt="Recepción con pérgola y flores"></picture><figcaption class="cap" data-i18n="gallery.capRecepcion">08 · Recepción</figcaption></figure>
-      <figure class="tile t7" data-full="assets/playground.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/playground-800.webp 800w, assets/playground-1600.webp 1600w, assets/playground.webp 1696w">
-        <img loading="lazy" decoding="async" src="assets/playground.jpeg" data-i18n-attr="alt:gallery.altJuegos" alt="Juegos de niños en la arena"></picture><figcaption class="cap" data-i18n="gallery.capJuegos">09 · Juegos</figcaption></figure>
-
-      <figure class="tile t3" data-full="assets/bathroom-a.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/bathroom-a-800.webp 800w, assets/bathroom-a-1600.webp 1600w, assets/bathroom-a.webp 960w">
-        <img loading="lazy" decoding="async" src="assets/bathroom-a.jpeg" data-i18n-attr="alt:gallery.altBanoA" alt="Baño con revestimiento natural y vista al verde"></picture><figcaption class="cap" data-i18n="gallery.capBanoA">10 · Baño</figcaption></figure>
-      <figure class="tile t4" data-full="assets/bathroom-b.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/bathroom-b-800.webp 800w, assets/bathroom-b-1600.webp 1600w, assets/bathroom-b.webp 1280w">
-        <img loading="lazy" decoding="async" src="assets/bathroom-b.jpeg" data-i18n-attr="alt:gallery.altBanoB" alt="Baño con mueble de madera y grifería de bronce"></picture><figcaption class="cap" data-i18n="gallery.capBanoB">11 · Baño</figcaption></figure>
+      <figure class="tile t6" data-full="assets/render-bano-03-rev2026-09.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/render-bano-03-rev2026-09-800.webp 800w, assets/render-bano-03-rev2026-09.webp 1280w">
+        <img loading="lazy" decoding="async" src="assets/render-bano-03-rev2026-09.jpeg" data-i18n-attr="alt:gallery.altBano03" alt="Baño luminoso con ducha, bidé y terminaciones claras"></picture><figcaption class="cap" data-i18n="gallery.capBano03">04 · Baño</figcaption></figure>
+      <figure class="tile t7" data-full="assets/render-bano-04-rev2026-09.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/render-bano-04-rev2026-09-800.webp 800w, assets/render-bano-04-rev2026-09.webp 1280w">
+        <img loading="lazy" decoding="async" src="assets/render-bano-04-rev2026-09.jpeg" data-i18n-attr="alt:gallery.altBano04" alt="Baño con mampara de vidrio y mueble de madera"></picture><figcaption class="cap" data-i18n="gallery.capBano04">05 · Baño</figcaption></figure>
     </div>
 
     <div class="gallery-note">
       <span data-i18n-html="gallery.noteArch">Arquitectura · <span translate="no">Franco Beverati</span></span>
-      <span data-i18n="gallery.noteCount">09 imágenes · 2026</span>
+      <span data-i18n="gallery.noteCount">05 renders vigentes · 2026</span>
     </div>
   </div>
 </section>
@@ -1455,7 +1432,7 @@
         'meta.description': 'Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.',
         'topbar.opening': 'Apertura Diciembre 2026',
         'topbar.cta': 'Reservar / Consultar →',
-        'hero.bgAlt': 'Niños jugando entre cabañas de madera en un bosque de pinos',
+        'hero.bgAlt': 'Casa Bosque Montoya entre pinos, con fachada blanca y madera natural',
         'hero.title': 'Entre pinos<br>y <em>el mar</em>.',
         'hero.location': 'Ubicación',
         'hero.project': 'Proyecto',
@@ -1474,33 +1451,21 @@
         'intro.specSettingValue': 'Bosque',
         'intro.specOpening': 'Apertura',
         'intro.specOpeningValue': 'Dic 26',
-        'gallery.sectionLabel': 'Renders — 02',
-        'gallery.title': 'Cómo imaginamos <em style="font-style:italic;color:var(--terra)">el lugar</em>.',
-        'gallery.subtitle': 'Imágenes referenciales · Proyecto en desarrollo',
-        'gallery.altBosque': 'Casas entre los pinos',
-        'gallery.altConjunto': 'Conjunto de casas desde arriba',
-        'gallery.altInterior': 'Living interior con chimenea y vista al bosque',
-        'gallery.altUnidad': 'Casa compacta de dos niveles',
-        'gallery.altDeck': 'Fachada con deck de madera',
-        'gallery.altMadera': 'Escaleras y ventanales',
-        'gallery.altCocina': 'Cocina interior con vista al mar entre los pinos',
-        'gallery.altRecepcion': 'Recepción con pérgola y flores',
-        'gallery.altJuegos': 'Juegos de niños en la arena',
-        'gallery.capBosque': '01 · Bosque',
-        'gallery.capConjunto': '02 · Conjunto',
-        'gallery.capInterior': '03 · Interior',
-        'gallery.capUnidad': '04 · Unidad',
-        'gallery.capDeck': '05 · Deck',
-        'gallery.capMadera': '06 · Madera',
-        'gallery.capCocina': '07 · Cocina',
-        'gallery.capRecepcion': '08 · Recepción',
-        'gallery.capJuegos': '09 · Juegos',
-        'gallery.altBanoA': 'Baño con revestimiento natural y vista al verde',
-        'gallery.capBanoA': '10 · Baño',
-        'gallery.altBanoB': 'Baño con mueble de madera y grifería de bronce',
-        'gallery.capBanoB': '11 · Baño',
+        'gallery.sectionLabel': 'Proyecto — 02',
+        'gallery.title': 'Así toma forma <em style="font-style:italic;color:var(--terra)">el lugar</em>.',
+        'gallery.subtitle': 'Renders vigentes · Proyecto en obra · Caminería y paisajismo en desarrollo',
+        'gallery.altExterior01': 'Casa de una planta entre pinos, con fachada blanca y madera natural',
+        'gallery.capExterior01': '01 · Exterior',
+        'gallery.altSendero': 'Casa Tipo 2 con sendero de acceso y jardín privado',
+        'gallery.capSendero': '02 · Sendero y jardín',
+        'gallery.altExterior02': 'Vista lateral de una casa con deck y vegetación costera',
+        'gallery.capExterior02': '03 · Exterior y deck',
+        'gallery.altBano03': 'Baño luminoso con ducha, bidé y terminaciones claras',
+        'gallery.capBano03': '04 · Baño',
+        'gallery.altBano04': 'Baño con mampara de vidrio y mueble de madera',
+        'gallery.capBano04': '05 · Baño',
         'gallery.noteArch': 'Arquitectura · <span translate="no">Franco Beverati</span>',
-        'gallery.noteCount': '11 imágenes · 2026',
+        'gallery.noteCount': '05 renders vigentes · 2026',
         'values.sectionLabel': 'Principios — 03',
         'values.v1Title': 'Baja <em>densidad</em>.',
         'values.v1Body': 'Solo cuatro unidades en un predio generoso. Cada casa con su privacidad y su propio pedazo de bosque.',
@@ -1556,7 +1521,7 @@
         'meta.description': 'Among pines and the sea. Four vacation homes in the heart of Montoya, La Barra, Maldonado, Uruguay. Opening December 2026.',
         'topbar.opening': 'Opening December 2026',
         'topbar.cta': 'Book / Enquire →',
-        'hero.bgAlt': 'Children playing among wooden cabins in a pine forest',
+        'hero.bgAlt': 'Casa Bosque Montoya among pine trees, with a white facade and natural wood',
         'hero.title': 'Among pines<br>and <em>the sea</em>.',
         'hero.location': 'Location',
         'hero.project': 'Project',
@@ -1575,33 +1540,21 @@
         'intro.specSettingValue': 'Forest',
         'intro.specOpening': 'Opening',
         'intro.specOpeningValue': 'Dec 26',
-        'gallery.sectionLabel': 'Renders — 02',
-        'gallery.title': 'How we imagine <em style="font-style:italic;color:var(--terra)">the place</em>.',
-        'gallery.subtitle': 'Reference images · Project in development',
-        'gallery.altBosque': 'Homes among the pines',
-        'gallery.altConjunto': 'Cluster of homes from above',
-        'gallery.altInterior': 'Living room with fireplace and forest view',
-        'gallery.altUnidad': 'Compact two-story home',
-        'gallery.altDeck': 'Facade with wooden deck',
-        'gallery.altMadera': 'Stairs and tall windows',
-        'gallery.altCocina': 'Kitchen with sea view through the pines',
-        'gallery.altRecepcion': 'Reception with pergola and flowers',
-        'gallery.altJuegos': "Children's playground on the sand",
-        'gallery.capBosque': '01 · Forest',
-        'gallery.capConjunto': '02 · Cluster',
-        'gallery.capInterior': '03 · Interior',
-        'gallery.capUnidad': '04 · Home',
-        'gallery.capDeck': '05 · Deck',
-        'gallery.capMadera': '06 · Wood',
-        'gallery.capCocina': '07 · Kitchen',
-        'gallery.capRecepcion': '08 · Reception',
-        'gallery.capJuegos': '09 · Playground',
-        'gallery.altBanoA': 'Bathroom with natural finish and a view to the greenery',
-        'gallery.capBanoA': '10 · Bathroom',
-        'gallery.altBanoB': 'Bathroom with wooden vanity and brass fixtures',
-        'gallery.capBanoB': '11 · Bathroom',
+        'gallery.sectionLabel': 'Project — 02',
+        'gallery.title': 'The place <em style="font-style:italic;color:var(--terra)">taking shape</em>.',
+        'gallery.subtitle': 'Current renders · Project under construction · Paths and landscaping in development',
+        'gallery.altExterior01': 'Single-story home among pine trees, with a white facade and natural wood',
+        'gallery.capExterior01': '01 · Exterior',
+        'gallery.altSendero': 'Type 2 home with an access path and private garden',
+        'gallery.capSendero': '02 · Path and garden',
+        'gallery.altExterior02': 'Side view of a home with a deck and coastal planting',
+        'gallery.capExterior02': '03 · Exterior and deck',
+        'gallery.altBano03': 'Bright bathroom with shower, bidet and light finishes',
+        'gallery.capBano03': '04 · Bathroom',
+        'gallery.altBano04': 'Bathroom with glass shower screen and wooden vanity',
+        'gallery.capBano04': '05 · Bathroom',
         'gallery.noteArch': 'Architecture · <span translate="no">Franco Beverati</span>',
-        'gallery.noteCount': '11 images · 2026',
+        'gallery.noteCount': '05 current renders · 2026',
         'values.sectionLabel': 'Principles — 03',
         'values.v1Title': 'Low <em>density</em>.',
         'values.v1Body': 'Just four homes on a generous lot. Each one with its own privacy and its own slice of forest.',

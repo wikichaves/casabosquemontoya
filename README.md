@@ -32,10 +32,10 @@ vercel.json       Vercel config (pure static)
 
 ## Images
 
-Each render ships as a `.jpeg` (the `<picture>` fallback, also what the lightbox
-falls back to) plus WebP variants at 800px, 1600px and full width. The gallery
-picks a variant via `srcset`/`sizes`; the lightbox always loads the full-width
-WebP from the tile's `data-full`.
+Each render ships as a `.jpeg` fallback plus WebP variants at 800px and full
+width (and 1600px when the source is large enough). The gallery picks a variant
+via `srcset`/`sizes`; the lightbox loads the full-width WebP from the tile's
+`data-full`.
 
 **If you add or replace a render, regenerate its variants** — otherwise the
 `srcset` points at files that don't exist and only the jpeg fallback is served:
@@ -49,13 +49,12 @@ cwebp -q 80 -m 6 "$f.jpeg" -o "$f.webp"
 for t in 800 1600; do [ "$w" -gt "$t" ] && cwebp -q 80 -m 6 -resize $t 0 "$f.jpeg" -o "$f-$t.webp"; done
 ```
 
-The OG image (`cabin-kids-og.jpeg`) stays jpeg — some social scrapers still
-don't handle WebP.
+The OG image stays jpeg — some social scrapers still don't handle WebP.
 
 The hero is a CSS background, not an `<img>`, so it can't use `srcset`. It
 switches through `image-set()` plus the `max-width:900px` breakpoint:
-desktop gets `cabin-kids.webp`, phones get `cabin-kids-portrait.webp` — a
-750x1624 crop of the slice a portrait screen actually shows. **The two
+desktop gets the horizontal exterior render and phones get the vertical Type 2
+render with its path and garden. **The two
 `rel=preload` tags in `<head>` carry matching `media` attributes; if you move
 that breakpoint, move it in all three places** or phones will preload the wide
 file on top of the crop.
@@ -128,7 +127,8 @@ everything as `max-age=0, must-revalidate`, so every repeat visit re-validates
 each file. Fonts get a year and `immutable`; images get a week.
 
 **Images get a week rather than a year because their filenames carry no content
-hash.** Replace `cabin-kids.webp` and returning visitors keep the old bytes
+hash.** Replace an existing render and returning visitors keep the old bytes
 until the week is up. If you need a render swapped immediately, ship it under a
-new filename. `index.html`, `robots.txt` and `sitemap.xml` deliberately keep the
-default and revalidate every time, which is what makes a deploy visible at once.
+new revisioned filename. `index.html`, `robots.txt` and `sitemap.xml`
+deliberately keep the default and revalidate every time, which is what makes a
+deploy visible at once.
