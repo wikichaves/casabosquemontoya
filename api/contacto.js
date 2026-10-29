@@ -1,8 +1,7 @@
 import { Resend } from 'resend';
 
 const DESTINO = 'hola@casabosquemontoya.com';
-// Cambiar a 'Casa Bosque Montoya <contacto@casabosquemontoya.com>' cuando el dominio esté verificado en Resend.
-const FROM = process.env.RESEND_FROM || 'Casa Bosque Montoya <onboarding@resend.dev>';
+const FROM = process.env.RESEND_FROM || 'Casa Bosque Montoya <hola@casabosquemontoya.com>';
 
 function escapeHtml(s = '') {
   return String(s)
@@ -44,23 +43,43 @@ export default async function handler(req, res) {
       : motivo === 'info' ? 'Saber más del proyecto'
       : (motivo || '—');
 
-    const subject = `Nuevo contacto — ${motivoLabel} — ${nombre.trim()}`;
-    const html = `
+    const nombreLimpio = nombre.trim();
+    const emailLimpio = email.trim();
+    const mensajeLimpio = mensaje.trim();
+    const subject = `Nuevo contacto — ${motivoLabel} — ${nombreLimpio}`;
+    const adminHtml = `
       <div style="font-family:system-ui,-apple-system,Arial,sans-serif;color:#1f4a57;line-height:1.5">
         <h2 style="margin:0 0 16px">Nuevo mensaje desde el sitio</h2>
-        <p><strong>Nombre:</strong> ${escapeHtml(nombre.trim())}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email.trim())}</p>
+        <p><strong>Nombre:</strong> ${escapeHtml(nombreLimpio)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(emailLimpio)}</p>
         <p><strong>Motivo:</strong> ${escapeHtml(motivoLabel)}</p>
-        <p><strong>Mensaje:</strong><br>${escapeHtml(mensaje.trim()).replace(/\n/g, '<br>') || '<em>(sin mensaje)</em>'}</p>
+        <p><strong>Mensaje:</strong><br>${escapeHtml(mensajeLimpio).replace(/\n/g, '<br>') || '<em>(sin mensaje)</em>'}</p>
       </div>`;
 
-    const { error } = await resend.emails.send({
-      from: FROM,
-      to: [DESTINO],
-      replyTo: email.trim(),
-      subject,
-      html,
-    });
+    const confirmacionHtml = `
+      <div style="font-family:system-ui,-apple-system,Arial,sans-serif;color:#1f4a57;line-height:1.6;max-width:560px">
+        <h2 style="margin:0 0 16px">¡Gracias, ${escapeHtml(nombreLimpio)}!</h2>
+        <p>Recibimos tu mensaje.</p>
+        <p><strong>Te escribimos pronto.</strong></p>
+        <p style="margin-top:28px">Casa Bosque Montoya</p>
+      </div>`;
+
+    const { error } = await resend.batch.send([
+      {
+        from: FROM,
+        to: [DESTINO],
+        replyTo: emailLimpio,
+        subject,
+        html: adminHtml,
+      },
+      {
+        from: FROM,
+        to: [emailLimpio],
+        replyTo: DESTINO,
+        subject: '¡Gracias! Te escribimos pronto',
+        html: confirmacionHtml,
+      },
+    ]);
 
     if (error) {
       console.error('Resend error:', error);
