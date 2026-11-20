@@ -477,6 +477,16 @@
     display:block;
   }
 
+  /* ——— hosts ——— */
+  .hosts{background:var(--paper)}
+  .hosts-grid{display:grid; grid-template-columns:auto 1fr; gap:56px; align-items:center; max-width:960px}
+  .hosts-photos{display:flex; gap:16px; margin:0}
+  .hosts-photos img{display:block; width:128px; height:128px; border-radius:50%; object-fit:cover; background:var(--sand-deep)}
+  .hosts h2{font-family:var(--serif); font-weight:400; font-size:clamp(36px,4vw,56px); line-height:1.1; letter-spacing:-.01em; margin:0 0 8px; color:var(--ink)}
+  .hosts .hosts-names{font-family:var(--serif); font-style:italic; font-size:26px; line-height:1.2; color:var(--terra); margin:0 0 18px}
+  .hosts .hosts-body{font-size:16px; line-height:1.6; font-weight:300; color:var(--ink-soft); margin:0; max-width:56ch}
+  @media(max-width:900px){.hosts-grid{grid-template-columns:1fr; gap:32px}.hosts-photos img{width:104px; height:104px}}
+
   /* ——— location ——— */
   .location{
     background:var(--ink);
@@ -1456,10 +1466,29 @@
   </div>
 </section>
 
+<!-- ——— HOSTS ——— -->
+<section class="hosts" id="anfitriones" aria-labelledby="hosts-title">
+  <div class="container">
+    <div class="section-label" data-i18n="hosts.sectionLabel">Anfitriones — 06</div>
+
+    <div class="hosts-grid">
+      <figure class="hosts-photos">
+        <picture><source type="image/webp" srcset="assets/host-agus.webp"><img loading="lazy" decoding="async" src="assets/host-agus.jpeg" data-i18n-attr="alt:hosts.agusAlt" alt="Retrato de Agus" width="320" height="320"></picture>
+        <picture><source type="image/webp" srcset="assets/host-wiki.webp"><img loading="lazy" decoding="async" src="assets/host-wiki.jpeg" data-i18n-attr="alt:hosts.wikiAlt" alt="Retrato de Wiki" width="320" height="320"></picture>
+      </figure>
+      <div>
+        <h2 id="hosts-title" data-i18n="hosts.title">Quiénes te reciben</h2>
+        <p class="hosts-names" translate="no" data-i18n="hosts.names">Agus y Wiki</p>
+        <p class="hosts-body" data-i18n-html="hosts.body">Somos una familia que disfruta de viajar, el surf, el yoga y la vida cerca de la naturaleza y la playa. Vivimos en <span translate="no">La Barra</span> con nuestro hijo Antón, de cinco años. Nuestra experiencia viajando y recibiendo huéspedes inspira <span translate="no">Casa Bosque Montoya</span>: un lugar pensado para compartir esa forma de vivir y hacerte sentir en casa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ——— CONTACT ——— -->
 <section class="contact" id="contacto">
   <div class="container">
-    <div class="section-label" data-i18n="contact.sectionLabel">Contacto — 06</div>
+    <div class="section-label" data-i18n="contact.sectionLabel">Contacto — 07</div>
 
     <div class="contact-head">
       <h2 data-i18n-html="contact.title">Dejá tu<br>mensaje, te<br><em>escribimos.</em></h2>
@@ -1840,7 +1869,13 @@
         'location.airport': 'Aeropuerto',
         'location.mapsLink': 'Ver en Google Maps',
         'location.mapOcean': 'OCÉANO ATLÁNTICO',
-        'contact.sectionLabel': 'Contacto — 06',
+        'hosts.sectionLabel': 'Anfitriones — 06',
+        'hosts.title': 'Quiénes te reciben',
+        'hosts.names': 'Agus y Wiki',
+        'hosts.body': 'Somos una familia que disfruta de viajar, el surf, el yoga y la vida cerca de la naturaleza y la playa. Vivimos en <span translate="no">La Barra</span> con nuestro hijo Antón, de cinco años. Nuestra experiencia viajando y recibiendo huéspedes inspira <span translate="no">Casa Bosque Montoya</span>: un lugar pensado para compartir esa forma de vivir y hacerte sentir en casa.',
+        'hosts.agusAlt': 'Retrato de Agus',
+        'hosts.wikiAlt': 'Retrato de Wiki',
+        'contact.sectionLabel': 'Contacto — 07',
         'contact.title': 'Dejá tu<br>mensaje, te<br><em>escribimos.</em>',
         'contact.opening': 'Apertura Diciembre 2026',
         'contact.emailSub': 'Respondemos en 24–48 h',
@@ -1995,7 +2030,13 @@
         'location.airport': 'Airport',
         'location.mapsLink': 'View on Google Maps',
         'location.mapOcean': 'ATLANTIC OCEAN',
-        'contact.sectionLabel': 'Contact — 06',
+        'hosts.sectionLabel': 'Hosts — 06',
+        'hosts.title': 'Your hosts',
+        'hosts.names': 'Agus & Wiki',
+        'hosts.body': "We're a family who love travelling, surfing, yoga and life close to nature and the beach. We live in <span translate=\"no\">La Barra</span> with our five-year-old son, Antón. Our experiences travelling and welcoming guests inspire <span translate=\"no\">Casa Bosque Montoya</span>: a place to share this way of life and help you feel at home.",
+        'hosts.agusAlt': 'Portrait of Agus',
+        'hosts.wikiAlt': 'Portrait of Wiki',
+        'contact.sectionLabel': 'Contact — 07',
         'contact.title': "Drop us a<br>message, we'll<br><em>write back.</em>",
         'contact.opening': 'Opening December 2026',
         'contact.emailSub': 'We reply in 24–48 h',
