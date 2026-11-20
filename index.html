@@ -3,31 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title data-i18n="meta.title">Casa Bosque Montoya — Cuatro casas vacacionales en La Barra, Uruguay</title>
-<meta name="description" data-i18n-attr="content:meta.description" content="Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.">
+<title data-i18n="meta.title">Casa Bosque Montoya | Alquiler de casas en La Barra</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="Cuatro casas para 4 personas cada una en Montoya, La Barra, a unos 500 m del mar. Alquiler de verano, invernal y anual. Apertura en diciembre de 2026.">
 <link rel="canonical" href="https://casabosquemontoya.com/">
 <link rel="icon" type="image/png" href="/assets/favicon.png">
 <!-- hero is a CSS background, so the browser can't discover it early — preload it for LCP.
      type= lets browsers without WebP skip these and take the jpeg from the CSS fallback.
      media= must mirror the .hero .bg breakpoint, or a phone preloads the wide file too. -->
-<link rel="preload" as="image" href="/assets/cabin-kids-current.webp" type="image/webp" media="(min-width:901px)" fetchpriority="high">
-<link rel="preload" as="image" href="/assets/cabin-kids-current-1600.webp" type="image/webp" media="(max-width:900px)" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/hero-site-v6-trunk.webp" type="image/webp" media="(min-width:901px)" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/hero-site-v6-trunk-800.webp" type="image/webp" media="(max-width:900px)" fetchpriority="high">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Casa Bosque Montoya">
-<meta property="og:title" content="Casa Bosque Montoya — Cuatro casas vacacionales en La Barra, Uruguay">
-<meta property="og:description" content="Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.">
+<meta property="og:title" content="Casa Bosque Montoya | Alquiler de casas en La Barra">
+<meta property="og:description" content="Cuatro casas para 4 personas cada una en Montoya, La Barra, a unos 500 m del mar. Alquiler de verano, invernal y anual. Apertura en diciembre de 2026.">
 <meta property="og:url" content="https://casabosquemontoya.com/">
 <meta property="og:locale" content="es_UY">
-<meta property="og:image" content="https://casabosquemontoya.com/assets/cabin-kids-current-og.jpeg">
+<meta property="og:image" content="https://casabosquemontoya.com/assets/casa-bosque-montoya-social-2026-11.jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Casas entre los pinos en Montoya, Uruguay">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Casa Bosque Montoya: cuatro casas entre pinos y senderos, en La Barra, Uruguay.">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Casa Bosque Montoya">
-<meta name="twitter:description" content="Entre pinos y el mar. Cuatro casas vacacionales en La Barra, Uruguay. Abriendo diciembre 2026.">
-<meta name="twitter:image" content="https://casabosquemontoya.com/assets/cabin-kids-current-og.jpeg">
+<meta name="twitter:image:alt" content="Casa Bosque Montoya: cuatro casas entre pinos y senderos, en La Barra, Uruguay.">
+<meta name="twitter:title" content="Casa Bosque Montoya | Alquiler de casas en La Barra">
+<meta name="twitter:description" content="Cuatro casas para 4 personas cada una en Montoya, La Barra, a unos 500 m del mar. Alquiler de verano, invernal y anual. Apertura en diciembre de 2026.">
+<meta name="twitter:image" content="https://casabosquemontoya.com/assets/casa-bosque-montoya-social-2026-11.jpeg">
 
 <!-- Fonts are self-hosted (see assets/fonts/OFL.txt). Google's stylesheet was
      render-blocking and on a third origin, so the face definitions couldn't be
@@ -177,6 +179,8 @@
     50%{opacity:1}
   }
   .topbar > *{pointer-events:auto}
+  .topbar-cta{display:inline-flex; align-items:center; min-height:44px}
+  #form{scroll-margin-top:90px}
 
   /* ——— hero ——— */
   .hero{
@@ -189,10 +193,10 @@
   }
   .hero .bg{
     position:absolute; inset:0;
-    background-image:url('assets/cabin-kids-current.jpeg');
+    background-image:url('assets/hero-site-v6-trunk.jpeg');
     /* second declaration wins where image-set() is supported; older engines keep the jpeg above */
-    background-image:image-set(url('assets/cabin-kids-current.webp') type('image/webp'),
-                               url('assets/cabin-kids-current.jpeg') type('image/jpeg'));
+    background-image:image-set(url('assets/hero-site-v6-trunk.webp') type('image/webp'),
+                               url('assets/hero-site-v6-trunk.jpeg') type('image/jpeg'));
     background-size:cover;
     background-position:center 45%;
     filter:saturate(1.05) brightness(.88);
@@ -259,6 +263,7 @@
     content:""; display:inline-block; width:40px; height:1px; background:currentColor;
     vertical-align:middle; margin-right:12px;
   }
+
 
   /* ——— sections ——— */
   section{padding: 120px 56px}
@@ -330,6 +335,60 @@
     line-height:1;
     letter-spacing:-.01em;
   }
+
+  .specs .spec-detail{display:block; margin-top:10px; font-family:var(--sans);font-size:14px;line-height:1.4;letter-spacing:0;color:var(--ink-soft)}
+
+  /* ——— houses ——— */
+  .houses{background:var(--paper)}
+  .houses-heading{display:flex; justify-content:space-between; align-items:end; gap:32px; margin-bottom:48px}
+  .houses h2{font-family:var(--serif); font-weight:400; font-size:clamp(36px,4vw,56px); line-height:1.1; letter-spacing:-.01em; margin:0}
+  .houses h2 em{color:var(--terra)}
+  .houses-heading p{max-width:34ch; font-size:16px; line-height:1.6; color:var(--ink-soft); margin:0}
+  .houses-layout{width:100%; margin:0 auto 48px; scroll-margin-top:76px}
+  .site-plan{margin:0; padding:20px; background:var(--sand)}
+  .site-plan-drawing{position:relative}
+  .site-plan-compact{display:none}
+  .site-plan-mobile-details{display:none}
+  .site-plan-wide{width:min(100%,calc((100svh - 190px)*1.931)); aspect-ratio:1120 / 580; margin:0 auto}
+  .site-plan-wide svg{position:absolute; inset:0; height:100%; overflow:visible}
+  .site-plan-wide .plan-label{width:13%}
+  .site-plan-wide .plan-label h3{font-size:clamp(18px,2vw,25px)}
+  .site-plan-wide .plan-label p{font-size:14px}
+  @media(max-width:700px){
+    .site-plan-wide{display:none}
+    .site-plan-compact{display:block}
+    .site-plan-mobile-details{display:block; font-family:var(--mono); font-size:12px; line-height:1.6; margin-top:12px; color:var(--ink-soft)}
+  }
+  .site-plan svg{display:block; width:100%; height:auto}
+  .site-plan-wide svg{position:absolute; inset:0; height:100%; overflow:visible}
+  .site-plan figcaption{font-family:var(--mono); font-size:12px; line-height:1.6; color:var(--ink-soft); margin-top:16px}
+  .plan-house rect{fill:var(--paper); stroke:var(--terra); stroke-width:1.5}
+  .plan-label{position:absolute; transform:translate(-50%,-50%); text-align:center; width:20%; pointer-events:none; color:var(--ink)}
+  .plan-label h3{font-family:var(--serif); font-size:clamp(15px,2.7vw,27px); font-weight:400; line-height:1.15; margin:0 0 6px}
+  .plan-label p{font-size:clamp(11px,1.7vw,14px); line-height:1.25; margin:0; color:var(--ink-soft)}
+  @media(max-width:900px){.houses-heading{align-items:start; flex-direction:column; gap:24px}}
+  @media(max-width:480px){.site-plan{padding:12px 0}.site-plan figcaption{padding:0 12px}.plan-label h3{margin-bottom:3px}.plan-label p{font-size:11px}}
+
+  /* Simplified layouts, deliberately without dimensions or technical details. */
+  .home-layouts{scroll-margin-top:72px; margin-top:64px; display:grid; grid-template-columns:1fr 1fr; gap:32px}
+  .home-layout{padding:32px; border:1px solid var(--line)}
+  .home-layout h3{font-family:var(--serif); font-size:32px; font-weight:400; margin:8px 0 16px}
+  .home-layout .layout-homes{font-family:var(--mono); font-size:14px; color:var(--terra); margin:0}
+  .home-layout .layout-copy{font-size:16px; line-height:1.6; color:var(--ink-soft); margin:0; min-height:78px}
+  .layout-drawings{margin:32px 0 0; display:flex; flex-direction:column; align-items:center; gap:24px}
+  .layout-floor{width:100%; max-width:260px}
+  .layout-floor p{font-family:var(--mono); font-size:14px; margin:0 0 12px; color:var(--ink-soft)}
+  .layout-floor svg{display:block; width:100%; height:auto; overflow:visible}
+  .layout-floor svg text{font-family:var(--mono); font-size:14px; fill:var(--ink); text-anchor:middle}
+  .layout-shell{fill:none; stroke:var(--ink-soft); stroke-width:2}
+  .layout-bedroom{fill:#e4e8dd}
+  .layout-bath{fill:#e9ded0}
+  .layout-social{fill:#f0e9dc}
+  .layout-balcony{fill:#e1e5df}
+  .layout-wall{fill:none; stroke:var(--ink-soft); stroke-width:1.5}
+  .layout-stair{fill:none; stroke:var(--ink-soft); stroke-width:1}
+  .layouts-note{grid-column:1/-1; font-family:var(--mono); font-size:12px; line-height:1.6; margin:0; color:var(--ink-soft)}
+  @media(max-width:900px){.home-layouts{grid-template-columns:1fr; gap:24px}.home-layout{padding:28px 20px}.home-layout .layout-copy{min-height:0}}
 
   /* ——— gallery ——— */
   .gallery{
@@ -463,6 +522,10 @@
     opacity:.5; margin-bottom:4px; display:block;
   }
 
+  .location-maps-link{display:inline-flex; align-items:center; min-height:44px; margin-top:32px; padding:12px 20px; border:1px solid rgba(241,232,214,.5); color:var(--sand); font-family:var(--mono); font-size:14px; text-decoration:none; transition:background 200ms,border-color 200ms}
+  .location-maps-link:hover{background:rgba(241,232,214,.08); border-color:var(--sand)}
+  .location-maps-link:focus-visible{outline:2px solid var(--sand); outline-offset:4px}
+
   /* mini map */
   .map-card{
     aspect-ratio: 3/4;
@@ -578,7 +641,6 @@
   .contact-form{
     scroll-margin-top:80px;
     margin-top:64px;
-    border-top:1px solid var(--line);
     padding-top:48px;
   }
   .cf-intro{
@@ -586,7 +648,8 @@
     font-size:clamp(18px,2vw,24px);
     line-height:1.35;
     color:var(--ink-soft);
-    max-width:44ch;
+    max-width:64ch;
+    text-wrap:pretty;
     margin:0 0 40px;
   }
   .cf-grid{
@@ -618,6 +681,7 @@
     transition:border-color 200ms;
     -webkit-appearance:none; appearance:none;
   }
+  .cf-field input,.cf-field select{min-height:44px}
   .cf-field textarea{resize:vertical; min-height:60px;}
   .cf-field select{cursor:pointer;}
   .cf-field input:focus,
@@ -684,6 +748,9 @@
     transition:border 200ms;
   }
   .foot-col a:hover{border-bottom-color:#e9c9a6}
+  .foot-people{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 8px}
+  .foot-people a{white-space:nowrap}
+  .foot-conjunction{font-family:var(--serif);font-size:22px;line-height:1.2;color:#f1e8d6}
   .foot-col p{
     margin:8px 0 0;
     line-height:1.5;
@@ -704,9 +771,9 @@
     .hero-inner{padding: 0 24px 48px}
     .hero{height:auto; min-height:100vh; min-height:100svh}
     .hero .bg{
-      background-image:url('assets/cabin-kids-current.jpeg');
-      background-image:image-set(url('assets/cabin-kids-current-1600.webp') type('image/webp'),
-                                 url('assets/cabin-kids-current.jpeg') type('image/jpeg'));
+      background-image:url('assets/hero-site-v6-trunk.jpeg');
+      background-image:image-set(url('assets/hero-site-v6-trunk-800.webp') type('image/webp'),
+                                 url('assets/hero-site-v6-trunk.jpeg') type('image/jpeg'));
       background-position:52% center;
     }
     .hero-meta{margin-top:32px; gap:20px}
@@ -813,7 +880,7 @@
 
   @media (max-width:768px){
     .lightbox__img{max-height:72vh}
-    .lightbox__nav{width:40px; height:40px; font-size:20px}
+    .lightbox__nav{width:44px; height:44px; font-size:20px}
     .lightbox__close{top:14px; right:14px}
     .lightbox__prev{left:8px}
     .lightbox__next{right:8px}
@@ -828,6 +895,7 @@
     letter-spacing:normal; text-transform:none;
   }
   .lang-selector__trigger{
+    min-height:44px; min-width:60px;
     display:inline-flex; align-items:center; gap:6px;
     background:rgba(241,232,214,.06);
     color:#f1e8d6;
@@ -858,15 +926,16 @@
     box-shadow:0 12px 32px rgba(0,0,0,.35);
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
-    opacity:0; transform:translateY(4px);
+    visibility:hidden; opacity:0; transform:translateY(4px);
     pointer-events:none;
     transition:opacity 180ms cubic-bezier(.2,.7,.2,1), transform 180ms cubic-bezier(.2,.7,.2,1);
     z-index:20;
   }
   .lang-selector.open .lang-selector__menu{
-    opacity:1; transform:translateY(0); pointer-events:auto;
+    visibility:visible; opacity:1; transform:translateY(0); pointer-events:auto;
   }
   .lang-selector__item{
+    min-height:44px;
     display:flex; align-items:center; gap:10px;
     width:100%;
     background:transparent; border:none;
@@ -907,8 +976,8 @@
   "@id": "https://casabosquemontoya.com/#lodging",
   "name": "Casa Bosque Montoya",
   "url": "https://casabosquemontoya.com/",
-  "description": "Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.",
-  "image": "https://casabosquemontoya.com/assets/cabin-kids-current-og.jpeg",
+  "description": "Cuatro casas para 4 personas cada una en Montoya, La Barra, a unos 500 m del mar. Alquiler de verano, invernal y anual. Apertura en diciembre de 2026.",
+  "image": "https://casabosquemontoya.com/assets/casa-bosque-montoya-social-2026-11.jpeg",
   "email": "hola@casabosquemontoya.com",
   "telephone": "+59898246585",
   "address": {
@@ -917,22 +986,70 @@
     "addressRegion": "Maldonado",
     "addressCountry": "UY"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": -34.95,
-    "longitude": -54.7667
-  },
-  "numberOfRooms": {
-    "@type": "QuantitativeValue",
-    "value": 4,
-    "unitText": "casas"
-  },
-  "sameAs": ["https://www.instagram.com/casabosquemontoya/"],
-  "additionalProperty": {
-    "@type": "PropertyValue",
-    "name": "Apertura",
-    "value": "2026-12"
-  }
+  "sameAs": [
+    "https://www.instagram.com/casabosquemontoya/"
+  ],
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Apertura",
+      "value": "2026-12"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Casas independientes",
+      "value": 4
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Capacidad máxima del conjunto",
+      "value": 16,
+      "unitText": "personas"
+    }
+  ],
+  "hasMap": "https://maps.app.goo.gl/LMmsz41mbEproeWaA",
+  "containsPlace": [
+    {
+      "@type": "House",
+      "name": "Casa 1",
+      "numberOfBedrooms": 2,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 4,
+        "unitText": "personas"
+      }
+    },
+    {
+      "@type": "House",
+      "name": "Casa 2",
+      "numberOfBedrooms": 2,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 4,
+        "unitText": "personas"
+      }
+    },
+    {
+      "@type": "House",
+      "name": "Casa 3",
+      "numberOfBedrooms": 2,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 4,
+        "unitText": "personas"
+      }
+    },
+    {
+      "@type": "House",
+      "name": "Casa 4",
+      "numberOfBedrooms": 2,
+      "occupancy": {
+        "@type": "QuantitativeValue",
+        "maxValue": 4,
+        "unitText": "personas"
+      }
+    }
+  ]
 }
 </script>
 
@@ -943,12 +1060,12 @@
 
 <div class="topbar">
   <span><span class="dot"></span><span data-i18n="topbar.opening">Apertura Diciembre 2026</span></span>
-  <a class="topbar-cta" href="#form" data-i18n="topbar.cta">Reservar / Consultar →</a>
+  <a class="topbar-cta" href="#form" data-i18n="topbar.cta">Consultas</a>
 </div>
 
 <!-- ——— HERO ——— -->
 <header class="hero">
-  <div class="bg" role="img" data-i18n-attr="aria-label:hero.bgAlt" aria-label="Casa Bosque Montoya entre pinos, con fachada blanca y madera natural"></div>
+  <div class="bg" role="img" data-i18n-attr="aria-label:hero.bgAlt" aria-label="Visualización orientativa de las cuatro casas junto al sendero central, con pinos dispersos"></div>
   <div class="vignette"></div>
   <div class="frame"></div>
   <div class="scroll-hint">Scroll ↓</div>
@@ -964,7 +1081,7 @@
       </div>
       <div class="col">
         <span class="label" data-i18n="hero.project">Proyecto</span>
-        <span data-i18n-html="hero.projectValue">4 casas vacacionales<br>Baja densidad · bosque nativo</span>
+        <span data-i18n-html="hero.projectValue">4 casas vacacionales</span>
       </div>
       <div class="col">
         <span class="label" data-i18n="hero.opening">Apertura</span>
@@ -972,7 +1089,7 @@
       </div>
       <div class="col">
         <span class="label" data-i18n="hero.status">Estado</span>
-        <span data-i18n-html="hero.statusValue">En obra<br>Reservas pronto</span>
+        <span data-i18n-html="hero.statusValue">Finalizando obra</span>
       </div>
     </div>
   </div>
@@ -1002,68 +1119,203 @@
         <div class="v">~500m</div>
       </div>
       <div>
-        <span class="label" data-i18n="intro.specSetting">Entorno</span>
-        <div class="v" data-i18n="intro.specSettingValue">Bosque</div>
+        <span class="label" data-i18n="intro.specCapacity">Capacidad</span>
+        <div class="v" data-i18n="intro.specCapacityValue">4 personas</div>
+        <span class="spec-detail" data-i18n="intro.specCapacityDetail">Por casa · Hasta 16 en total</span>
       </div>
       <div>
         <span class="label" data-i18n="intro.specOpening">Apertura</span>
-        <div class="v" data-i18n="intro.specOpeningValue">Dic 26</div>
+        <div class="v" data-i18n="intro.specOpeningValue">Diciembre 2026</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ——— GALLERY ——— -->
-<section class="gallery">
+<section class="gallery" id="galeria">
   <div class="container">
     <div class="section-label" data-i18n="gallery.sectionLabel">Proyecto — 02</div>
     <h2 style="font-family:var(--serif); font-weight:400; font-size:clamp(36px,4vw,56px); margin:0 0 8px; letter-spacing:-.01em;" data-i18n-html="gallery.title">Así toma forma <em style="font-style:italic;color:var(--terra)">el lugar</em>.</h2>
-    <p style="font-family:var(--mono); font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:var(--ink-soft); margin:0" data-i18n="gallery.subtitle">Renders vigentes · Proyecto en obra · Caminería y paisajismo en desarrollo</p>
 
     <div class="gallery-grid">
-      <figure class="tile t1" data-full="assets/cabin-kids-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/cabin-kids-current-800.webp 800w, assets/cabin-kids-current-1600.webp 1600w, assets/cabin-kids-current.webp 2528w">
-        <img loading="lazy" decoding="async" src="assets/cabin-kids-current.jpeg" data-i18n-attr="alt:gallery.altBosque" alt="Casas actuales entre los pinos"></picture><figcaption class="cap" data-i18n="gallery.capBosque">01 · Bosque</figcaption></figure>
-      <figure class="tile t2" data-full="assets/aerial-cluster-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/aerial-cluster-current-800.webp 800w, assets/aerial-cluster-current-1600.webp 1600w, assets/aerial-cluster-current.webp 2528w">
-        <img loading="lazy" decoding="async" src="assets/aerial-cluster-current.jpeg" data-i18n-attr="alt:gallery.altConjunto" alt="Conjunto actual de cuatro casas desde arriba"></picture><figcaption class="cap" data-i18n="gallery.capConjunto">02 · Conjunto</figcaption></figure>
-
-      <figure class="tile t8" data-full="assets/interior-living-fireplace-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 1240px" srcset="assets/interior-living-fireplace-current-800.webp 800w, assets/interior-living-fireplace-current-1600.webp 1600w, assets/interior-living-fireplace-current.webp 2744w">
-        <img loading="lazy" decoding="async" src="assets/interior-living-fireplace-current.jpeg" data-i18n-attr="alt:gallery.altInterior" alt="Living con materiales cálidos y vista al bosque"></picture><figcaption class="cap" data-i18n="gallery.capInterior">03 · Living</figcaption></figure>
-
-      <figure class="tile t3" data-full="assets/white-cube-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/white-cube-current-800.webp 800w, assets/white-cube-current-1600.webp 1600w, assets/white-cube-current.webp 2528w">
-        <img loading="lazy" decoding="async" src="assets/white-cube-current.jpeg" data-i18n-attr="alt:gallery.altUnidad" alt="Unidad compacta de una planta entre pinos"></picture><figcaption class="cap" data-i18n="gallery.capUnidad">04 · Unidad</figcaption></figure>
-      <figure class="tile t4" data-full="assets/house-facade-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/house-facade-current-800.webp 800w, assets/house-facade-current-1600.webp 1600w, assets/house-facade-current.webp 2528w">
-        <img loading="lazy" decoding="async" src="assets/house-facade-current.jpeg" data-i18n-attr="alt:gallery.altDeck" alt="Fachada actual con deck y madera natural"></picture><figcaption class="cap" data-i18n="gallery.capDeck">05 · Fachada y deck</figcaption></figure>
-      <figure class="tile t5" data-full="assets/cabins-stairs-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/cabins-stairs-current-800.webp 800w, assets/cabins-stairs-current-1600.webp 1600w, assets/cabins-stairs-current.webp 2528w">
-        <img loading="lazy" decoding="async" src="assets/cabins-stairs-current.jpeg" data-i18n-attr="alt:gallery.altAccesos" alt="Accesos naturales entre las casas y el bosque"></picture><figcaption class="cap" data-i18n="gallery.capAccesos">06 · Accesos</figcaption></figure>
-
-      <figure class="tile t9" data-full="assets/interior-kitchen-sea-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 1240px" srcset="assets/interior-kitchen-sea-current-800.webp 800w, assets/interior-kitchen-sea-current-1600.webp 1600w, assets/interior-kitchen-sea-current.webp 2754w">
-        <img loading="lazy" decoding="async" src="assets/interior-kitchen-sea-current.jpeg" data-i18n-attr="alt:gallery.altCocina" alt="Cocina integrada con madera natural y vista a los pinos"></picture><figcaption class="cap" data-i18n="gallery.capCocina">07 · Cocina</figcaption></figure>
-
-      <figure class="tile t6" data-full="assets/reception-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/reception-current-800.webp 800w, assets/reception-current-1600.webp 1600w, assets/reception-current.webp 2400w">
-        <img loading="lazy" decoding="async" src="assets/reception-current.jpeg" data-i18n-attr="alt:gallery.altRecepcion" alt="Propuesta conceptual de recepción y depósito"></picture><figcaption class="cap" data-i18n="gallery.capRecepcion">08 · Recepción · Propuesta</figcaption></figure>
-      <figure class="tile t7" data-full="assets/playground-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/playground-current-800.webp 800w, assets/playground-current-1600.webp 1600w, assets/playground-current.webp 1792w">
-        <img loading="lazy" decoding="async" src="assets/playground-current.jpeg" data-i18n-attr="alt:gallery.altJuegos" alt="Propuesta conceptual de área de juegos en el bosque"></picture><figcaption class="cap" data-i18n="gallery.capJuegos">09 · Juegos · Propuesta</figcaption></figure>
-
-      <figure class="tile t7" data-full="assets/bathroom-a-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/bathroom-a-current-800.webp 800w, assets/bathroom-a-current-1600.webp 1600w, assets/bathroom-a-current.webp 2302w">
-        <img loading="lazy" decoding="async" src="assets/bathroom-a-current.jpeg" data-i18n-attr="alt:gallery.altBanoA" alt="Baño actualizado con terminaciones claras y madera"></picture><figcaption class="cap" data-i18n="gallery.capBanoA">10 · Baño</figcaption></figure>
-      <figure class="tile t6" data-full="assets/bathroom-b-current.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/bathroom-b-current-800.webp 800w, assets/bathroom-b-current.webp 1280w">
-        <img loading="lazy" decoding="async" src="assets/bathroom-b-current.jpeg" data-i18n-attr="alt:gallery.altBanoB" alt="Baño actual, vista de ducha y mampara"></picture><figcaption class="cap" data-i18n="gallery.capBanoB">11 · Baño · Ducha</figcaption></figure>
+      <figure class="tile t1" data-full="assets/finished-courtyard.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-courtyard-800.webp 800w, assets/finished-courtyard.webp 1447w">
+        <img loading="lazy" decoding="async" src="assets/finished-courtyard.jpeg" data-i18n-attr="alt:gallery.completed1Alt" alt="Visualización de las casas terminadas desde el acceso central" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed1Cap">El conjunto</figcaption></figure>
+      <figure class="tile t2" data-full="assets/casa-3-selected.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/casa-3-selected-800.webp 800w, assets/casa-3-selected.webp 896w">
+        <img loading="lazy" decoding="async" src="assets/casa-3-selected.jpeg" data-i18n-attr="alt:gallery.variedFacadeAlt" alt="Vista frontal de Casa 3 con madera y vegetación nativa" width="896" height="1195"></picture><figcaption class="cap" data-i18n="gallery.variedFacadeCap">Fachada y jardín</figcaption></figure>
+      <figure class="tile t1" data-full="assets/finished-deck.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-deck-800.webp 800w, assets/finished-deck.webp 1447w">
+        <img loading="lazy" decoding="async" src="assets/finished-deck.jpeg" data-i18n-attr="alt:gallery.completed3Alt" alt="Visualización del deck terminado y ventanales de madera" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed3Cap">Deck y luz</figcaption></figure>
+      <figure class="tile t2" data-full="assets/finished-play-slide.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/finished-play-slide-800.webp 800w, assets/finished-play-slide.webp 1086w">
+        <img loading="lazy" decoding="async" src="assets/finished-play-slide.jpeg" data-i18n-attr="alt:gallery.completed4Alt" alt="Visualización del tobogán existente con su entorno acondicionado" width="1086" height="1448"></picture><figcaption class="cap" data-i18n="gallery.completed4Cap">Juegos entre árboles</figcaption></figure>
+      <figure class="tile t1" data-full="assets/finished-single-house.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-single-house-800.webp 800w, assets/finished-single-house.webp 1447w">
+        <img loading="lazy" decoding="async" src="assets/finished-single-house.jpeg" data-i18n-attr="alt:gallery.completed5Alt" alt="Visualización de la casa de una planta con fachada terminada" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed5Cap">Una planta</figcaption></figure>
+      <figure class="tile t2" data-full="assets/finished-play-swing.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/finished-play-swing-800.webp 800w, assets/finished-play-swing.webp 1447w">
+        <img loading="lazy" decoding="async" src="assets/finished-play-swing.jpeg" data-i18n-attr="alt:gallery.completed6Alt" alt="Visualización de la hamaca y los juegos de madera existentes" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed6Cap">Un rincón para jugar</figcaption></figure>
+      <figure class="tile t1" data-full="assets/finished-garden-path.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-garden-path-800.webp 800w, assets/finished-garden-path.webp 1447w">
+        <img loading="lazy" decoding="async" src="assets/finished-garden-path.jpeg" data-i18n-attr="alt:gallery.completed7Alt" alt="Visualización del sendero entre las casas con paisajismo terminado" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed7Cap">Senderos y jardín</figcaption></figure>
+      <figure class="tile t2" data-full="assets/bathroom-03-selected.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/bathroom-03-selected-800.webp 800w, assets/bathroom-03-selected.webp 1280w">
+        <img loading="lazy" decoding="async" src="assets/bathroom-03-selected.jpeg" data-i18n-attr="alt:gallery.completed8Alt" alt="Baño con ducha, revestimientos claros y luz natural" width="1280" height="714"></picture><figcaption class="cap" data-i18n="gallery.completed8Cap">Baño</figcaption></figure>
     </div>
 
     <div class="gallery-note">
       <span data-i18n-html="gallery.noteArch">Arquitectura · <span translate="no">Franco Beverati</span></span>
-      <span data-i18n="gallery.noteCount">11 imágenes recompuestas · 2026</span>
+      <span data-i18n="gallery.noteCount">8 imágenes seleccionadas · 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ——— HOUSES ——— -->
+<section class="houses" id="casas" aria-labelledby="houses-title">
+  <div class="container">
+    <div class="section-label" data-i18n="houses.sectionLabel">Las casas — 03</div>
+    <div class="houses-heading">
+      <h2 id="houses-title" data-i18n-html="houses.title">Cuatro casas.<br>Un mismo <em>bosque.</em></h2>
+      <p data-i18n="houses.intro">Dos casas de una planta y dos de dos plantas.</p>
+    </div>
+    <div class="houses-layout">
+      <figure class="site-plan">
+        <div class="site-plan-drawing site-plan-wide">
+          <svg viewBox="0 0 1120 580" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="wide-plan-title wide-plan-desc">
+            <title id="wide-plan-title" data-i18n="houses.planTitle">El conjunto, frente a Reserva Montoya</title>
+            <desc id="wide-plan-desc" data-i18n="houses.widePlanDesc">Reserva Montoya frente al predio, cruzando Calle Mouriel. Recepción en el acceso y juegos a la izquierda. A la derecha, Casa 1 y Casa 3 arriba; Casa 2 y Casa 4 abajo.</desc>
+            <rect width="1120" height="64" fill="#dce1d4"/>
+            <g fill="none" stroke="#8c9a7c" opacity=".65">
+              <circle cx="48" cy="32" r="22"/><circle cx="102" cy="48" r="24"/><circle cx="1010" cy="26" r="25"/><circle cx="1076" cy="47" r="22"/>
+            </g>
+            <text x="560" y="43" text-anchor="middle" font-family="var(--serif)" font-size="29" fill="var(--ink)" translate="no">Reserva Montoya</text>
+
+            <text x="560" y="108" text-anchor="middle" font-family="var(--mono)" font-size="14" fill="var(--ink-soft)" translate="no">CALLE MOURIEL</text>
+            <path d="M36 150H460 M660 150H858 M892 150H1080V560H36V150" fill="none" stroke="var(--ink-soft)"/>
+            <text transform="translate(6 350) rotate(-90)" text-anchor="middle" font-family="var(--mono)" font-size="14" letter-spacing="1" fill="var(--ink-soft)" translate="no">AVENIDA JAUREGUIBERRY</text>
+            <g fill="none" stroke="#c7bda9" stroke-width="10" stroke-linejoin="round">
+              <path d="M875 125V308 M875 352V535 M819 237H875 M897 330H930 M800 440H875 M875 497H946 M610 190V285 Q700 330 853 330"/>
+              <circle cx="875" cy="330" r="22"/>
+            </g>
+            <ellipse cx="475" cy="450" rx="76" ry="48" fill="#a8b395" opacity=".18"/>
+            <g fill="#a8b395" opacity=".55">
+              <circle cx="95" cy="195" r="18"/><circle cx="410" cy="230" r="13"/><circle cx="445" cy="248" r="11"/>
+              <circle cx="155" cy="245" r="21"/><circle cx="285" cy="200" r="18"/>
+              <circle cx="350" cy="305" r="22"/><circle cx="110" cy="345" r="19"/>
+              <circle cx="545" cy="360" r="20"/><circle cx="355" cy="510" r="17"/>
+              <circle cx="190" cy="425" r="22"/><circle cx="245" cy="465" r="18"/><circle cx="460" cy="435" r="23"/><circle cx="510" cy="470" r="17"/>
+              <circle cx="670" cy="190" r="16"/><circle cx="1035" cy="180" r="17"/><circle cx="865" cy="390" r="16"/><circle cx="1040" cy="415" r="17"/><circle cx="840" cy="540" r="15"/>
+            </g>
+            <g fill="#a8b395" opacity=".38">
+              <circle cx="220" cy="310" r="9"/><circle cx="235" cy="318" r="7"/><circle cx="240" cy="303" r="6"/>
+              <circle cx="395" cy="365" r="8"/><circle cx="410" cy="370" r="6"/>
+              <circle cx="110" cy="490" r="8"/><circle cx="125" cy="498" r="6"/>
+            </g>
+            <g class="plan-house">
+              <rect x="460" y="150" width="200" height="40"/>
+              <path d="M560 150V190" stroke="var(--terra)"/>
+              <rect x="725" y="190" width="94" height="94"/><path d="M726 201H818" stroke="var(--terra)"/>
+              <rect x="930" y="200" width="100" height="170"/><rect x="1030" y="250" width="24" height="65"/>
+              <rect x="676" y="410" width="24" height="65"/><rect x="700" y="355" width="100" height="175"/>
+              <rect x="946" y="450" width="94" height="94"/><path d="M947 533H1039" stroke="var(--terra)"/>
+            </g>
+            <g font-family="var(--mono)" font-size="13" fill="var(--ink)" text-anchor="middle">
+              <text x="510" y="176" data-i18n="houses.storage">Lavadero</text>
+              <text x="610" y="176" data-i18n="houses.reception">Recepción</text>
+              <text x="470" y="457" data-i18n="houses.playArea">Juegos</text>
+            </g>
+          </svg>
+          <div class="plan-label" style="left:68.973%;top:40.862%">
+            <h3 data-i18n="houses.house1">Casa 1</h3>
+            <p data-i18n="houses.planFloors2">2 plantas</p>
+          </div>
+          <div class="plan-label" style="left:87.500%;top:49.138%">
+            <h3 data-i18n="houses.house3">Casa 3</h3>
+            <p data-i18n="houses.planFloors1">1 planta</p>
+          </div>
+          <div class="plan-label" style="left:66.964%;top:76.293%">
+            <h3 data-i18n="houses.house2">Casa 2</h3>
+            <p data-i18n="houses.planFloors1">1 planta</p>
+          </div>
+          <div class="plan-label" style="left:88.616%;top:85.690%">
+            <h3 data-i18n="houses.house4">Casa 4</h3>
+            <p data-i18n="houses.planFloors2">2 plantas</p>
+          </div>
+        </div>
+        <div class="site-plan-drawing site-plan-compact">
+        <svg viewBox="0 0 540 650" role="img" aria-labelledby="plan-title plan-desc">
+          <title id="plan-title" data-i18n="houses.planTitle">El conjunto, frente a Reserva Montoya</title>
+          <desc id="plan-desc" data-i18n="houses.planDesc">Reserva Montoya está al otro lado de Calle Mouriel. Casa 1 arriba a la izquierda, Casa 3 arriba a la derecha, Casa 2 abajo a la izquierda y Casa 4 abajo a la derecha, conectadas por senderos.</desc>
+          <rect x="0" y="0" width="540" height="98" fill="#dce1d4"/>
+          <g fill="none" stroke="#8c9a7c" stroke-width="1" opacity=".65">
+            <circle cx="35" cy="35" r="22"/><circle cx="84" cy="76" r="28"/><circle cx="465" cy="32" r="28"/><circle cx="515" cy="80" r="22"/>
+          </g>
+          <text x="270" y="55" text-anchor="middle" font-family="var(--serif)" font-size="27" fill="var(--ink)" translate="no">Reserva Montoya</text>
+
+          <text x="270" y="148" text-anchor="middle" font-family="var(--mono)" font-size="14" fill="var(--ink-soft)" translate="no">CALLE MOURIEL</text>
+          <path d="M32 198H252 M286 198H508V628H32V198" fill="none" stroke="var(--ink-soft)" stroke-width="1"/>
+          <g fill="none" stroke="#c7bda9" stroke-width="12" stroke-linejoin="round">
+            <path d="M270 171V337 M270 381V604 M270 286H196 M292 359H365 M270 476H170 M270 556H357"/>
+            <circle cx="270" cy="359" r="22"/>
+          </g>
+          <g fill="#a8b395" opacity=".55">
+            <circle cx="68" cy="236" r="17"/><circle cx="437" cy="230" r="21"/><circle cx="218" cy="417" r="18"/><circle cx="470" cy="481" r="18"/><circle cx="205" cy="578" r="22"/><circle cx="318" cy="600" r="15"/>
+          </g>
+          <g class="plan-house">
+            <rect x="87" y="242" width="109" height="100"/><path d="M88 253H195" stroke="var(--terra)"/>
+            <rect x="365" y="260" width="78" height="171"/><rect x="443" y="310" width="22" height="59"/>
+            <rect x="68" y="466" width="22" height="62"/><rect x="90" y="414" width="80" height="174"/>
+            <rect x="357" y="520" width="107" height="90"/><path d="M358 599H463" stroke="var(--terra)"/>
+          </g>
+        </svg>
+          <div class="plan-label" style="left:26.296%;top:45.385%">
+            <h3 data-i18n="houses.house1">Casa 1</h3>
+            <p data-i18n="houses.planFloors2">2 plantas</p>
+          </div>
+          <div class="plan-label" style="left:74.815%;top:53.077%">
+            <h3 data-i18n="houses.house3">Casa 3</h3>
+            <p data-i18n="houses.planFloors1">1 planta</p>
+          </div>
+          <div class="plan-label" style="left:24.074%;top:77.077%">
+            <h3 data-i18n="houses.house2">Casa 2</h3>
+            <p data-i18n="houses.planFloors1">1 planta</p>
+          </div>
+          <div class="plan-label" style="left:75.926%;top:86.769%">
+            <h3 data-i18n="houses.house4">Casa 4</h3>
+            <p data-i18n="houses.planFloors2">2 plantas</p>
+          </div>
+        </div>
+        <div class="site-plan-mobile-details" data-i18n="houses.amenities">Lavadero · Recepción · Juegos a la sombra</div>
+        <figcaption data-i18n="houses.planNote">Distribución orientativa · Sin escala. Frente a Reserva Montoya.</figcaption>
+      </figure>
+    </div>
+    <div class="home-layouts" id="distribuciones">
+      <article class="home-layout">
+        <p class="layout-homes" data-i18n="layouts.twoHomes">Casas 1 y 4</p>
+        <h3 data-i18n="layouts.twoTitle">La vida en dos plantas.</h3>
+        <p class="layout-copy" data-i18n="layouts.twoCopy">Dos dormitorios con baño en suite en planta baja. Arriba, el living y la cocina comparten un espacio integrado.</p>
+        <div class="layout-drawings">
+          <div class="layout-floor"><p data-i18n="layouts.groundLabel">Planta baja</p><svg viewBox="0 0 260 200" role="img" aria-labelledby="ground-title ground-desc"><title id="ground-title" data-i18n="layouts.ground">Planta baja: dos dormitorios con baño en suite y escalera.</title><desc id="ground-desc" data-i18n="layouts.groundDesc">Cada dormitorio contiene un recinto de baño dentro de sus límites. La puerta de cada baño abre hacia su propio dormitorio, sin acceso desde la circulación común.</desc><rect class="layout-bedroom" x="0" y="40" width="260" height="160"/>
+<rect class="layout-bath" x="8" y="52" width="60" height="48"/>
+<rect class="layout-bath" x="192" y="52" width="60" height="48"/>
+<path class="layout-wall" d="M130 40V200 M0 40H90 M115 40H145 M170 40H260 M8 52H68V100H45 M25 100H8V52 M192 52H252V100H235 M215 100H192V52"/>
+<path class="layout-stair" d="M20 8H240V30H20Z M40 8V30 M60 8V30 M80 8V30 M100 8V30 M120 8V30 M140 8V30 M160 8V30 M180 8V30 M200 8V30 M220 8V30"/>
+<text x="38" y="81" data-i18n="layouts.bath">Baño</text><text x="222" y="81" data-i18n="layouts.bath">Baño</text>
+<text x="65" y="155" data-i18n="layouts.bedroom">Dormitorio</text><text x="195" y="155" data-i18n="layouts.bedroom">Dormitorio</text>
+<rect class="layout-shell" width="260" height="200"/></svg></div>
+          <div class="layout-floor"><p data-i18n="layouts.upperLabel">Planta alta</p><svg viewBox="0 0 260 200" role="img" aria-labelledby="upper-title upper-desc"><title id="upper-title" data-i18n="layouts.upper">Planta alta: living, cocina y balcón dentro del perímetro.</title><desc id="upper-desc" data-i18n="layouts.upperDesc">La cocina y su barra están a la izquierda, y el living a la derecha. El balcón ocupa la franja inferior dentro del perímetro de la casa.</desc><rect class="layout-social" width="260" height="154"/><rect class="layout-balcony" y="154" width="260" height="46"/><path class="layout-stair" d="M20 8H240V30H20Z M40 8V30 M60 8V30 M80 8V30 M100 8V30 M120 8V30 M140 8V30 M160 8V30 M180 8V30 M200 8V30 M220 8V30"/><rect class="layout-wall" x="62" y="70" width="26" height="62"/><text x="178" y="105" data-i18n="layouts.living">Living</text><text x="75" y="58" data-i18n="layouts.kitchen">Cocina</text><path class="layout-wall" d="M0 154H100 M160 154H260"/><text x="130" y="182" data-i18n="layouts.balcony">Balcón</text><rect class="layout-shell" width="260" height="200"/></svg></div>
+        </div>
+      </article>
+      <article class="home-layout">
+        <p class="layout-homes" data-i18n="layouts.oneHomes">Casas 2 y 3</p>
+        <h3 data-i18n="layouts.oneTitle">Todo en una planta.</h3>
+        <p class="layout-copy" data-i18n="layouts.oneCopy">Un dormitorio en cada extremo, cada uno con baño en suite. En el centro, cocina con barra y living integrados.</p>
+        <div class="layout-drawings">
+          <div class="layout-floor"><p data-i18n="layouts.singleLabel">Planta única</p><svg viewBox="0 0 260 452" role="img" aria-labelledby="single-title single-desc"><title id="single-title" data-i18n="layouts.single">Una planta: dormitorios en los extremos con baños en suite y entrada por la derecha; cocina y living en el centro.</title><desc id="single-desc" data-i18n="layouts.singleDesc">Dos dormitorios en extremos opuestos, con entradas desde el área social por la derecha. Cada baño está a la izquierda y solo se accede desde su dormitorio. Cocina y barra en la parte superior del espacio común; living más abajo.</desc><rect class="layout-bedroom" width="260" height="108"/><rect class="layout-social" y="108" width="260" height="236"/><rect class="layout-bedroom" y="344" width="260" height="108"/><rect class="layout-bath" x="0" width="90" height="108"/><rect class="layout-bath" x="0" y="344" width="90" height="108"/><path class="layout-wall" d="M90 0V40 M90 68V108 M0 108H210 M240 108H260 M90 344V384 M90 412V452 M0 344H210 M240 344H260"/><rect class="layout-wall" x="90" y="185" width="80" height="22"/><text x="175" y="58" data-i18n="layouts.bedroom">Dormitorio</text><text x="45" y="53" data-i18n="layouts.bath">Baño</text><text x="130" y="280" data-i18n="layouts.living">Living</text><text x="130" y="163" data-i18n="layouts.kitchen">Cocina</text><text x="175" y="403" data-i18n="layouts.bedroom">Dormitorio</text><text x="45" y="398" data-i18n="layouts.bath">Baño</text><rect class="layout-shell" width="260" height="452"/></svg></div>
+        </div>
+      </article>
+      <p class="layouts-note" data-i18n="layouts.note">Esquemas de distribución · Sin escala. Las casas de cada tipología pueden tener una disposición espejada.</p>
     </div>
   </div>
 </section>
@@ -1071,7 +1323,7 @@
 <!-- ——— VALUES ——— -->
 <section class="values">
   <div class="container">
-    <div class="section-label" data-i18n="values.sectionLabel">Principios — 03</div>
+    <div class="section-label" data-i18n="values.sectionLabel">Principios — 04</div>
 
     <div class="values-grid">
       <div class="value">
@@ -1099,14 +1351,14 @@
 </section>
 
 <!-- ——— LOCATION ——— -->
-<section class="location">
+<section class="location" id="ubicacion">
   <div class="container">
-    <div class="section-label" data-i18n="location.sectionLabel">Ubicación — 04</div>
+    <div class="section-label" data-i18n="location.sectionLabel">Ubicación — 05</div>
 
     <div class="location-grid">
       <div>
         <h2 translate="no"><em>Montoya</em>,<br>La Barra.</h2>
-        <p data-i18n-html="location.body">Un barrio tranquilo del este uruguayo, entre pinares y dunas. A minutos del centro de <span translate="no">La Barra</span> y <span translate="no">José Ignacio</span>, pero con el silencio de un pueblo chico.</p>
+        <p data-i18n-html="location.body">Un barrio tranquilo del este uruguayo, entre pinares y dunas. A minutos del centro de <span translate="no">La Barra</span>, <span translate="no">Manantiales</span> y <span translate="no">José Ignacio</span>, pero con el silencio de un pueblo chico.</p>
 
         <div class="coords">
           <div>
@@ -1123,9 +1375,10 @@
           </div>
           <div>
             <span class="label" data-i18n="location.airport">Aeropuerto</span>
-            MVD · 90 min
+            <span translate="no">Punta del Este · Montevideo</span>
           </div>
         </div>
+        <a class="location-maps-link" href="https://maps.app.goo.gl/LMmsz41mbEproeWaA" target="_blank" rel="noopener noreferrer" data-i18n="location.mapsLink">Ver en Google Maps</a>
       </div>
 
       <div class="map-card">
@@ -1172,6 +1425,7 @@
             <circle r="2" fill="#f1e8d6"/>
           </g>
 
+          <text x="285" y="46" text-anchor="end" font-family="JetBrains Mono" font-size="8" fill="rgba(106,125,75,.85)" letter-spacing="1.2" translate="no">PORTAL BOSQUE</text>
           <text x="156" y="190" font-family="JetBrains Mono" font-size="9" fill="#f1e8d6" letter-spacing="1" translate="no">CASA BOSQUE</text>
           <text x="15"  y="110" font-family="JetBrains Mono" font-size="8" fill="rgba(106,125,75,.75)" letter-spacing="1.2" translate="no">BARRA VERDE</text>
           <text x="150"  y="133" font-family="JetBrains Mono" font-size="8" fill="rgba(106,125,75,.85)" letter-spacing="1.2" translate="no">RESERVA MONTOYA</text>
@@ -1193,12 +1447,12 @@
 <!-- ——— CONTACT ——— -->
 <section class="contact" id="contacto">
   <div class="container">
-    <div class="section-label" data-i18n="contact.sectionLabel">Contacto — 05</div>
+    <div class="section-label" data-i18n="contact.sectionLabel">Contacto — 06</div>
 
     <div class="contact-head">
       <h2 data-i18n-html="contact.title">Dejá tu<br>mensaje, te<br><em>escribimos.</em></h2>
       <div class="countdown">
-        <span style="opacity:.6" data-i18n="contact.opening">Apertura Diciembre · 2026</span>
+        <span style="opacity:.6" data-i18n="contact.opening">Apertura Diciembre 2026</span>
       </div>
     </div>
 
@@ -1225,26 +1479,40 @@
 
     <!-- ——— FORM DE CONTACTO ——— -->
     <form class="contact-form" id="form" novalidate>
-      <p class="cf-intro" data-i18n="form.intro">¿Querés alquilar en verano o saber más del proyecto? Dejanos tus datos y te escribimos cuando abramos las reservas.</p>
+      <p class="cf-intro" data-i18n="form.intro">¿Querés alquilar o saber más del proyecto? Dejanos tus datos y te escribimos cuando abramos las reservas.</p>
       <div class="cf-grid">
         <label class="cf-field">
           <span class="cf-label" data-i18n="form.name">Nombre</span>
-          <input type="text" name="nombre" required autocomplete="name">
+          <input type="text" name="nombre" required maxlength="120" autocomplete="name">
         </label>
         <label class="cf-field">
           <span class="cf-label" data-i18n="form.email">Email</span>
-          <input type="email" name="email" required autocomplete="email">
+          <input type="email" name="email" required maxlength="254" autocomplete="email" inputmode="email">
         </label>
         <label class="cf-field">
           <span class="cf-label" data-i18n="form.reason">Motivo</span>
           <select name="motivo">
             <option value="alquiler" data-i18n="form.reasonRent">Alquiler verano</option>
+            <option value="invernal" data-i18n="form.reasonWinter">Alquiler invernal</option>
+            <option value="anual" data-i18n="form.reasonAnnual">Alquiler anual</option>
             <option value="info" data-i18n="form.reasonInfo">Saber más del proyecto</option>
           </select>
         </label>
+        <label class="cf-field">
+          <span class="cf-label" data-i18n="form.source">¿Cómo nos conociste? (opcional)</span>
+          <select name="origen">
+            <option value="" data-i18n="form.sourceEmpty">Seleccioná una opción</option>
+            <option value="instagram" data-i18n="form.sourceInstagram">Instagram</option>
+            <option value="google" data-i18n="form.sourceGoogle">Google</option>
+            <option value="recomendacion" data-i18n="form.sourceRecommendation">Recomendación</option>
+            <option value="pasando" data-i18n="form.sourcePassing">Pasando por el lugar</option>
+            <option value="inmobiliaria" data-i18n="form.sourceAgency">Inmobiliaria</option>
+            <option value="otro" data-i18n="form.sourceOther">Otro</option>
+          </select>
+        </label>
         <label class="cf-field cf-field--full">
-          <span class="cf-label" data-i18n="form.message">Mensaje <span class="cf-optional" data-i18n="form.optional">(opcional)</span></span>
-          <textarea name="mensaje" rows="3"></textarea>
+          <span class="cf-label"><span data-i18n="form.message">Mensaje</span> <span class="cf-optional" data-i18n="form.optional">(opcional)</span></span>
+          <textarea name="mensaje" rows="3" maxlength="5000"></textarea>
         </label>
       </div>
       <!-- honeypot anti-spam -->
@@ -1262,27 +1530,35 @@
   <div class="container">
     <div class="foot-grid">
       <div class="foot-col">
-        <span class="label" data-i18n="footer.devLabel">Desarrollo</span>
-        <a href="https://wikichaves.com" target="_blank" rel="noopener" translate="no">Wiki Chaves</a>
-        <p data-i18n="footer.devCopy">Gestión y desarrollo del proyecto.</p>
+        <span class="label" data-i18n="footer.devLabel">Creadores</span>
+        <div class="foot-people">
+          <a href="https://wikichaves.com" target="_blank" rel="noopener" translate="no">Wiki Chaves</a>
+          <span class="foot-conjunction" data-i18n="footer.and">y</span>
+          <a href="https://agustinaperretta.com/" target="_blank" rel="noopener" translate="no">Agus Perretta</a>
+        </div>
+        <p data-i18n="footer.devCopy">Impulsamos el proyecto y te recibimos.</p>
       </div>
       <div class="foot-col">
-        <span class="label" data-i18n="footer.archLabel">Arquitectura</span>
-        <a href="https://francobeverati.com" target="_blank" rel="noopener" translate="no">Franco Beverati</a>
-        <p data-i18n="footer.archCopy">Diseño arquitectónico y dirección de obra.</p>
+        <span class="label" data-i18n="footer.archLabel">Arquitectura y obra</span>
+        <div class="foot-people">
+          <a href="https://francobeverati.com" target="_blank" rel="noopener" translate="no">Franco Beverati</a>
+          <span class="foot-conjunction" data-i18n="footer.and">y</span>
+          <a href="https://www.linkedin.com/in/felipe-bare%C3%B1o-066514181/" target="_blank" rel="noopener" translate="no">Felipe Bareño</a>
+        </div>
+        <p data-i18n="footer.archCopy">Diseño, desarrollo y dirección de obra.</p>
       </div>
       <div class="foot-col">
         <span class="label" data-i18n="footer.locLabel">Ubicación</span>
-        <span style="font-family:var(--serif); font-size:22px; line-height:1.2; color:#f1e8d6" translate="no">Montoya · La Barra<br>Maldonado, Uruguay</span>
+        <a href="https://maps.app.goo.gl/LMmsz41mbEproeWaA" target="_blank" rel="noopener noreferrer" translate="no">Montoya · La Barra</a><br>
+        <span style="font-family:var(--serif);font-size:22px;line-height:1.2;color:#f1e8d6" translate="no">Maldonado, Uruguay</span>
       </div>
     </div>
 
     <div class="foot-bottom">
       <span>© 2026 <span translate="no">Casa Bosque Montoya</span></span>
-      <span data-i18n="footer.tagline">Entre pinos y el mar</span>
 
       <div class="lang-selector" id="langSelector">
-        <button type="button" class="lang-selector__trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+        <button type="button" class="lang-selector__trigger" aria-haspopup="listbox" aria-expanded="false" data-i18n-attr="aria-label:language.label" aria-label="Idioma">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="9"/>
             <path d="M3 12h18"/>
@@ -1291,7 +1567,7 @@
           </svg>
           <span class="lang-selector__current">ES</span>
         </button>
-        <div class="lang-selector__menu" role="listbox" aria-label="Idioma">
+        <div class="lang-selector__menu" role="listbox" data-i18n-attr="aria-label:language.label" aria-label="Idioma">
           <button type="button" class="lang-selector__item" role="option" data-locale="es" aria-selected="true">
             <span class="lang-selector__item-code">ES</span>
             <span>Español</span>
@@ -1307,7 +1583,7 @@
 </footer>
 
 <!-- Lightbox (must precede the inline script that wires it up) -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" data-i18n-attr="aria-label:lightbox.label" aria-label="Galería ampliada">
+<div class="lightbox" inert id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" data-i18n-attr="aria-label:lightbox.label" aria-label="Galería ampliada">
   <div class="lightbox__backdrop" data-lb-close></div>
   <button type="button" class="lightbox__close" data-lb-close data-i18n-attr="aria-label:lightbox.close" aria-label="Cerrar">×</button>
   <button type="button" class="lightbox__nav lightbox__prev" data-lb-prev data-i18n-attr="aria-label:lightbox.prev" aria-label="Anterior">‹</button>
@@ -1391,6 +1667,7 @@
     const open = (idx) => {
       lastFocused = document.activeElement;
       i = idx; paint();
+      lb.removeAttribute('inert');
       lb.classList.add('open');
       lb.setAttribute('aria-hidden', 'false');
       document.body.classList.add('lb-open');
@@ -1398,6 +1675,7 @@
     };
     const close = () => {
       lb.classList.remove('open');
+      lb.setAttribute('inert', '');
       lb.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('lb-open');
       if (lastFocused && document.contains(lastFocused)) lastFocused.focus();
@@ -1420,7 +1698,12 @@
     lb.querySelector('[data-lb-next]').addEventListener('click', (e) => { e.stopPropagation(); next(); });
     document.addEventListener('keydown', (e) => {
       if (!lb.classList.contains('open')) return;
-      if (e.key === 'Escape') close();
+      if (e.key === 'Tab') {
+        const buttons = Array.from(lb.querySelectorAll('button'));
+        const first = buttons[0], last = buttons[buttons.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      } else if (e.key === 'Escape') close();
       else if (e.key === 'ArrowLeft') prev();
       else if (e.key === 'ArrowRight') next();
     });
@@ -1447,57 +1730,78 @@
 
     const T = {
       es: {
-        'meta.title': 'Casa Bosque Montoya — Cuatro casas vacacionales en La Barra, Uruguay',
-        'meta.description': 'Entre pinos y el mar. Cuatro casas vacacionales en el corazón de Montoya, La Barra, Maldonado, Uruguay. Abriendo en diciembre de 2026.',
+        'language.label': 'Idioma',
+        'meta.title': 'Casa Bosque Montoya | Alquiler de casas en La Barra',
+        'meta.description': 'Cuatro casas para 4 personas cada una en Montoya, La Barra, a unos 500 m del mar. Alquiler de verano, invernal y anual. Apertura en diciembre de 2026.',
         'topbar.opening': 'Apertura Diciembre 2026',
-        'topbar.cta': 'Reservar / Consultar →',
-        'hero.bgAlt': 'Casa Bosque Montoya entre pinos, con fachada blanca y madera natural',
+        'topbar.cta': 'Consultas',
+        'hero.bgAlt': 'Visualización orientativa de las cuatro casas junto al sendero central, con pinos dispersos',
         'hero.title': 'Entre pinos<br>y <em>el mar</em>.',
         'hero.location': 'Ubicación',
         'hero.project': 'Proyecto',
-        'hero.projectValue': '4 casas vacacionales<br>Baja densidad · bosque nativo',
+        'hero.projectValue': '4 casas vacacionales',
         'hero.opening': 'Apertura',
         'hero.openingValue': 'Diciembre 2026',
         'hero.status': 'Estado',
-        'hero.statusValue': 'En obra<br>Reservas pronto',
+        'hero.statusValue': 'Finalizando obra',
         'intro.sectionLabel': 'Un proyecto — 01',
         'intro.title': 'Un lugar<br>para estar<br><em>tranquilo.</em>',
         'intro.lead': 'Un proyecto de baja densidad en el corazón de <span translate="no">Montoya</span>. Cuatro unidades independientes que conviven con el bosque nativo, respetando el entorno y el silencio.',
         'intro.body': 'Un lugar familiar, pensado para apagar el ruido, caminar descalzo sobre la arena, y escuchar el viento entre los pinos. Cerca del mar, pero escondido. Para volver.',
         'intro.specUnits': 'Unidades',
         'intro.specSea': 'Al mar',
-        'intro.specSetting': 'Entorno',
-        'intro.specSettingValue': 'Bosque',
+        "intro.specCapacity": "Capacidad",
+        "intro.specCapacityValue": "4 personas",
+        "intro.specCapacityDetail": "Por casa · Hasta 16 en total",
         'intro.specOpening': 'Apertura',
-        'intro.specOpeningValue': 'Dic 26',
+        'intro.specOpeningValue': 'Diciembre 2026',
         'gallery.sectionLabel': 'Proyecto — 02',
         'gallery.title': 'Así toma forma <em style="font-style:italic;color:var(--terra)">el lugar</em>.',
-        'gallery.subtitle': 'Renders vigentes · Proyecto en obra · Caminería y paisajismo en desarrollo',
-        'gallery.altBosque': 'Casas actuales entre los pinos',
-        'gallery.capBosque': '01 · Bosque',
-        'gallery.altConjunto': 'Conjunto actual de cuatro casas desde arriba',
-        'gallery.capConjunto': '02 · Conjunto',
-        'gallery.altInterior': 'Living con materiales cálidos y vista al bosque',
-        'gallery.capInterior': '03 · Living',
-        'gallery.altUnidad': 'Unidad compacta de una planta entre pinos',
-        'gallery.capUnidad': '04 · Unidad',
-        'gallery.altDeck': 'Fachada actual con deck y madera natural',
-        'gallery.capDeck': '05 · Fachada y deck',
-        'gallery.altAccesos': 'Accesos naturales entre las casas y el bosque',
-        'gallery.capAccesos': '06 · Accesos',
-        'gallery.altCocina': 'Cocina integrada con madera natural y vista a los pinos',
-        'gallery.capCocina': '07 · Cocina',
-        'gallery.altRecepcion': 'Propuesta conceptual de recepción y depósito',
-        'gallery.capRecepcion': '08 · Recepción · Propuesta',
-        'gallery.altJuegos': 'Propuesta conceptual de área de juegos en el bosque',
-        'gallery.capJuegos': '09 · Juegos · Propuesta',
-        'gallery.altBanoA': 'Baño actualizado con terminaciones claras y madera',
-        'gallery.capBanoA': '10 · Baño',
-        'gallery.altBanoB': 'Baño actual, vista de ducha y mampara',
-        'gallery.capBanoB': '11 · Baño · Ducha',
         'gallery.noteArch': 'Arquitectura · <span translate="no">Franco Beverati</span>',
-        'gallery.noteCount': '11 imágenes recompuestas · 2026',
-        'values.sectionLabel': 'Principios — 03',
+        'gallery.variedFacadeAlt': 'Vista frontal de Casa 3 con madera y vegetación nativa',
+        'gallery.variedFacadeCap': 'Fachada y jardín',
+        'gallery.noteCount': '8 imágenes seleccionadas · 2026',
+        "layouts.twoHomes": "Casas 1 y 4",
+        "layouts.twoTitle": "La vida en dos plantas.",
+        "layouts.twoCopy": "Dos dormitorios con baño en suite en planta baja. Arriba, el living y la cocina comparten un espacio integrado.",
+        "layouts.oneHomes": "Casas 2 y 3",
+        "layouts.oneTitle": "Todo en una planta.",
+        "layouts.oneCopy": "Un dormitorio en cada extremo, cada uno con baño en suite. En el centro, cocina con barra y living integrados.",
+        "layouts.groundLabel": "Planta baja",
+        "layouts.upperLabel": "Planta alta",
+        "layouts.balcony": "Balcón",
+        "layouts.singleLabel": "Planta única",
+        "layouts.ground": "Planta baja: dos dormitorios con baño en suite y escalera.",
+        "layouts.groundDesc": "Cada dormitorio contiene un recinto de baño dentro de sus límites. La puerta de cada baño abre hacia su propio dormitorio, sin acceso desde la circulación común.",
+        "layouts.upper": "Planta alta: living, cocina y balcón dentro del perímetro.",
+        "layouts.upperDesc": "La cocina y su barra están a la izquierda, y el living a la derecha. El balcón ocupa la franja inferior dentro del perímetro de la casa.",
+        "layouts.single": "Una planta: dormitorios en los extremos con baños en suite y entrada por la derecha; cocina y living en el centro.",
+        "layouts.singleDesc": "Dos dormitorios en extremos opuestos, con entradas desde el área social por la derecha. Cada baño está a la izquierda y solo se accede desde su dormitorio. Cocina y barra en la parte superior del espacio común; living más abajo.",
+        "layouts.bath": "Baño",
+        "layouts.bedroom": "Dormitorio",
+        "layouts.living": "Living",
+        "layouts.kitchen": "Cocina",
+        "layouts.note": "Esquemas de distribución · Sin escala. Las casas de cada tipología pueden tener una disposición espejada.",
+        'houses.sectionLabel': 'Las casas — 03',
+        "houses.storage": "Lavadero",
+        "houses.reception": "Recepción",
+        "houses.playArea": "Juegos",
+        "houses.widePlanDesc": "Reserva Montoya frente al predio, cruzando Calle Mouriel. Recepción en el acceso y juegos a la izquierda. A la derecha, Casa 1 y Casa 3 arriba; Casa 2 y Casa 4 abajo.",
+
+        'houses.amenities': 'Lavadero · Recepción · Juegos a la sombra',
+        'houses.planTitle': 'El conjunto, frente a Reserva Montoya',
+        'houses.planDesc': 'Reserva Montoya está al otro lado de Calle Mouriel. Casa 1 arriba a la izquierda, Casa 3 arriba a la derecha, Casa 2 abajo a la izquierda y Casa 4 abajo a la derecha, conectadas por senderos.',
+        'houses.planNote': 'Distribución orientativa · Sin escala. Frente a Reserva Montoya.',
+
+        'houses.title': 'Cuatro casas.<br>Un mismo <em>bosque.</em>',
+        'houses.intro': 'Dos casas de una planta y dos de dos plantas.',
+        'houses.planFloors1': '1 planta',
+        'houses.planFloors2': '2 plantas',
+        'houses.house1': 'Casa 1',
+        'houses.house2': 'Casa 2',
+        'houses.house3': 'Casa 3',
+        'houses.house4': 'Casa 4',
+        'values.sectionLabel': 'Principios — 04',
         'values.v1Title': 'Baja <em>densidad</em>.',
         'values.v1Body': 'Solo cuatro unidades en un predio generoso. Cada casa con su privacidad y su propio pedazo de bosque.',
         'values.v2Title': 'Bosque <em>nativo</em>.',
@@ -1506,99 +1810,145 @@
         'values.v3Body': 'A pocas cuadras de la playa de <span translate="no">Montoya</span>, una de las más tranquilas y hermosas de <span translate="no">La Barra</span>.',
         'values.v4Title': 'Hospitalidad <em>fluida</em>.',
         'values.v4Body': 'Sin recepciones lentas ni apps que descargar; toda tu estadía gestionada sin fricciones con un simple mensaje.',
-        'location.sectionLabel': 'Ubicación — 04',
-        'location.body': 'Un barrio tranquilo del este uruguayo, entre pinares y dunas. A minutos del centro de <span translate="no">La Barra</span> y <span translate="no">José Ignacio</span>, pero con el silencio de un pueblo chico.',
+        'location.sectionLabel': 'Ubicación — 05',
+        'location.body': 'Un barrio tranquilo del este uruguayo, entre pinares y dunas. A minutos del centro de <span translate="no">La Barra</span>, <span translate="no">Manantiales</span> y <span translate="no">José Ignacio</span>, pero con el silencio de un pueblo chico.',
         'location.dept': 'Departamento',
         'location.distSea': 'Distancia al mar',
         'location.distSeaValue': '~500 metros',
         'location.barraCenter': 'centro',
         'location.barraCenterValue': '10 min en auto',
         'location.airport': 'Aeropuerto',
+        'location.mapsLink': 'Ver en Google Maps',
         'location.mapOcean': 'OCÉANO ATLÁNTICO',
-        'contact.sectionLabel': 'Contacto — 05',
+        'contact.sectionLabel': 'Contacto — 06',
         'contact.title': 'Dejá tu<br>mensaje, te<br><em>escribimos.</em>',
-        'contact.opening': 'Apertura Diciembre · 2026',
+        'contact.opening': 'Apertura Diciembre 2026',
         'contact.emailSub': 'Respondemos en 24–48 h',
         'contact.emailCta': '→ Escribir',
         'contact.waSub': 'Mensajes, consultas, reservas',
         'contact.waCta': '→ Chatear',
         'contact.igSub': 'Seguí el avance de la obra',
         'contact.igCta': '→ Seguir',
-        'form.intro': '¿Querés alquilar en verano o saber más del proyecto? Dejanos tus datos y te escribimos cuando abramos las reservas.',
+        'form.intro': '¿Querés alquilar o saber más del proyecto? Dejanos tus datos y te escribimos cuando abramos las reservas.',
         'form.name': 'Nombre',
         'form.email': 'Email',
+        "form.source": "¿Cómo nos conociste? (opcional)",
+        "form.sourceEmpty": "Seleccioná una opción",
+        "form.sourceInstagram": "Instagram",
+        "form.sourceGoogle": "Google",
+        "form.sourceRecommendation": "Recomendación",
+        "form.sourcePassing": "Pasando por el lugar",
+        "form.sourceAgency": "Inmobiliaria",
+        "form.sourceOther": "Otro",
+        "gallery.completed1Alt": "Visualización de las casas terminadas desde el acceso central",
+        "gallery.completed1Cap": "El conjunto",
+        "gallery.completed3Alt": "Visualización del deck terminado y ventanales de madera",
+        "gallery.completed3Cap": "Deck y luz",
+        "gallery.completed4Alt": "Visualización del tobogán existente con su entorno acondicionado",
+        "gallery.completed4Cap": "Juegos entre árboles",
+        "gallery.completed5Alt": "Visualización de la casa de una planta con fachada terminada",
+        "gallery.completed5Cap": "Una planta",
+        "gallery.completed6Alt": "Visualización de la hamaca y los juegos de madera existentes",
+        "gallery.completed6Cap": "Un rincón para jugar",
+        "gallery.completed7Alt": "Visualización del sendero entre las casas con paisajismo terminado",
+        "gallery.completed7Cap": "Senderos y jardín",
+        "gallery.completed8Alt": "Baño con ducha, revestimientos claros y luz natural",
+        "gallery.completed8Cap": "Baño",
         'form.reason': 'Motivo',
         'form.reasonInfo': 'Saber más del proyecto',
         'form.reasonRent': 'Alquiler verano',
+        'form.reasonWinter': 'Alquiler invernal',
+        'form.reasonAnnual': 'Alquiler anual',
         'form.message': 'Mensaje',
         'form.optional': '(opcional)',
         'form.submit': 'Enviar',
         'form.sending': 'Enviando…',
         'form.ok': '¡Gracias! Te escribimos pronto.',
         'form.err': 'No se pudo enviar. Probá de nuevo o escribinos por email.',
-        'footer.devLabel': 'Desarrollo',
-        'footer.devCopy': 'Gestión y desarrollo del proyecto.',
-        'footer.archLabel': 'Arquitectura',
-        'footer.archCopy': 'Diseño arquitectónico y dirección de obra.',
+        'footer.and': 'y',
+        'footer.devLabel': 'Creadores',
+        'footer.devCopy': 'Impulsamos el proyecto y te recibimos.',
+        'footer.archLabel': 'Arquitectura y obra',
+        'footer.archCopy': 'Diseño, desarrollo y dirección de obra.',
         'footer.locLabel': 'Ubicación',
-        'footer.tagline': 'Entre pinos y el mar',
         'lightbox.label': 'Galería ampliada',
         'lightbox.close': 'Cerrar',
         'lightbox.prev': 'Anterior',
         'lightbox.next': 'Siguiente',
       },
       en: {
-        'meta.title': 'Casa Bosque Montoya — Four vacation homes in La Barra, Uruguay',
-        'meta.description': 'Among pines and the sea. Four vacation homes in the heart of Montoya, La Barra, Maldonado, Uruguay. Opening December 2026.',
+        'language.label': 'Language',
+        'meta.title': 'Casa Bosque Montoya | Holiday homes in La Barra',
+        'meta.description': 'Four homes for up to 4 guests each in Montoya, La Barra, around 500 m from the beach. Summer, winter and annual rentals. Opening December 2026.',
         'topbar.opening': 'Opening December 2026',
-        'topbar.cta': 'Book / Enquire →',
-        'hero.bgAlt': 'Casa Bosque Montoya among pine trees, with a white facade and natural wood',
+        'topbar.cta': 'Enquiries',
+        'hero.bgAlt': 'Indicative visualization of four homes along a central path with scattered pines',
         'hero.title': 'Among pines<br>and <em>the sea</em>.',
         'hero.location': 'Location',
         'hero.project': 'Project',
-        'hero.projectValue': '4 vacation homes<br>Low density · native forest',
+        'hero.projectValue': '4 vacation homes',
         'hero.opening': 'Opening',
         'hero.openingValue': 'December 2026',
         'hero.status': 'Status',
-        'hero.statusValue': 'Under construction<br>Reservations soon',
+        'hero.statusValue': 'Finishing construction',
         'intro.sectionLabel': 'A project — 01',
         'intro.title': 'A place<br>to feel<br><em>at peace.</em>',
-        'intro.lead': 'A low-density project in the heart of <span translate="no">Montoya</span>. Four independent homes living alongside the native forest, respecting the surroundings and the silence.',
-        'intro.body': 'A familiar place, made to silence the noise, walk barefoot on the sand, and listen to the wind through the pines. Close to the sea, but hidden. A place to return to.',
+        'intro.lead': 'A low-density project in the heart of <span translate="no">Montoya</span>. Four independent homes set among the native trees, respecting the landscape and its quiet.',
+        'intro.body': 'A place for families, designed to slow down, walk barefoot on the sand and listen to the wind in the pines. Close to the sea, yet tucked away. A place to return to.',
         'intro.specUnits': 'Homes',
         'intro.specSea': 'To the sea',
-        'intro.specSetting': 'Setting',
-        'intro.specSettingValue': 'Forest',
+        "intro.specCapacity": "Capacity",
+        "intro.specCapacityValue": "4 guests",
+        "intro.specCapacityDetail": "Per home · Up to 16 in total",
         'intro.specOpening': 'Opening',
-        'intro.specOpeningValue': 'Dec 26',
+        'intro.specOpeningValue': 'December 2026',
         'gallery.sectionLabel': 'Project — 02',
         'gallery.title': 'The place <em style="font-style:italic;color:var(--terra)">taking shape</em>.',
-        'gallery.subtitle': 'Current renders · Project under construction · Paths and landscaping in development',
-        'gallery.altBosque': 'Current homes among the pine trees',
-        'gallery.capBosque': '01 · Forest',
-        'gallery.altConjunto': 'Current four-home cluster seen from above',
-        'gallery.capConjunto': '02 · Cluster',
-        'gallery.altInterior': 'Living room with warm materials and forest views',
-        'gallery.capInterior': '03 · Living room',
-        'gallery.altUnidad': 'Compact single-story home among pine trees',
-        'gallery.capUnidad': '04 · Home',
-        'gallery.altDeck': 'Current facade with deck and natural wood',
-        'gallery.capDeck': '05 · Facade and deck',
-        'gallery.altAccesos': 'Natural access paths between the homes and forest',
-        'gallery.capAccesos': '06 · Access paths',
-        'gallery.altCocina': 'Open kitchen with natural wood and pine-tree views',
-        'gallery.capCocina': '07 · Kitchen',
-        'gallery.altRecepcion': 'Concept proposal for reception and storage',
-        'gallery.capRecepcion': '08 · Reception · Concept',
-        'gallery.altJuegos': 'Concept proposal for a forest play area',
-        'gallery.capJuegos': '09 · Play area · Concept',
-        'gallery.altBanoA': 'Updated bathroom with light finishes and wood',
-        'gallery.capBanoA': '10 · Bathroom',
-        'gallery.altBanoB': 'Current bathroom, shower and glass screen',
-        'gallery.capBanoB': '11 · Bathroom · Shower',
         'gallery.noteArch': 'Architecture · <span translate="no">Franco Beverati</span>',
-        'gallery.noteCount': '11 recomposed images · 2026',
-        'values.sectionLabel': 'Principles — 03',
+        'gallery.variedFacadeAlt': 'Front view of House 3 with timber and native planting',
+        'gallery.variedFacadeCap': 'Facade and garden',
+        'gallery.noteCount': '8 selected images · 2026',
+        "layouts.twoHomes": "Houses 1 & 4",
+        "layouts.twoTitle": "Life on two floors.",
+        "layouts.twoCopy": "Two bedrooms, each with an en suite bathroom, on the ground floor. Upstairs, the living room and kitchen share an open space.",
+        "layouts.oneHomes": "Houses 2 & 3",
+        "layouts.oneTitle": "All on one floor.",
+        "layouts.oneCopy": "A bedroom at each end, each with an en suite bathroom. An open kitchen with breakfast bar and living room sit in the center.",
+        "layouts.groundLabel": "Ground floor",
+        "layouts.upperLabel": "Upper floor",
+        "layouts.balcony": "Balcony",
+        "layouts.singleLabel": "Single floor",
+        "layouts.ground": "Ground floor: two bedrooms with en suite bathrooms and stairs.",
+        "layouts.groundDesc": "Each bedroom contains an enclosed bathroom within its boundaries. Each bathroom door opens into its own bedroom, with no access from the shared circulation.",
+        "layouts.upper": "Upper floor: living room, kitchen and recessed balcony.",
+        "layouts.upperDesc": "The kitchen and breakfast bar are on the left, with the living room on the right. A recessed balcony occupies the lower strip within the house perimeter.",
+        "layouts.single": "Single floor: bedrooms at opposite ends with en suite bathrooms and entrances on the right; kitchen and living room in the center.",
+        "layouts.singleDesc": "Two bedrooms at opposite ends, with entrances from the central living space on the right. Each bathroom is on the left and accessible only from its bedroom. Kitchen and breakfast bar above, living room below.",
+        "layouts.bath": "Bath",
+        "layouts.bedroom": "Bedroom",
+        "layouts.living": "Living room",
+        "layouts.kitchen": "Kitchen",
+        "layouts.note": "Schematic layouts · Not to scale. Homes of the same type may have mirrored layouts.",
+        'houses.sectionLabel': 'The houses — 03',
+        "houses.storage": "Laundry",
+        "houses.reception": "Reception",
+        "houses.playArea": "Play area",
+        "houses.widePlanDesc": "Reserva Montoya across Calle Mouriel. Reception at the entrance and play area to the left. On the right, Houses 1 and 3 above, Houses 2 and 4 below.",
+
+        'houses.amenities': 'Laundry · Reception · Shaded play area',
+        'houses.planTitle': 'The homes, across from Reserva Montoya',
+        'houses.planDesc': 'Reserva Montoya is across Calle Mouriel. House 1 at the upper left, House 3 at the upper right, House 2 at the lower left and House 4 at the lower right, connected by paths.',
+        'houses.planNote': 'Indicative layout · Not to scale. Facing Reserva Montoya.',
+
+        'houses.title': 'Four houses.<br>One shared <em>forest.</em>',
+        'houses.intro': 'Two single-story homes and two two-story homes.',
+        'houses.planFloors1': '1 story',
+        'houses.planFloors2': '2 stories',
+        'houses.house1': 'House 1',
+        'houses.house2': 'House 2',
+        'houses.house3': 'House 3',
+        'houses.house4': 'House 4',
+        'values.sectionLabel': 'Principles — 04',
         'values.v1Title': 'Low <em>density</em>.',
         'values.v1Body': 'Just four homes on a generous lot. Each one with its own privacy and its own slice of forest.',
         'values.v2Title': 'Native <em>forest</em>.',
@@ -1607,42 +1957,67 @@
         'values.v3Body': 'Just blocks from <span translate="no">Playa Montoya</span>, one of the quietest and most beautiful beaches in <span translate="no">La Barra</span>.',
         'values.v4Title': 'Effortless <em>hospitality</em>.',
         'values.v4Body': 'No slow check-ins or apps to download; your entire stay handled seamlessly with a simple message.',
-        'location.sectionLabel': 'Location — 04',
-        'location.body': 'A quiet neighborhood on the eastern coast of Uruguay, among pine groves and dunes. Minutes from downtown <span translate="no">La Barra</span> and <span translate="no">José Ignacio</span>, but with the calm of a small town.',
+        'location.sectionLabel': 'Location — 05',
+        'location.body': 'A quiet neighborhood on the eastern coast of Uruguay, among pine groves and dunes. Minutes from downtown <span translate="no">La Barra</span>, <span translate="no">Manantiales</span> and <span translate="no">José Ignacio</span>, but with the calm of a small town.',
         'location.dept': 'Department',
         'location.distSea': 'Distance to sea',
         'location.distSeaValue': '~500 meters',
         'location.barraCenter': 'downtown',
         'location.barraCenterValue': '10 min by car',
         'location.airport': 'Airport',
+        'location.mapsLink': 'View on Google Maps',
         'location.mapOcean': 'ATLANTIC OCEAN',
-        'contact.sectionLabel': 'Contact — 05',
+        'contact.sectionLabel': 'Contact — 06',
         'contact.title': "Drop us a<br>message, we'll<br><em>write back.</em>",
-        'contact.opening': 'Opening December · 2026',
+        'contact.opening': 'Opening December 2026',
         'contact.emailSub': 'We reply in 24–48 h',
         'contact.emailCta': '→ Write',
         'contact.waSub': 'Messages, questions, reservations',
         'contact.waCta': '→ Chat',
         'contact.igSub': 'Follow construction progress',
         'contact.igCta': '→ Follow',
-        'form.intro': "Want to rent this summer or learn more about the project? Leave your details and we'll write back when bookings open.",
+        'form.intro': "Looking to rent or learn more about the project? Leave your details and we'll write back when bookings open.",
         'form.name': 'Name',
         'form.email': 'Email',
+        "form.source": "How did you hear about us? (optional)",
+        "form.sourceEmpty": "Select an option",
+        "form.sourceInstagram": "Instagram",
+        "form.sourceGoogle": "Google",
+        "form.sourceRecommendation": "Word of mouth",
+        "form.sourcePassing": "Walking or driving past",
+        "form.sourceAgency": "Real estate agency",
+        "form.sourceOther": "Other",
+        "gallery.completed1Alt": "Visualization of the completed homes from the central access",
+        "gallery.completed1Cap": "The homes",
+        "gallery.completed3Alt": "Visualization of the finished deck and timber-framed glazing",
+        "gallery.completed3Cap": "Deck and light",
+        "gallery.completed4Alt": "Visualization of the existing slide with a finished landscape",
+        "gallery.completed4Cap": "Play among the trees",
+        "gallery.completed5Alt": "Visualization of the completed single-story house",
+        "gallery.completed5Cap": "One floor",
+        "gallery.completed6Alt": "Visualization of the existing swing and timber play structure",
+        "gallery.completed6Cap": "A place to play",
+        "gallery.completed7Alt": "Visualization of the path between the homes with completed planting",
+        "gallery.completed7Cap": "Paths and garden",
+        "gallery.completed8Alt": "Bathroom with shower, light finishes and natural daylight",
+        "gallery.completed8Cap": "Bathroom",
         'form.reason': 'Reason',
         'form.reasonInfo': 'Learn more about the project',
         'form.reasonRent': 'Summer rental',
+        'form.reasonWinter': 'Winter rental',
+        'form.reasonAnnual': 'Annual rental',
         'form.message': 'Message',
         'form.optional': '(optional)',
         'form.submit': 'Send',
         'form.sending': 'Sending…',
         'form.ok': 'Thanks! We\'ll be in touch soon.',
         'form.err': "Couldn't send. Try again or email us.",
-        'footer.devLabel': 'Development',
-        'footer.devCopy': 'Project management and development.',
-        'footer.archLabel': 'Architecture',
-        'footer.archCopy': 'Architectural design and construction supervision.',
+        'footer.and': 'and',
+        'footer.devLabel': 'Creators',
+        'footer.devCopy': 'We bring the project to life and welcome you.',
+        'footer.archLabel': 'Architecture and construction',
+        'footer.archCopy': 'Design, development and construction supervision.',
         'footer.locLabel': 'Location',
-        'footer.tagline': 'Among pines and the sea',
         'lightbox.label': 'Expanded gallery',
         'lightbox.close': 'Close',
         'lightbox.prev': 'Previous',
@@ -1705,6 +2080,16 @@
         sel.classList.remove('open');
         trigger.setAttribute('aria-expanded', 'false');
       };
+      sel.addEventListener('keydown', (e) => {
+        if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+        e.preventDefault();
+        sel.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+        const options = Array.from(items);
+        const index = options.indexOf(document.activeElement);
+        const step = e.key === 'ArrowDown' ? 1 : -1;
+        options[(index + step + options.length) % options.length].focus();
+      });
       trigger.addEventListener('click', (e) => {
         e.stopPropagation();
         const open = !sel.classList.contains('open');
@@ -1716,6 +2101,7 @@
           e.stopPropagation();
           const loc = it.dataset.locale;
           closeMenu();
+          trigger.focus();
           if (loc === current) return;
           current = loc;
           try { localStorage.setItem(STORAGE_KEY, loc); } catch (_) {}
@@ -1726,7 +2112,7 @@
         if (sel.classList.contains('open') && !sel.contains(e.target)) closeMenu();
       });
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && sel.classList.contains('open')) closeMenu();
+        if (e.key === 'Escape' && sel.classList.contains('open')) { closeMenu(); trigger.focus(); }
       });
     }
   })();
@@ -1747,11 +2133,13 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      if (btn.disabled || !form.reportValidity()) return;
       statusEl.className = 'cf-status';
       statusEl.textContent = t('form.sending', 'Enviando…');
       btn.disabled = true;
 
       const data = Object.fromEntries(new FormData(form).entries());
+      data.locale = document.documentElement.lang === 'en' ? 'en' : 'es';
 
       try {
         const res = await fetch('/api/contacto', {

@@ -5,5 +5,9 @@
   "description": "Casa Bosque Montoya — sitio estático + función de contacto",
   "dependencies": {
     "resend": "^4.0.0"
+  },
+  "scripts": {
+    "dev": "python3 scripts/dev_server.py",
+    "test": "node --test scripts/*.test.mjs"
   }
 }

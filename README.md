@@ -61,12 +61,18 @@ file on top of the crop.
 
 ## Local development
 
-Since it's static, just serve the folder:
+Start the local preview with automatic browser refresh (no extra dependencies):
 
 ```bash
-python3 -m http.server 4321
+npm run dev
+# or: python3 scripts/dev_server.py
 # then open http://localhost:4321
 ```
+
+HTML, styles, scripts and asset changes refresh the page automatically. The preview
+preserves your scroll position and disables browser caching. The refresh script is
+injected only by the local server; production files stay static. This server previews
+the static site; the `/api/contacto` function still requires a Vercel environment.
 
 (There's a `.claude/launch.json` with that same server for the integrated preview.)
 
@@ -132,3 +138,12 @@ until the week is up. If you need a render swapped immediately, ship it under a
 new revisioned filename. `index.html`, `robots.txt` and `sitemap.xml`
 deliberately keep the default and revalidate every time, which is what makes a
 deploy visible at once.
+
+
+## Checks before release
+
+Run `npm ci --ignore-scripts` and `npm test` to exercise contact validation and both confirmation languages without sending email. `npm audit --omit=dev` checks the locked dependency tree.
+
+`.vercelignore` excludes unused image drafts, source references and local development tooling from public deployments. When changing image filenames, update this list so active assets are included.
+
+The current English translation is client-side on the same URL. A future SEO improvement is a separately served English URL with reciprocal `hreflang`; do not add language alternates until those pages exist.
