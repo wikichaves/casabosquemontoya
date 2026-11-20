@@ -479,13 +479,16 @@
 
   /* ——— hosts ——— */
   .hosts{background:var(--paper)}
-  .hosts-grid{display:grid; grid-template-columns:auto 1fr; gap:56px; align-items:center; max-width:960px}
-  .hosts-photos{display:flex; gap:16px; margin:0}
-  .hosts-photos img{display:block; width:128px; height:128px; border-radius:50%; object-fit:cover; background:var(--sand-deep)}
-  .hosts h2{font-family:var(--serif); font-weight:400; font-size:clamp(36px,4vw,56px); line-height:1.1; letter-spacing:-.01em; margin:0 0 8px; color:var(--ink)}
-  .hosts .hosts-names{font-family:var(--serif); font-style:italic; font-size:26px; line-height:1.2; color:var(--terra); margin:0 0 18px}
-  .hosts .hosts-body{font-size:16px; line-height:1.6; font-weight:300; color:var(--ink-soft); margin:0; max-width:56ch}
-  @media(max-width:900px){.hosts-grid{grid-template-columns:1fr; gap:32px}.hosts-photos img{width:104px; height:104px}}
+  .hosts-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(220px,300px); gap:72px; align-items:center; max-width:1000px}
+  .hosts h2{font-family:var(--serif); font-weight:400; font-size:clamp(36px,4vw,56px); line-height:1.1; letter-spacing:-.01em; margin:0 0 24px; color:var(--ink)}
+  .hosts .hosts-body{font-size:16px; line-height:1.6; font-weight:300; color:var(--ink-soft); margin:0 0 16px; max-width:56ch}
+  .hosts-links{list-style:none; padding:0; margin:28px 0 0; display:flex; flex-wrap:wrap; gap:10px 24px}
+  .hosts-links a{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; transition:border-color 200ms, color 200ms}
+  .hosts-links a:hover{color:var(--terra); border-bottom-color:var(--terra)}
+  .hosts-photo{margin:0}
+  .hosts-photo img{display:block; width:100%; height:auto; aspect-ratio:1125/2000; background:var(--sand-deep)}
+  .hosts-photo figcaption{font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-soft); opacity:.75; margin-top:12px}
+  @media(max-width:900px){.hosts-grid{grid-template-columns:1fr; gap:40px}.hosts-photo{max-width:240px}}
 
   /* ——— location ——— */
   .location{
@@ -738,7 +741,7 @@
   }
   .foot-grid{
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap:48px;
     padding-bottom:48px;
     border-bottom:1px solid rgba(241,232,214,.15);
@@ -767,6 +770,8 @@
     color:rgba(241,232,214,.6);
     font-size:11px;
   }
+  .foot-hosts{color:inherit; text-decoration:none; white-space:nowrap; border-bottom:1px solid rgba(241,232,214,.3); padding-bottom:1px}
+  .foot-hosts:hover{border-bottom-color:#e9c9a6}
   .foot-bottom{
     display:flex; justify-content:space-between; align-items:center;
     padding-top:28px;
@@ -1472,15 +1477,20 @@
     <div class="section-label" data-i18n="hosts.sectionLabel">Anfitriones — 06</div>
 
     <div class="hosts-grid">
-      <figure class="hosts-photos">
-        <picture><source type="image/webp" srcset="assets/host-agus.webp"><img loading="lazy" decoding="async" src="assets/host-agus.jpeg" data-i18n-attr="alt:hosts.agusAlt" alt="Retrato de Agus" width="320" height="320"></picture>
-        <picture><source type="image/webp" srcset="assets/host-wiki.webp"><img loading="lazy" decoding="async" src="assets/host-wiki.jpeg" data-i18n-attr="alt:hosts.wikiAlt" alt="Retrato de Wiki" width="320" height="320"></picture>
-      </figure>
       <div>
-        <h2 id="hosts-title" data-i18n="hosts.title">Quiénes te reciben</h2>
-        <p class="hosts-names" translate="no" data-i18n="hosts.names">Agus y Wiki</p>
-        <p class="hosts-body" data-i18n-html="hosts.body">Somos una familia que disfruta de viajar, el surf, el yoga y la vida cerca de la naturaleza y la playa. Vivimos en <span translate="no">La Barra</span> con nuestro hijo Antón, de cinco años. Nuestra experiencia viajando y recibiendo huéspedes inspira <span translate="no">Casa Bosque Montoya</span>: un lugar pensado para compartir esa forma de vivir y hacerte sentir en casa.</p>
+        <h2 id="hosts-title" data-i18n="hosts.title">Sobre los hosts</h2>
+        <p class="hosts-body" data-i18n-html="hosts.body1">Somos <span translate="no">Agus</span> y <span translate="no">Wiki</span>. Después de viajar por el mundo y recorrer Asia entre el surf, el yoga y nuevas culturas, elegimos hacer nuestra vida en <span translate="no">La Barra</span>, donde vivimos con nuestro hijo Antón, de cinco años.</p>
+        <p class="hosts-body" data-i18n-html="hosts.body2">Llevamos años recibiendo viajeros y también disfrutando de ser huéspedes. Esa experiencia inspira <span translate="no">Casa Bosque Montoya</span>: compartir lo que nos gusta de este lugar, cuidar los detalles y hacerte sentir en casa, cerca del bosque y la playa.</p>
+        <ul class="hosts-links">
+          <li><a href="https://www.airbnb.com/users/profile/1462511268222183190" target="_blank" rel="noopener noreferrer" data-i18n="hosts.agusLink">Agus en Airbnb</a></li>
+          <li><a href="https://www.airbnb.com/users/profile/1462510120413048770" target="_blank" rel="noopener noreferrer" data-i18n="hosts.wikiLink">Wiki en Airbnb</a></li>
+          <li><a href="https://www.lanacion.com.ar/opinion/viajar-entre-turismo-masivo-aventura-iniciatica-nid2165110/" target="_blank" rel="noopener noreferrer" data-i18n="hosts.pressLink">Nuestro viaje en La Nación</a></li>
+        </ul>
       </div>
+      <figure class="hosts-photo">
+        <picture><source type="image/webp" sizes="(max-width:900px) 240px, 300px" srcset="assets/hosts-map-450.webp 450w, assets/hosts-map.webp 720w"><img loading="lazy" decoding="async" src="assets/hosts-map.jpeg" data-i18n-attr="alt:hosts.photoAlt" alt="Fotos carnet de Wiki y Agus sostenidas en una mano frente a un mapa" width="720" height="1280"></picture>
+        <figcaption data-i18n="hosts.photoCredit">Foto: Agustina Perretta</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -1571,15 +1581,6 @@
   <div class="container">
     <div class="foot-grid">
       <div class="foot-col">
-        <span class="label" data-i18n="footer.devLabel">Creadores</span>
-        <div class="foot-people">
-          <a href="https://wikichaves.com" target="_blank" rel="noopener" translate="no">Wiki Chaves</a>
-          <span class="foot-conjunction" data-i18n="footer.and">y</span>
-          <a href="https://agustinaperretta.com/" target="_blank" rel="noopener" translate="no">Agus Perretta</a>
-        </div>
-        <p data-i18n="footer.devCopy">Impulsamos el proyecto y te recibimos.</p>
-      </div>
-      <div class="foot-col">
         <span class="label" data-i18n="footer.archLabel">Arquitectura y obra</span>
         <div class="foot-people">
           <a href="https://francobeverati.com" target="_blank" rel="noopener" translate="no">Franco Beverati</a>
@@ -1596,7 +1597,7 @@
     </div>
 
     <div class="foot-bottom">
-      <span>© 2026 <span translate="no">Casa Bosque Montoya</span></span>
+      <span>© 2026 <span translate="no">Casa Bosque Montoya</span> · <a class="foot-hosts" href="#anfitriones" data-i18n="footer.hostsLink">Sobre los hosts</a></span>
 
       <div class="lang-selector" id="langSelector">
         <button type="button" class="lang-selector__trigger" aria-haspopup="listbox" aria-expanded="false" data-i18n-attr="aria-label:language.label" aria-label="Idioma">
@@ -1870,11 +1871,14 @@
         'location.mapsLink': 'Ver en Google Maps',
         'location.mapOcean': 'OCÉANO ATLÁNTICO',
         'hosts.sectionLabel': 'Anfitriones — 06',
-        'hosts.title': 'Quiénes te reciben',
-        'hosts.names': 'Agus y Wiki',
-        'hosts.body': 'Somos una familia que disfruta de viajar, el surf, el yoga y la vida cerca de la naturaleza y la playa. Vivimos en <span translate="no">La Barra</span> con nuestro hijo Antón, de cinco años. Nuestra experiencia viajando y recibiendo huéspedes inspira <span translate="no">Casa Bosque Montoya</span>: un lugar pensado para compartir esa forma de vivir y hacerte sentir en casa.',
-        'hosts.agusAlt': 'Retrato de Agus',
-        'hosts.wikiAlt': 'Retrato de Wiki',
+        'hosts.title': 'Sobre los hosts',
+        'hosts.body1': 'Somos <span translate="no">Agus</span> y <span translate="no">Wiki</span>. Después de viajar por el mundo y recorrer Asia entre el surf, el yoga y nuevas culturas, elegimos hacer nuestra vida en <span translate="no">La Barra</span>, donde vivimos con nuestro hijo Antón, de cinco años.',
+        'hosts.body2': 'Llevamos años recibiendo viajeros y también disfrutando de ser huéspedes. Esa experiencia inspira <span translate="no">Casa Bosque Montoya</span>: compartir lo que nos gusta de este lugar, cuidar los detalles y hacerte sentir en casa, cerca del bosque y la playa.',
+        'hosts.agusLink': 'Agus en Airbnb',
+        'hosts.wikiLink': 'Wiki en Airbnb',
+        'hosts.pressLink': 'Nuestro viaje en La Nación',
+        'hosts.photoAlt': 'Fotos carnet de Wiki y Agus sostenidas en una mano frente a un mapa',
+        'hosts.photoCredit': 'Foto: Agustina Perretta',
         'contact.sectionLabel': 'Contacto — 07',
         'contact.title': 'Dejá tu<br>mensaje, te<br><em>escribimos.</em>',
         'contact.opening': 'Apertura Diciembre 2026',
@@ -1921,11 +1925,10 @@
         'form.ok': '¡Gracias! Te escribimos pronto.',
         'form.err': 'No se pudo enviar. Probá de nuevo o escribinos por email.',
         'footer.and': 'y',
-        'footer.devLabel': 'Creadores',
-        'footer.devCopy': 'Impulsamos el proyecto y te recibimos.',
         'footer.archLabel': 'Arquitectura y obra',
         'footer.archCopy': 'Diseño, desarrollo y dirección de obra.',
         'footer.locLabel': 'Ubicación',
+        'footer.hostsLink': 'Sobre los hosts',
         'lightbox.label': 'Galería ampliada',
         'lightbox.close': 'Cerrar',
         'lightbox.prev': 'Anterior',
@@ -2031,11 +2034,14 @@
         'location.mapsLink': 'View on Google Maps',
         'location.mapOcean': 'ATLANTIC OCEAN',
         'hosts.sectionLabel': 'Hosts — 06',
-        'hosts.title': 'Your hosts',
-        'hosts.names': 'Agus & Wiki',
-        'hosts.body': "We're a family who love travelling, surfing, yoga and life close to nature and the beach. We live in <span translate=\"no\">La Barra</span> with our five-year-old son, Antón. Our experiences travelling and welcoming guests inspire <span translate=\"no\">Casa Bosque Montoya</span>: a place to share this way of life and help you feel at home.",
-        'hosts.agusAlt': 'Portrait of Agus',
-        'hosts.wikiAlt': 'Portrait of Wiki',
+        'hosts.title': 'About your hosts',
+        'hosts.body1': "We're <span translate=\"no\">Agus</span> and <span translate=\"no\">Wiki</span>. After travelling the world and exploring Asia through surfing, yoga and new cultures, we chose to make our life in <span translate=\"no\">La Barra</span>, where we live with our five-year-old son, Antón.",
+        'hosts.body2': "For years we've been welcoming travellers and enjoying being guests ourselves. That experience inspires <span translate=\"no\">Casa Bosque Montoya</span>: sharing what we love about this place, caring for the details and helping you feel at home, close to the forest and the beach.",
+        'hosts.agusLink': 'Agus on Airbnb',
+        'hosts.wikiLink': 'Wiki on Airbnb',
+        'hosts.pressLink': 'Our journey in La Nación',
+        'hosts.photoAlt': 'Passport photos of Wiki and Agus held in a hand in front of a map',
+        'hosts.photoCredit': 'Photo: Agustina Perretta',
         'contact.sectionLabel': 'Contact — 07',
         'contact.title': "Drop us a<br>message, we'll<br><em>write back.</em>",
         'contact.opening': 'Opening December 2026',
@@ -2082,11 +2088,10 @@
         'form.ok': 'Thanks! We\'ll be in touch soon.',
         'form.err': "Couldn't send. Try again or email us.",
         'footer.and': 'and',
-        'footer.devLabel': 'Creators',
-        'footer.devCopy': 'We bring the project to life and welcome you.',
         'footer.archLabel': 'Architecture and construction',
         'footer.archCopy': 'Design, development and construction supervision.',
         'footer.locLabel': 'Location',
+        'footer.hostsLink': 'About your hosts',
         'lightbox.label': 'Expanded gallery',
         'lightbox.close': 'Close',
         'lightbox.prev': 'Previous',
