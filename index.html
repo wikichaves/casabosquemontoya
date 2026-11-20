@@ -383,6 +383,8 @@
   .layout-shell{fill:none; stroke:var(--ink-soft); stroke-width:2}
   .layout-bedroom{fill:#e4e8dd}
   .layout-bath{fill:#e9ded0}
+  .layout-toilet{fill:#e3d6c5}
+  .layout-floor svg text.layout-small{font-size:12px}
   .layout-social{fill:#f0e9dc}
   .layout-balcony{fill:#e1e5df}
   .layout-wall{fill:none; stroke:var(--ink-soft); stroke-width:1.5}
@@ -482,7 +484,7 @@
   .hosts-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(220px,300px); gap:72px; align-items:center; max-width:1000px}
   .hosts h2{font-family:var(--serif); font-weight:400; font-size:clamp(36px,4vw,56px); line-height:1.1; letter-spacing:-.01em; margin:0 0 24px; color:var(--ink)}
   .hosts .hosts-body{font-size:16px; line-height:1.6; font-weight:300; color:var(--ink-soft); margin:0 0 16px; max-width:56ch}
-  .hosts-links{list-style:none; padding:0; margin:28px 0 0; display:flex; flex-wrap:wrap; gap:10px 24px}
+  .hosts-links{list-style:none; padding:0; margin:28px 0 0; display:flex; flex-direction:column; align-items:flex-start; gap:12px}
   .hosts-links a{font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px; transition:border-color 200ms, color 200ms}
   .hosts-links a:hover{color:var(--terra); border-bottom-color:var(--terra)}
   .hosts-photo{margin:0}
@@ -1153,42 +1155,42 @@
     <h2 style="font-family:var(--serif); font-weight:400; font-size:clamp(36px,4vw,56px); margin:0 0 8px; letter-spacing:-.01em;" data-i18n-html="gallery.title">Imágenes de <em style="font-style:italic;color:var(--terra)">referencia</em>.</h2>
 
     <div class="gallery-grid">
-      <figure class="tile t1" data-full="assets/finished-courtyard.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-courtyard-800.webp 800w, assets/finished-courtyard.webp 1447w">
-        <img loading="lazy" decoding="async" src="assets/finished-courtyard.jpeg" data-i18n-attr="alt:gallery.completed1Alt" alt="Visualización de las casas terminadas desde el acceso central" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed1Cap">El conjunto</figcaption></figure>
-      <figure class="tile t2" data-full="assets/garden-native-tree.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/garden-native-tree-800.webp 800w, assets/garden-native-tree.webp 960w">
-        <img loading="lazy" decoding="async" src="assets/garden-native-tree.jpeg" data-i18n-attr="alt:gallery.nativeTreeAlt" alt="Árbol nativo entre helechos, pastos y flores del jardín" width="960" height="1280"></picture><figcaption class="cap" data-i18n="gallery.nativeTreeCap">Árboles nativos</figcaption></figure>
-      <figure class="tile t1" data-full="assets/finished-deck.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-deck-800.webp 800w, assets/finished-deck.webp 1447w">
-        <img loading="lazy" decoding="async" src="assets/finished-deck.jpeg" data-i18n-attr="alt:gallery.completed3Alt" alt="Visualización del deck terminado y ventanales de madera" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed3Cap">Deck y luz</figcaption></figure>
-      <figure class="tile t2" data-full="assets/casa-3-selected.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/casa-3-selected-800.webp 800w, assets/casa-3-selected.webp 896w">
-        <img loading="lazy" decoding="async" src="assets/casa-3-selected.jpeg" data-i18n-attr="alt:gallery.variedFacadeAlt" alt="Vista frontal de Casa 3 con madera y vegetación nativa" width="896" height="1195"></picture><figcaption class="cap" data-i18n="gallery.variedFacadeCap">Fachada y jardín</figcaption></figure>
-      <figure class="tile t1" data-full="assets/garden-yellow-flowers.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/garden-yellow-flowers-800.webp 800w, assets/garden-yellow-flowers.webp 1280w">
-        <img loading="lazy" decoding="async" src="assets/garden-yellow-flowers.jpeg" data-i18n-attr="alt:gallery.yellowFlowersAlt" alt="Flores amarillas entre gramíneas y vegetación del jardín" width="1280" height="960"></picture><figcaption class="cap" data-i18n="gallery.yellowFlowersCap">Jardín en flor</figcaption></figure>
-      <figure class="tile t2" data-full="assets/finished-play-slide.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/finished-play-slide-800.webp 800w, assets/finished-play-slide.webp 1086w">
-        <img loading="lazy" decoding="async" src="assets/finished-play-slide.jpeg" data-i18n-attr="alt:gallery.completed4Alt" alt="Visualización del tobogán existente con su entorno acondicionado" width="1086" height="1448"></picture><figcaption class="cap" data-i18n="gallery.completed4Cap">Juegos entre árboles</figcaption></figure>
-      <figure class="tile t1" data-full="assets/finished-single-house-garden-v2.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-single-house-garden-v2-800.webp 800w, assets/finished-single-house-garden-v2.webp 1024w">
-        <img loading="lazy" decoding="async" src="assets/finished-single-house-garden-v2.jpeg" data-i18n-attr="alt:gallery.completed5Alt" alt="Visualización de la casa de una planta con fachada terminada" width="1024" height="1024"></picture><figcaption class="cap" data-i18n="gallery.completed5Cap">Una planta</figcaption></figure>
-      <figure class="tile t2" data-full="assets/garden-sea-view.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/garden-sea-view-800.webp 800w, assets/garden-sea-view.webp 960w">
-        <img loading="lazy" decoding="async" src="assets/garden-sea-view.jpeg" data-i18n-attr="alt:gallery.seaViewAlt" alt="Vista al mar entre los árboles y la vegetación de Montoya" width="960" height="1280"></picture><figcaption class="cap" data-i18n="gallery.seaViewCap">Mar entre árboles</figcaption></figure>
-      <figure class="tile t1" data-full="assets/finished-garden-path.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-garden-path-800.webp 800w, assets/finished-garden-path.webp 1447w">
-        <img loading="lazy" decoding="async" src="assets/finished-garden-path.jpeg" data-i18n-attr="alt:gallery.completed7Alt" alt="Visualización del sendero entre las casas con paisajismo terminado" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed7Cap">Senderos y jardín</figcaption></figure>
-      <figure class="tile t2" data-full="assets/bathroom-03-selected.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/bathroom-03-selected-800.webp 800w, assets/bathroom-03-selected.webp 1280w">
-        <img loading="lazy" decoding="async" src="assets/bathroom-03-selected.jpeg" data-i18n-attr="alt:gallery.completed8Alt" alt="Baño con ducha, revestimientos claros y luz natural" width="1280" height="714"></picture><figcaption class="cap" data-i18n="gallery.completed8Cap">Baño</figcaption></figure>
-      <figure class="tile t1" data-full="assets/garden-huerta.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/garden-huerta-800.webp 800w, assets/garden-huerta.webp 1280w">
-        <img loading="lazy" decoding="async" src="assets/garden-huerta.jpeg" data-i18n-attr="alt:gallery.huertaAlt" alt="Huerta en canteros de madera con hortalizas y plantas aromáticas" width="1280" height="960"></picture><figcaption class="cap" data-i18n="gallery.huertaCap">La huerta</figcaption></figure>
-      <figure class="tile t2" data-full="assets/finished-play-swing.webp"><picture>
-        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/finished-play-swing-800.webp 800w, assets/finished-play-swing.webp 1447w">
-        <img loading="lazy" decoding="async" src="assets/finished-play-swing.jpeg" data-i18n-attr="alt:gallery.completed6Alt" alt="Visualización de la hamaca y los juegos de madera existentes" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed6Cap">Un rincón para jugar</figcaption></figure>
+      <figure class="tile t1" data-full="assets/finished-courtyard-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-courtyard-t1-800.webp 800w, assets/finished-courtyard-t1.webp 1447w">
+        <img loading="lazy" decoding="async" src="assets/finished-courtyard-t1.jpeg" data-i18n-attr="alt:gallery.completed1Alt" alt="Visualización de las casas terminadas desde el acceso central" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed1Cap">El conjunto</figcaption></figure>
+      <figure class="tile t2" data-full="assets/garden-native-tree-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/garden-native-tree-t1-800.webp 800w, assets/garden-native-tree-t1.webp 960w">
+        <img loading="lazy" decoding="async" src="assets/garden-native-tree-t1.jpeg" data-i18n-attr="alt:gallery.nativeTreeAlt" alt="Árbol nativo entre helechos, pastos y flores del jardín" width="960" height="1280"></picture><figcaption class="cap" data-i18n="gallery.nativeTreeCap">Árboles nativos</figcaption></figure>
+      <figure class="tile t1" data-full="assets/finished-deck-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-deck-t1-800.webp 800w, assets/finished-deck-t1.webp 1447w">
+        <img loading="lazy" decoding="async" src="assets/finished-deck-t1.jpeg" data-i18n-attr="alt:gallery.completed3Alt" alt="Visualización del deck terminado y ventanales de madera" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed3Cap">Deck y luz</figcaption></figure>
+      <figure class="tile t2" data-full="assets/casa-3-selected-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/casa-3-selected-t1-800.webp 800w, assets/casa-3-selected-t1.webp 896w">
+        <img loading="lazy" decoding="async" src="assets/casa-3-selected-t1.jpeg" data-i18n-attr="alt:gallery.variedFacadeAlt" alt="Vista frontal de Casa 3 con madera y vegetación nativa" width="896" height="1195"></picture><figcaption class="cap" data-i18n="gallery.variedFacadeCap">Fachada y jardín</figcaption></figure>
+      <figure class="tile t1" data-full="assets/garden-yellow-flowers-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/garden-yellow-flowers-t1-800.webp 800w, assets/garden-yellow-flowers-t1.webp 1280w">
+        <img loading="lazy" decoding="async" src="assets/garden-yellow-flowers-t1.jpeg" data-i18n-attr="alt:gallery.yellowFlowersAlt" alt="Flores amarillas entre gramíneas y vegetación del jardín" width="1280" height="960"></picture><figcaption class="cap" data-i18n="gallery.yellowFlowersCap">Jardín en flor</figcaption></figure>
+      <figure class="tile t2" data-full="assets/finished-play-slide-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/finished-play-slide-t1-800.webp 800w, assets/finished-play-slide-t1.webp 1086w">
+        <img loading="lazy" decoding="async" src="assets/finished-play-slide-t1.jpeg" data-i18n-attr="alt:gallery.completed4Alt" alt="Visualización del tobogán existente con su entorno acondicionado" width="1086" height="1448"></picture><figcaption class="cap" data-i18n="gallery.completed4Cap">Juegos entre árboles</figcaption></figure>
+      <figure class="tile t1" data-full="assets/finished-single-house-garden-v2-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-single-house-garden-v2-t1-800.webp 800w, assets/finished-single-house-garden-v2-t1.webp 1024w">
+        <img loading="lazy" decoding="async" src="assets/finished-single-house-garden-v2-t1.jpeg" data-i18n-attr="alt:gallery.completed5Alt" alt="Visualización de la casa de una planta con fachada terminada" width="1024" height="1024"></picture><figcaption class="cap" data-i18n="gallery.completed5Cap">Una planta</figcaption></figure>
+      <figure class="tile t2" data-full="assets/garden-sea-view-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/garden-sea-view-t1-800.webp 800w, assets/garden-sea-view-t1.webp 960w">
+        <img loading="lazy" decoding="async" src="assets/garden-sea-view-t1.jpeg" data-i18n-attr="alt:gallery.seaViewAlt" alt="Vista al mar entre los árboles y la vegetación de Montoya" width="960" height="1280"></picture><figcaption class="cap" data-i18n="gallery.seaViewCap">Mar entre árboles</figcaption></figure>
+      <figure class="tile t1" data-full="assets/finished-garden-path-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/finished-garden-path-t1-800.webp 800w, assets/finished-garden-path-t1.webp 1447w">
+        <img loading="lazy" decoding="async" src="assets/finished-garden-path-t1.jpeg" data-i18n-attr="alt:gallery.completed7Alt" alt="Visualización del sendero entre las casas con paisajismo terminado" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed7Cap">Senderos y jardín</figcaption></figure>
+      <figure class="tile t2" data-full="assets/bathroom-03-selected-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/bathroom-03-selected-t1-800.webp 800w, assets/bathroom-03-selected-t1.webp 1280w">
+        <img loading="lazy" decoding="async" src="assets/bathroom-03-selected-t1.jpeg" data-i18n-attr="alt:gallery.completed8Alt" alt="Baño con ducha, revestimientos claros y luz natural" width="1280" height="714"></picture><figcaption class="cap" data-i18n="gallery.completed8Cap">Baño</figcaption></figure>
+      <figure class="tile t1" data-full="assets/garden-huerta-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 820px" srcset="assets/garden-huerta-t1-800.webp 800w, assets/garden-huerta-t1.webp 1280w">
+        <img loading="lazy" decoding="async" src="assets/garden-huerta-t1.jpeg" data-i18n-attr="alt:gallery.huertaAlt" alt="Huerta en canteros de madera con hortalizas y plantas aromáticas" width="1280" height="960"></picture><figcaption class="cap" data-i18n="gallery.huertaCap">La huerta</figcaption></figure>
+      <figure class="tile t2" data-full="assets/finished-play-swing-t1.webp"><picture>
+        <source type="image/webp" sizes="(max-width:900px) calc(100vw - 48px), 400px" srcset="assets/finished-play-swing-t1-800.webp 800w, assets/finished-play-swing-t1.webp 1447w">
+        <img loading="lazy" decoding="async" src="assets/finished-play-swing-t1.jpeg" data-i18n-attr="alt:gallery.completed6Alt" alt="Visualización de la hamaca y los juegos de madera existentes" width="1447" height="1087"></picture><figcaption class="cap" data-i18n="gallery.completed6Cap">Un rincón para jugar</figcaption></figure>
     </div>
 
     <div class="gallery-note">
@@ -1323,15 +1325,15 @@
         <h3 data-i18n="layouts.twoTitle">La vida en dos plantas.</h3>
         <p class="layout-copy" data-i18n="layouts.twoCopy">Dos dormitorios con baño en suite en planta baja. Arriba, el living y la cocina comparten un espacio integrado.</p>
         <div class="layout-drawings">
-          <div class="layout-floor"><p data-i18n="layouts.groundLabel">Planta baja</p><svg viewBox="0 0 260 200" role="img" aria-labelledby="ground-title ground-desc"><title id="ground-title" data-i18n="layouts.ground">Planta baja: dos dormitorios con baño en suite y escalera.</title><desc id="ground-desc" data-i18n="layouts.groundDesc">Cada dormitorio contiene un recinto de baño dentro de sus límites. La puerta de cada baño abre hacia su propio dormitorio, sin acceso desde la circulación común.</desc><rect class="layout-bedroom" x="0" y="40" width="260" height="160"/>
+          <div class="layout-floor"><p data-i18n="layouts.groundLabel">Planta baja</p><svg viewBox="0 0 260 200" role="img" aria-labelledby="ground-title ground-desc"><title id="ground-title" data-i18n="layouts.ground">Planta baja: dos dormitorios con baño en suite y escalera.</title><desc id="ground-desc" data-i18n="layouts.groundDesc">Cada dormitorio contiene un recinto de baño dentro de sus límites. El baño izquierdo se abre por su lado derecho y el baño derecho por su lado izquierdo, siempre hacia su propio dormitorio.</desc><rect class="layout-bedroom" x="0" y="40" width="260" height="160"/>
 <rect class="layout-bath" x="8" y="52" width="60" height="48"/>
 <rect class="layout-bath" x="192" y="52" width="60" height="48"/>
-<path class="layout-wall" d="M130 40V200 M0 40H90 M115 40H145 M170 40H260 M8 52H68V100H45 M25 100H8V52 M192 52H252V100H235 M215 100H192V52"/>
+<path class="layout-wall" d="M130 40V200 M0 40H90 M115 40H145 M170 40H260 M68 64V52H8V100H68V88 M192 64V52H252V100H192V88"/>
 <path class="layout-stair" d="M20 8H240V30H20Z M40 8V30 M60 8V30 M80 8V30 M100 8V30 M120 8V30 M140 8V30 M160 8V30 M180 8V30 M200 8V30 M220 8V30"/>
 <text x="38" y="81" data-i18n="layouts.bath">Baño</text><text x="222" y="81" data-i18n="layouts.bath">Baño</text>
 <text x="65" y="155" data-i18n="layouts.bedroom">Dormitorio</text><text x="195" y="155" data-i18n="layouts.bedroom">Dormitorio</text>
 <rect class="layout-shell" width="260" height="200"/></svg></div>
-          <div class="layout-floor"><p data-i18n="layouts.upperLabel">Planta alta</p><svg viewBox="0 0 260 200" role="img" aria-labelledby="upper-title upper-desc"><title id="upper-title" data-i18n="layouts.upper">Planta alta: living, cocina y balcón dentro del perímetro.</title><desc id="upper-desc" data-i18n="layouts.upperDesc">La cocina y su barra están a la izquierda, y el living a la derecha. El balcón ocupa la franja inferior dentro del perímetro de la casa.</desc><rect class="layout-social" width="260" height="154"/><rect class="layout-balcony" y="154" width="260" height="46"/><path class="layout-stair" d="M20 8H240V30H20Z M40 8V30 M60 8V30 M80 8V30 M100 8V30 M120 8V30 M140 8V30 M160 8V30 M180 8V30 M200 8V30 M220 8V30"/><rect class="layout-wall" x="62" y="70" width="26" height="62"/><text x="178" y="105" data-i18n="layouts.living">Living</text><text x="75" y="58" data-i18n="layouts.kitchen">Cocina</text><path class="layout-wall" d="M0 154H100 M160 154H260"/><text x="130" y="182" data-i18n="layouts.balcony">Balcón</text><rect class="layout-shell" width="260" height="200"/></svg></div>
+          <div class="layout-floor"><p data-i18n="layouts.upperLabel">Planta alta</p><svg viewBox="0 0 260 200" role="img" aria-labelledby="upper-title upper-desc"><title id="upper-title" data-i18n="layouts.upper">Planta alta: living, cocina y balcón dentro del perímetro.</title><desc id="upper-desc" data-i18n="layouts.upperDesc">La cocina y su barra están a la izquierda, y el living a la derecha. El balcón ocupa la franja inferior dentro del perímetro de la casa.</desc><rect class="layout-social" width="260" height="154"/><rect class="layout-balcony" y="154" width="260" height="46"/><path class="layout-stair" d="M20 8H240V30H20Z M40 8V30 M60 8V30 M80 8V30 M100 8V30 M120 8V30 M140 8V30 M160 8V30 M180 8V30 M200 8V30 M220 8V30"/><rect class="layout-wall" x="62" y="70" width="26" height="62"/><text x="178" y="105" data-i18n="layouts.living">Living</text><text x="44" y="101" transform="rotate(-90 44 101)" dominant-baseline="central" data-i18n="layouts.kitchen">Cocina</text><path class="layout-wall" d="M0 154H100 M160 154H260"/><text x="130" y="182" data-i18n="layouts.balcony">Balcón</text><rect class="layout-shell" width="260" height="200"/></svg></div>
         </div>
       </article>
       <article class="home-layout">
@@ -1339,7 +1341,7 @@
         <h3 data-i18n="layouts.oneTitle">Todo en una planta.</h3>
         <p class="layout-copy" data-i18n="layouts.oneCopy">Un dormitorio en cada extremo, cada uno con baño en suite. En el centro, cocina con barra y living integrados.</p>
         <div class="layout-drawings">
-          <div class="layout-floor"><p data-i18n="layouts.singleLabel">Planta única</p><svg viewBox="0 0 260 452" role="img" aria-labelledby="single-title single-desc"><title id="single-title" data-i18n="layouts.single">Una planta: dormitorios en los extremos con baños en suite y entrada por la derecha; cocina y living en el centro.</title><desc id="single-desc" data-i18n="layouts.singleDesc">Dos dormitorios en extremos opuestos, con entradas desde el área social por la derecha. Cada baño está a la izquierda y solo se accede desde su dormitorio. Cocina y barra en la parte superior del espacio común; living más abajo.</desc><rect class="layout-bedroom" width="260" height="108"/><rect class="layout-social" y="108" width="260" height="236"/><rect class="layout-bedroom" y="344" width="260" height="108"/><rect class="layout-bath" x="0" width="90" height="108"/><rect class="layout-bath" x="0" y="344" width="90" height="108"/><path class="layout-wall" d="M90 0V40 M90 68V108 M0 108H210 M240 108H260 M90 344V384 M90 412V452 M0 344H210 M240 344H260"/><rect class="layout-wall" x="90" y="185" width="80" height="22"/><text x="175" y="58" data-i18n="layouts.bedroom">Dormitorio</text><text x="45" y="53" data-i18n="layouts.bath">Baño</text><text x="130" y="280" data-i18n="layouts.living">Living</text><text x="130" y="163" data-i18n="layouts.kitchen">Cocina</text><text x="175" y="403" data-i18n="layouts.bedroom">Dormitorio</text><text x="45" y="398" data-i18n="layouts.bath">Baño</text><rect class="layout-shell" width="260" height="452"/></svg></div>
+          <div class="layout-floor"><p data-i18n="layouts.singleLabel">Planta única</p><svg viewBox="0 0 260 452" role="img" aria-labelledby="single-title single-desc"><title id="single-title" data-i18n="layouts.single">Una planta: dormitorios en los extremos con baños en suite y entrada por la derecha; cocina y living en el centro.</title><desc id="single-desc" data-i18n="layouts.singleDesc">Dos dormitorios en extremos opuestos, con entradas desde el área social por la derecha. Cada baño en suite está a la izquierda y solo se accede desde su dormitorio; arriba, la puerta del baño queda junto al muro superior. Debajo de ese baño hay un toilette con acceso desde la cocina. Cocina con isla en la parte superior del espacio común; living más abajo.</desc><rect class="layout-bedroom" width="260" height="108"/><rect class="layout-social" y="108" width="260" height="236"/><rect class="layout-bedroom" y="344" width="260" height="108"/><rect class="layout-bath" x="0" width="90" height="72"/><rect class="layout-toilet" x="0" y="72" width="90" height="36"/><rect class="layout-bath" x="0" y="344" width="90" height="108"/><path class="layout-wall" d="M90 0V4 M90 28V108 M0 72H90 M0 108H30 M60 108H210 M240 108H260 M90 344V384 M90 412V452 M0 344H210 M240 344H260"/><rect class="layout-wall" x="90" y="185" width="80" height="22"/><text x="175" y="58" data-i18n="layouts.bedroom">Dormitorio</text><text x="45" y="40" dominant-baseline="central" data-i18n="layouts.bath">Baño</text><text x="45" y="90" dominant-baseline="central" class="layout-small" data-i18n="layouts.toilet">Toilette</text><text x="130" y="280" data-i18n="layouts.living">Living</text><text x="70" y="196" transform="rotate(-90 70 196)" dominant-baseline="central" data-i18n="layouts.kitchen">Cocina</text><text x="175" y="403" data-i18n="layouts.bedroom">Dormitorio</text><text x="45" y="398" data-i18n="layouts.bath">Baño</text><rect class="layout-shell" width="260" height="452"/></svg></div>
         </div>
       </article>
       <p class="layouts-note" data-i18n="layouts.note">Esquemas de distribución · Sin escala. Las casas de cada tipología pueden tener una disposición espejada.</p>
@@ -1822,15 +1824,16 @@
         "layouts.balcony": "Balcón",
         "layouts.singleLabel": "Planta única",
         "layouts.ground": "Planta baja: dos dormitorios con baño en suite y escalera.",
-        "layouts.groundDesc": "Cada dormitorio contiene un recinto de baño dentro de sus límites. La puerta de cada baño abre hacia su propio dormitorio, sin acceso desde la circulación común.",
+        "layouts.groundDesc": "Cada dormitorio contiene un recinto de baño dentro de sus límites. El baño izquierdo se abre por su lado derecho y el baño derecho por su lado izquierdo, siempre hacia su propio dormitorio.",
         "layouts.upper": "Planta alta: living, cocina y balcón dentro del perímetro.",
         "layouts.upperDesc": "La cocina y su barra están a la izquierda, y el living a la derecha. El balcón ocupa la franja inferior dentro del perímetro de la casa.",
         "layouts.single": "Una planta: dormitorios en los extremos con baños en suite y entrada por la derecha; cocina y living en el centro.",
-        "layouts.singleDesc": "Dos dormitorios en extremos opuestos, con entradas desde el área social por la derecha. Cada baño está a la izquierda y solo se accede desde su dormitorio. Cocina y barra en la parte superior del espacio común; living más abajo.",
+        "layouts.singleDesc": "Dos dormitorios en extremos opuestos, con entradas desde el área social por la derecha. Cada baño en suite está a la izquierda y solo se accede desde su dormitorio; arriba, la puerta del baño queda junto al muro superior. Debajo de ese baño hay un toilette con acceso desde la cocina. Cocina con isla en la parte superior del espacio común; living más abajo.",
         "layouts.bath": "Baño",
         "layouts.bedroom": "Dormitorio",
         "layouts.living": "Living",
         "layouts.kitchen": "Cocina",
+        "layouts.toilet": "Toilette",
         "layouts.note": "Esquemas de distribución · Sin escala. Las casas de cada tipología pueden tener una disposición espejada.",
         'houses.sectionLabel': 'Las casas — 03',
         "houses.storage": "Lavadero",
@@ -1985,15 +1988,16 @@
         "layouts.balcony": "Balcony",
         "layouts.singleLabel": "Single floor",
         "layouts.ground": "Ground floor: two bedrooms with en suite bathrooms and stairs.",
-        "layouts.groundDesc": "Each bedroom contains an enclosed bathroom within its boundaries. Each bathroom door opens into its own bedroom, with no access from the shared circulation.",
+        "layouts.groundDesc": "Each bedroom contains an enclosed bathroom within its boundaries. The left bathroom opens on its right side and the right bathroom on its left side, each into its own bedroom.",
         "layouts.upper": "Upper floor: living room, kitchen and recessed balcony.",
         "layouts.upperDesc": "The kitchen and breakfast bar are on the left, with the living room on the right. A recessed balcony occupies the lower strip within the house perimeter.",
         "layouts.single": "Single floor: bedrooms at opposite ends with en suite bathrooms and entrances on the right; kitchen and living room in the center.",
-        "layouts.singleDesc": "Two bedrooms at opposite ends, with entrances from the central living space on the right. Each bathroom is on the left and accessible only from its bedroom. Kitchen and breakfast bar above, living room below.",
+        "layouts.singleDesc": "Two bedrooms at opposite ends, with entrances from the central living space on the right. Each en suite bathroom is on the left and accessible only from its bedroom; in the upper one, the door sits next to the top wall. Below that bathroom, a separate toilet opens onto the kitchen. Kitchen with island above, living room below.",
         "layouts.bath": "Bath",
         "layouts.bedroom": "Bedroom",
         "layouts.living": "Living room",
         "layouts.kitchen": "Kitchen",
+        "layouts.toilet": "Toilet",
         "layouts.note": "Schematic layouts · Not to scale. Homes of the same type may have mirrored layouts.",
         'houses.sectionLabel': 'The houses — 03',
         "houses.storage": "Laundry",
